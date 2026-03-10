@@ -5,7 +5,7 @@ const COMMUNITIES = [
   { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
   { id: 2, name: 'Victoria',           groups: ['Buy & Sell Cars', 'Jobs in Victoria', 'Melbourne'],                                                                                  link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
   { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'Noosa', 'Sunshine Coast', 'Airlie Beach', 'East Coast', 'Port Douglas'], link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
-  { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1600076590411-df5d8b8906e4?w=800&q=75&fit=crop' },
+  { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=800&q=75&fit=crop' },
   { id: 5, name: 'South Australia',    groups: ['Buy & Sell Cars', 'Jobs in SA', 'Adelaide'],                                                                                         link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
   { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
   { id: 7, name: 'Tasmania',           groups: ['Buy & Sell Cars', 'Jobs in TAS', 'Hobart', 'Launceston'],                                                                            link: 'https://chat.whatsapp.com/CBJo6KDLCoP3tB5Ll4U0rU', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
@@ -180,7 +180,8 @@ export default function Home() {
         /* RESPONSIVE */
         @media (max-width: 1024px) { .communities-grid > * { flex: 0 0 calc(50% - 6px); } }
         @media (max-width: 768px) {
-          .hero-content { padding: 80px 24px 40px; }
+          .hero { min-height: 70vh; }
+          .hero-content { padding: 24px 24px 40px; }
           .hero-proof { padding: 22px 24px; display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 24px; column-gap: 16px; white-space: normal; }
           .proof-stat { padding: 0; border-right: none !important; }
           .how-section { padding: 48px 24px; }

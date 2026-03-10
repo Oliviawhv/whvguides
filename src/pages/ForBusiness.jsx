@@ -15,13 +15,13 @@ function Reveal({ children, delay = 0, className = '' }) {
 }
 
 const LOCATIONS = [
-  { state: 'New South Wales', cities: 'Jobs – Sydney – Byron Bay', count: '1,200+' },
-  { state: 'Victoria', cities: 'Jobs – Melbourne – Shepparton', count: '980+' },
-  { state: 'Queensland', cities: 'Jobs – Gold Coast – Cairns', count: '1,500+' },
-  { state: 'Western Australia', cities: 'Jobs – Perth – Broome', count: '680+' },
-  { state: 'South Australia', cities: 'Jobs – Adelaide – Barossa Valley', count: '420+' },
-  { state: 'Northern Territory', cities: 'Jobs – Darwin – Alice Springs', count: '310+' },
-  { state: 'Tasmania', cities: 'Jobs – Hobart – Launceston', count: '280+' },
+  { state: 'New South Wales', cities: 'Jobs - Sydney - Byron Bay', count: '1,200+' },
+  { state: 'Victoria', cities: 'Jobs - Melbourne - Shepparton', count: '980+' },
+  { state: 'Queensland', cities: 'Jobs - Gold Coast - Cairns', count: '1,500+' },
+  { state: 'Western Australia', cities: 'Jobs - Perth - Broome', count: '680+' },
+  { state: 'South Australia', cities: 'Jobs - Adelaide - Barossa Valley', count: '420+' },
+  { state: 'Northern Territory', cities: 'Jobs - Darwin - Alice Springs', count: '310+' },
+  { state: 'Tasmania', cities: 'Jobs - Hobart - Launceston', count: '280+' },
 ];
 
 const FEATURES = [
@@ -136,11 +136,11 @@ export default function ForBusiness() {
         .fb-comp-top { text-align: center; margin-bottom: 36px; }
         .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); }
         .fb-comp-table th { padding: 14px 24px; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #f2faf5; }
-        .fb-comp-table th:first-child { color: rgba(30,18,8,0.35); width: 38%; direction: ltr; text-align: left; }
+        .fb-comp-table th:first-child { color: rgba(30,18,8,0.35); width: 38%; }
         .fb-comp-table th.col-them { color: rgba(30,18,8,0.35); }
         .fb-comp-table th.col-us { color: #1a9e52; background: rgba(37,211,102,0.08); }
         .fb-comp-table td { padding: 16px 24px; font-size: 0.86rem; font-weight: 300; border-top: 1px solid rgba(30,18,8,0.05); }
-        .fb-comp-table td:first-child { color: rgba(30,18,8,0.55); direction: ltr; text-align: left; }
+        .fb-comp-table td:first-child { color: rgba(30,18,8,0.55); }
         .fb-comp-table td.col-them { color: rgba(30,18,8,0.3); }
         .fb-comp-table td.col-us { color: #1a1208; background: rgba(37,211,102,0.04); font-weight: 500; }
 
@@ -240,7 +240,7 @@ export default function ForBusiness() {
 
       {/* NAV */}
       <nav className="fb-nav" aria-label="Employer page header">
-        
+        <Link to="/" className="fb-nav-brand">WHV Guides</Link>
         <span className="fb-nav-label">For Australian Employers</span>
         <button onClick={() => navigate('/get-started')} className="fb-nav-cta">Start Hiring - $9/wk</button>
       </nav>
@@ -335,12 +335,12 @@ export default function ForBusiness() {
         <div className="fb-comp-inner">
           <Reveal>
             <div className="fb-comp-top">
-              <div className="fb-eyebrow">vs. the alternatives</div>
+              <div className="fb-eyebrow">WHV Guides vs. the alternatives</div>
               <h2 className="fb-h2" id="comp-heading">Why employers switch<br />to <em>WHV Guides.</em></h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <table className="fb-comp-table" role="table" aria-label="Comparison table" style={{direction:'rtl',textAlign:'right'}}>
+            <table className="fb-comp-table" role="table" aria-label="Comparison table">
               <thead>
                 <tr>
                   <th scope="col" />

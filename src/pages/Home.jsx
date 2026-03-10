@@ -112,7 +112,7 @@ export default function Home() {
         .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: #1a4d2e; }
         .hero-bg { position: absolute; inset: 0; background: url('/hero.jpg') center 15%/cover no-repeat; animation: kenburns 20s ease-in-out infinite alternate; }
         @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.06); } }
-        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,40,20,0.93) 0%, rgba(10,40,20,0.17) 50%, rgba(10,40,20,0.06) 100%); }
+        .hero-scrim { position: absolute; inset: 0; background: rgba(37,211,102,0.13); }
         .hero-content { position: relative; z-index: 2; padding: 80px 80px 56px; max-width: 760px; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
         .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; margin-bottom: 20px; }
         .hero-h1 em { font-style: italic; color: rgba(255,255,255,0.65); }

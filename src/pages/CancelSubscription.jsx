@@ -47,7 +47,6 @@ export default function CancelSubscription() {
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#f2faf5', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px 64px', color: '#1a1208' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; }
         .cs-wrap { max-width: 480px; width: 100%; }
         .cs-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; color: rgba(26,18,8,0.45); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
@@ -77,8 +76,8 @@ export default function CancelSubscription() {
         <p className="cs-sub">We're sorry to see you go. Enter your email below and we'll process your cancellation. Your subscription will remain active until the end of your billing period.</p>
 
         <div className="cs-card">
-          {status === 'success' && <div className="cs-success">{message}</div>}
-          {status === 'error' && <div className="cs-error">{message}</div>}
+          {status === 'success' && <div className="cs-success" role="alert" aria-live="polite">{message}</div>}
+          {status === 'error' && <div className="cs-error" role="alert" aria-live="polite">{message}</div>}
 
           {status !== 'success' && (
             <>
@@ -87,8 +86,8 @@ export default function CancelSubscription() {
                 Your cancellation is verified against the email used to subscribe, preventing unauthorised cancellations.
               </div>
               <form onSubmit={handleSubmit}>
-                <label className="cs-label">Email address *</label>
-                <input className="cs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="The email you subscribed with" />
+                <label className="cs-label" htmlFor="cs-email">Email address *</label>
+                <input id="cs-email" className="cs-input" type="email" autoComplete="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="The email you subscribed with" />
                 <button type="submit" className="cs-btn" disabled={loading}>
                   {loading ? (<><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: 'spin 0.8s linear infinite' }}><circle cx="12" cy="12" r="10" strokeOpacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round"/></svg>Processing…</>) : 'Cancel My Subscription'}
                 </button>

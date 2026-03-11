@@ -10,7 +10,7 @@ function ScrollToTop() {
   return null;
 }
 
-// Lazy load employer pages - not needed for WHV visitors
+// Lazy load employer pages — not needed for WHV visitors
 const ForBusiness       = React.lazy(() => import('./pages/ForBusiness'))
 const GetStarted        = React.lazy(() => import('./pages/GetStarted'))
 const SubscriptionSuccess = React.lazy(() => import('./pages/SubscriptionSuccess'))

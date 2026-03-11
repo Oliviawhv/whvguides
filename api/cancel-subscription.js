@@ -21,7 +21,7 @@ function checkRateLimit(key) {
 
 async function verifyToken(email, token) {
   const secret = process.env.CANCEL_HMAC_SECRET;
-  if (!secret) { console.warn('CANCEL_HMAC_SECRET not set - skipping HMAC verification'); return true; }
+  if (!secret) { console.warn('CANCEL_HMAC_SECRET not set — skipping HMAC verification'); return true; }
   if (!token || typeof token !== 'string') return false;
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
@@ -39,9 +39,20 @@ function sanitize(str, max = 254) {
   return str.trim().slice(0, max);
 }
 
+const ALLOWED_ORIGIN = 'https://whvguides.com.au';
+
 export default async function handler(req, res) {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
+
+  // CORS
+  const origin = req.headers['origin'] || '';
+  if (origin && origin !== ALLOWED_ORIGIN) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -91,44 +102,6 @@ export default async function handler(req, res) {
         stripe.subscriptions.update(sub.id, { cancel_at_period_end: true })
       )
     );
-
-    // Send cancellation emails via Resend
-    const periodEnd = cancelled[0]?.current_period_end
-      ? new Date(cancelled[0].current_period_end * 1000).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
-      : 'the end of your billing period';
-
-    try {
-      const resendKey = process.env.RESEND_API_KEY;
-      if (resendKey) {
-        await Promise.all([
-          // Email to customer
-          fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${resendKey}` },
-            body: JSON.stringify({
-              from: 'WHV Australia <noreply@whvguides.com.au>',
-              to: [email],
-              subject: 'Your WHV Guides subscription has been cancelled',
-              html: `<p>Hi,</p><p>Your WHV Guides subscription has been cancelled. You will continue to have access until <strong>${periodEnd}</strong>.</p><p>We're sorry to see you go. If you change your mind, you can always resubscribe at <a href="https://whvguides.com.au/get-started">whvguides.com.au/get-started</a>.</p><p>- The WHV Guides Team</p>`,
-            }),
-          }),
-          // Email to owner
-          fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${resendKey}` },
-            body: JSON.stringify({
-              from: 'WHV Australia <noreply@whvguides.com.au>',
-              to: ['info@whvguides.com.au'],
-              subject: `Cancellation: ${email}`,
-              html: `<p>A subscriber has cancelled their WHV Guides subscription.</p><ul><li><strong>Email:</strong> ${email}</li>${reason ? `<li><strong>Reason:</strong> ${reason}</li>` : ''}<li><strong>Active until:</strong> ${periodEnd}</li><li><strong>Subscriptions cancelled:</strong> ${cancelled.length}</li></ul>`,
-            }),
-          }),
-        ]);
-      }
-    } catch (emailErr) {
-      console.error('Failed to send cancellation emails:', emailErr.message);
-      // Don't block the response - cancellation was successful
-    }
 
     return res.status(200).json({
       success: true,

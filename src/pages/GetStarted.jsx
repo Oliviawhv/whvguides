@@ -25,8 +25,8 @@ function PaymentForm({ formData, setFormData }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const { contactName, email, whatsappNumber, state } = formData;
-    if (!contactName || !email || !whatsappNumber || !state) {
+    const { businessName, contactName, email, whatsappNumber, city } = formData;
+    if (!businessName || !contactName || !email || !whatsappNumber || !city) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -36,7 +36,7 @@ function PaymentForm({ formData, setFormData }) {
       const res = await fetch('/api/create-subscription', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, contactName, whatsappNumber, state }),
+        body: JSON.stringify({ email, businessName, contactName, whatsappNumber, city }),
       });
       const result = await res.json();
       if (!result.success) throw new Error(result.error || 'Failed to create subscription');
@@ -47,7 +47,7 @@ function PaymentForm({ formData, setFormData }) {
       );
       if (confirmError) throw new Error(confirmError.message);
       if (paymentIntent.status === 'succeeded') {
-        navigate(`/success?state=${encodeURIComponent(state)}`);
+        navigate(`/success?city=${encodeURIComponent(city)}`);
       }
     } catch (err) {
       setError(err.message || 'Payment failed. Please try again.');
@@ -59,7 +59,6 @@ function PaymentForm({ formData, setFormData }) {
   return (
     <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '40px 24px 64px' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; }
         .gs-card { background: #ffffff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); max-width: 520px; width: 100%; padding: 48px 44px; }
         .gs-h1 { font-family: 'DM Sans', sans-serif; font-size: 1.75rem; font-weight: 600; color: #1a1208; margin-bottom: 8px; text-align: center; line-height: 1.2; }
@@ -84,6 +83,8 @@ function PaymentForm({ formData, setFormData }) {
         @media (max-width: 600px) {
           .gs-card { padding: 32px 20px; }
           .gs-field-row { grid-template-columns: 1fr; }
+          .gs-trust { gap: 12px; }
+          .gs-h1 { font-size: 1.45rem; }
         }
       `}</style>
 
@@ -91,27 +92,33 @@ function PaymentForm({ formData, setFormData }) {
         <h1 className="gs-h1">Complete your subscription</h1>
         <p className="gs-sub">You'll be added to WhatsApp groups within a few hours of payment.</p>
 
-        {error && <div className="gs-error">{error}</div>}
+        {error && <div className="gs-error" role="alert" aria-live="polite">{error}</div>}
 
         <div className="gs-field-row">
           <div className="gs-field">
-            <label className="gs-label">Your Name *</label>
-            <input className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
+            <label className="gs-label" htmlFor="gs-businessName">Business Name *</label>
+            <input id="gs-businessName" className="gs-input" autoComplete="organization" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" maxLength={120} />
           </div>
           <div className="gs-field">
-            <label className="gs-label">WhatsApp Number *</label>
-            <input className="gs-input" type="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" maxLength={20} />
+            <label className="gs-label" htmlFor="gs-contactName">Your Name *</label>
+            <input id="gs-contactName" className="gs-input" autoComplete="name" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
+          </div>
+        </div>
+
+        <div className="gs-field-row">
+          <div className="gs-field">
+            <label className="gs-label" htmlFor="gs-email">Email *</label>
+            <input id="gs-email" className="gs-input" type="email" autoComplete="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
+          </div>
+          <div className="gs-field">
+            <label className="gs-label" htmlFor="gs-whatsapp">WhatsApp Number *</label>
+            <input id="gs-whatsapp" className="gs-input" type="tel" autoComplete="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" maxLength={20} />
           </div>
         </div>
 
         <div className="gs-field">
-          <label className="gs-label">Email *</label>
-          <input className="gs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
-        </div>
-
-        <div className="gs-field">
-          <label className="gs-label">State *</label>
-          <select className="gs-input" value={formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })}>
+          <label className="gs-label" htmlFor="gs-state">State *</label>
+          <select id="gs-state" className="gs-input" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}>
             <option value="">Select your state</option>
             {STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
           </select>
@@ -140,7 +147,7 @@ function PaymentForm({ formData, setFormData }) {
 }
 
 export default function GetStarted() {
-  const [formData, setFormData] = useState({ contactName: '', email: '', whatsappNumber: '', state: '' });
+  const [formData, setFormData] = useState({ businessName: '', contactName: '', email: '', whatsappNumber: '', city: '' });
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#f2faf5', minHeight: '100vh' }}>
       <Elements stripe={stripePromise} options={{ locale: 'en' }}>

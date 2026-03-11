@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 
 const COMMUNITIES = [
   { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
   { id: 2, name: 'Victoria',           groups: ['Buy & Sell Cars', 'Jobs in Victoria', 'Melbourne'],                                                                                  link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
-  { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'And more...'], link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
+  { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'Noosa', 'Sunshine Coast', 'Airlie Beach', 'East Coast', 'Port Douglas'], link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
   { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1573935448851-09212b3a9c0c?w=800&q=75&fit=crop' },
   { id: 5, name: 'South Australia',    groups: ['Buy & Sell Cars', 'Jobs in SA', 'Adelaide'],                                                                                         link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
   { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
@@ -17,16 +18,27 @@ function NavBar() {
   return (
     <nav aria-label="Site header" style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
-      height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center',
-      pointerEvents: 'none',
+      height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 32px',
     }}>
-      <span style={{
+      <span aria-hidden="true" style={{
         fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.22em',
         textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)',
         fontFamily: "'DM Sans', sans-serif",
+        position: 'absolute', left: '50%', transform: 'translateX(-50%)', pointerEvents: 'none',
       }}>
         For WHV Only
       </span>
+      <Link to="/hire" style={{
+        fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em',
+        textTransform: 'uppercase', color: '#ffffff', textDecoration: 'none',
+        background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)',
+        padding: '8px 18px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif",
+        backdropFilter: 'blur(6px)', marginLeft: 'auto',
+        transition: 'background 0.2s',
+      }}>
+        For Employers →
+      </Link>
     </nav>
   );
 }
@@ -105,8 +117,8 @@ export default function Home() {
   return (
     <main style={{ background: '#f2faf5', color: '#1a1208', fontFamily: "'DM Sans', sans-serif", minHeight: '100vh', direction: 'ltr' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        h1, h2, h3 { font-weight: inherit; font-size: inherit; }
 
         /* HERO */
         .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: #1a4d2e; }
@@ -167,7 +179,7 @@ export default function Home() {
 
         /* FOOTER */
         .home-footer { background: #e8f5ee; border-top: 1px solid rgba(30,18,8,0.1); padding: 40px 80px 32px; }
-        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
         .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: #1a1208; margin-bottom: 10px; }
         .footer-tagline { font-size: 0.83rem; font-weight: 300; color: rgba(30,18,8,0.45); line-height: 1.7; max-width: 260px; }
         .footer-col-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(30,18,8,0.35); margin-bottom: 16px; }
@@ -227,17 +239,17 @@ export default function Home() {
           <div className="steps-grid">
             <div className="step">
               <div className="step-num">01</div>
-              <div className="step-title">Join your state community</div>
+              <h3 className="step-title">Join your state community</h3>
               <div className="step-body">Pick the state you are in or heading to. One tap connects you to a network of WHV travelers sharing jobs, tips, and local updates.</div>
             </div>
             <div className="step">
               <div className="step-num">02</div>
-              <div className="step-title">Explore your groups</div>
+              <h3 className="step-title">Explore your groups</h3>
               <div className="step-body">Inside each community you will find groups for jobs, buying and selling cars, specific cities, farm work, and travel tips. Choose what matters to you.</div>
             </div>
             <div className="step">
               <div className="step-num">03</div>
-              <div className="step-title">Connect, work and explore</div>
+              <h3 className="step-title">Connect, work and explore</h3>
               <div className="step-body">Post your availability, grab a job lead, find a car, or meet fellow backpackers who have been where you are going. Your Australian adventure starts here.</div>
             </div>
           </div>
@@ -289,6 +301,19 @@ export default function Home() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
                 TikTok
               </a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Employer links">
+            <div className="footer-col-title">For Employers</div>
+            <ul className="footer-links">
+              <li><Link to="/hire">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Hire WHV Workers
+              </Link></li>
+              <li><Link to="/get-started">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                Start Hiring - $9/wk
+              </Link></li>
             </ul>
           </nav>
         </div>

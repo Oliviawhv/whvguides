@@ -50,12 +50,12 @@ const INCLUSIONS = [
 ];
 
 const COMPARISON = [
-  { label: 'Verified WHV holders only', them1: 'No verification', them2: 'Anyone applies', us: 'Every member verified' },
-  { label: 'Time to first response', them1: 'Days or never', them2: '3-7 days', us: 'Under 1 hour' },
-  { label: 'Cost per week', them1: 'Free (worthless)', them2: '$200-$500/post', us: '$9 - unlimited posts' },
-  { label: 'Direct candidate contact', them1: 'Chaotic / spam', them2: 'Via platform only', us: 'Straight to WhatsApp' },
-  { label: 'Active members in Australia', them1: 'Mostly inactive', them2: 'Mixed', us: '4,800+ active now' },
-  { label: 'Cancel anytime', them1: 'N/A', them2: 'Contracts', us: 'One email to cancel' },
+  { label: 'Verified WHV holders only', us: true, them1: false, them2: false },
+  { label: 'Time to first response', us: 'Under 1 hour', them1: 'Days or never', them2: '3-7 days' },
+  { label: 'Cost per week', us: '$9 - unlimited posts', them1: 'Free (no results)', them2: '$200-$500/post' },
+  { label: 'Direct candidate contact', us: true, them1: false, them2: false },
+  { label: 'Active WHV members', us: '4,800+ active', them1: 'Mostly inactive', them2: 'Mixed' },
+  { label: 'Cancel anytime', us: true, them1: false, them2: false },
 ];
 
 export default function ForBusiness() {
@@ -95,15 +95,15 @@ export default function ForBusiness() {
         .fb-proof-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 4px; }
 
         /* SHARED */
-        .fb-section { padding: 80px; max-width: 1200px; margin: 0 auto; }
+        .fb-section { padding: 60px 80px; max-width: 1200px; margin: 0 auto; }
         .fb-eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1a9e52; margin-bottom: 14px; }
-        .fb-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 20px; line-height: 1.15; }
+        .fb-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 16px; line-height: 1.15; }
         .fb-h2 em { font-style: italic; color: rgba(30,18,8,0.35); }
         .fb-lead { font-size: 0.95rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.85; }
         .fb-lead strong { color: #1a1208; font-weight: 600; }
 
         /* PAIN */
-        .fb-pain { background: #eaf6ee; padding: 80px; }
+        .fb-pain { background: #eaf6ee; padding: 60px 80px; }
         .fb-pain-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
         .fb-pain-cards { display: flex; flex-direction: column; gap: 8px; }
         .fb-pain-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; transition: border-color 0.3s, box-shadow 0.3s; border-radius: 4px; }
@@ -113,7 +113,7 @@ export default function ForBusiness() {
         .fb-pain-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.65; }
 
         /* QUOTE */
-        .fb-quote { padding: 80px; text-align: center; background: #f2faf5; }
+        .fb-quote { padding: 60px 80px; text-align: center; background: #f2faf5; }
         .fb-quote-inner { max-width: 700px; margin: 0 auto; }
         .fb-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 6rem; line-height: 0.5; color: rgba(37,211,102,0.2); margin-bottom: 12px; }
         .fb-quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; color: rgba(30,18,8,0.45); line-height: 1.3; margin-bottom: 16px; }
@@ -131,7 +131,7 @@ export default function ForBusiness() {
         .fb-feat-body { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.8; }
 
         /* COMPARISON */
-        .fb-comp-wrap { background: #eaf6ee; padding: 80px; }
+        .fb-comp-wrap { background: #eaf6ee; padding: 60px 80px; }
         .fb-comp-inner { max-width: 1000px; margin: 0 auto; }
         .fb-comp-top { text-align: center; margin-bottom: 52px; }
         .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); }
@@ -145,7 +145,7 @@ export default function ForBusiness() {
         .fb-comp-table td.col-us { color: #1a1208; background: rgba(37,211,102,0.04); font-weight: 500; }
 
         /* COVERAGE */
-        .fb-coverage { padding: 80px; max-width: 1200px; margin: 0 auto; }
+        .fb-coverage { padding: 60px 80px; max-width: 1200px; margin: 0 auto; }
         .fb-cov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
         .fb-cov-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px; border-radius: 6px; transition: border-color 0.3s, box-shadow 0.3s; min-height: 130px; display: flex; flex-direction: column; justify-content: center; }
         .fb-cov-card:hover { border-color: rgba(37,211,102,0.3); box-shadow: 0 4px 16px rgba(37,211,102,0.08); }
@@ -154,7 +154,7 @@ export default function ForBusiness() {
         .fb-cov-cities { font-size: 0.75rem; font-weight: 300; color: rgba(30,18,8,0.4); line-height: 1.6; }
 
         /* HOW IT WORKS */
-        .fb-steps-wrap { background: #eaf6ee; padding: 80px; }
+        .fb-steps-wrap { background: #eaf6ee; padding: 60px 80px; }
         .fb-steps-inner { max-width: 1100px; margin: 0 auto; }
         .fb-steps-top { text-align: center; margin-bottom: 64px; }
         .fb-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
@@ -165,7 +165,7 @@ export default function ForBusiness() {
         .fb-step-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.7; }
 
         /* PRICING */
-        .fb-pricing-wrap { padding: 80px; max-width: 1000px; margin: 0 auto; }
+        .fb-pricing-wrap { padding: 60px 80px; max-width: 1000px; margin: 0 auto; }
         .fb-pricing-top { text-align: center; margin-bottom: 52px; }
         .fb-pricing-card { display: grid; grid-template-columns: 1fr 1.5fr; border: 1px solid rgba(37,211,102,0.25); background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 32px rgba(37,211,102,0.1); position: relative; }
         .fb-pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, transparent, #25D366 30%, #25D366 70%, transparent); }
@@ -254,9 +254,11 @@ export default function ForBusiness() {
           <p className="fb-hero-sub">
             4,800+ verified Working Holiday Visa holders across every Australian state. <strong>All active. All legally authorised. All looking for work right now.</strong>
           </p>
-          <button onClick={() => navigate('/get-started')} className="fb-btn-green">
-            Start Hiring - $9 / week
-          </button>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <button onClick={() => navigate('/get-started')} className="fb-btn-green">
+              Start Hiring - $9 / week
+            </button>
+          </div>
         </div>
         <div className="fb-hero-proof" aria-label="Key stats">
           <div className="fb-proof-stat"><div className="fb-proof-num">4,800+</div><div className="fb-proof-label">Verified WHV workers</div></div>
@@ -336,7 +338,7 @@ export default function ForBusiness() {
           <Reveal>
             <div className="fb-comp-top">
               <div className="fb-eyebrow">vs. the alternatives</div>
-              <h2 className="fb-h2" id="comp-heading">Why employers switch<br />to <em>WHV Guides.</em></h2>
+              <h2 className="fb-h2" id="comp-heading">WHV Guides vs.<br /><em>the alternatives.</em></h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -344,18 +346,18 @@ export default function ForBusiness() {
               <thead>
                 <tr>
                   <th scope="col" />
+                  <th scope="col" className="col-us">WHV Guides</th>
                   <th scope="col" className="col-them">Facebook Groups</th>
                   <th scope="col" className="col-them">Job Boards</th>
-                  <th scope="col" className="col-us">WHV Guides</th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON.map(row => (
                   <tr key={row.label}>
                     <td>{row.label}</td>
-                    <td className="col-them">{row.them1}</td>
-                    <td className="col-them">{row.them2}</td>
-                    <td className="col-us">{row.us}</td>
+                    <td className="col-us">{row.us === true ? <span style={{color:'#1a9e52',fontWeight:600}}>&#10003;</span> : row.us}</td>
+                    <td className="col-them">{row.them1 === false ? <span style={{color:'rgba(30,18,8,0.25)',fontWeight:500}}>&#215;</span> : row.them1}</td>
+                    <td className="col-them">{row.them2 === false ? <span style={{color:'rgba(30,18,8,0.25)',fontWeight:500}}>&#215;</span> : row.them2}</td>
                   </tr>
                 ))}
               </tbody>

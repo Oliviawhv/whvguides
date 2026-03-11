@@ -41,25 +41,22 @@ export default async function handler(req, res) {
 
   const {
     email: rawEmail,
-    businessName: rawBiz,
     contactName: rawContact,
     whatsappNumber: rawPhone,
-    city: rawCity,
+    state: rawState,
   } = req.body ?? {};
 
   // Sanitize
   const email = sanitize(rawEmail, 254).toLowerCase();
-  const businessName = sanitize(rawBiz, 120);
   const contactName = sanitize(rawContact, 80);
   const whatsappNumber = sanitize(rawPhone, 20);
-  const city = sanitize(rawCity, 60).toLowerCase();
+  const state = sanitize(rawState, 60).toLowerCase();
 
   // Validate
   const missing = [];
   if (!email) missing.push('email');
-  if (!businessName) missing.push('businessName');
   if (!contactName) missing.push('contactName');
-  if (!city) missing.push('city');
+  if (!state) missing.push('state');
   if (missing.length > 0) return res.status(400).json({ error: `Missing required fields: ${missing.join(', ')}` });
   if (!isValidEmail(email)) return res.status(400).json({ error: 'Invalid email address' });
   if (!isValidPhone(whatsappNumber)) return res.status(400).json({ error: 'Invalid WhatsApp number format' });
@@ -75,7 +72,7 @@ export default async function handler(req, res) {
     }
 
     const customer = await stripe.customers.create(
-      { email, name: contactName, metadata: { businessName, whatsappNumber, city, source: 'WHV Australia' } },
+      { email, name: contactName, metadata: { whatsappNumber, state, source: 'WHV Australia' } },
       { idempotencyKey: `customer_${email}` }
     );
 
@@ -86,7 +83,7 @@ export default async function handler(req, res) {
         payment_behavior: 'default_incomplete',
         payment_settings: { payment_method_types: ['card'], save_default_payment_method: 'on_subscription' },
         expand: ['latest_invoice.payment_intent'],
-        metadata: { businessName, whatsappNumber, city, createdAt: new Date().toISOString() },
+        metadata: { whatsappNumber, state, createdAt: new Date().toISOString() },
       },
       { idempotencyKey: idempotencyKey(email) }
     );

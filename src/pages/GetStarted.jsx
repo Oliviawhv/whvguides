@@ -25,8 +25,8 @@ function PaymentForm({ formData, setFormData }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const { businessName, contactName, email, whatsappNumber, city } = formData;
-    if (!businessName || !contactName || !email || !whatsappNumber || !city) {
+    const { contactName, email, whatsappNumber, state } = formData;
+    if (!contactName || !email || !whatsappNumber || !state) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -36,7 +36,7 @@ function PaymentForm({ formData, setFormData }) {
       const res = await fetch('/api/create-subscription', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, businessName, contactName, whatsappNumber, city }),
+        body: JSON.stringify({ email, contactName, whatsappNumber, state }),
       });
       const result = await res.json();
       if (!result.success) throw new Error(result.error || 'Failed to create subscription');
@@ -47,7 +47,7 @@ function PaymentForm({ formData, setFormData }) {
       );
       if (confirmError) throw new Error(confirmError.message);
       if (paymentIntent.status === 'succeeded') {
-        navigate(`/success?city=${encodeURIComponent(city)}`);
+        navigate(`/success?state=${encodeURIComponent(state)}`);
       }
     } catch (err) {
       setError(err.message || 'Payment failed. Please try again.');
@@ -95,19 +95,8 @@ function PaymentForm({ formData, setFormData }) {
 
         <div className="gs-field-row">
           <div className="gs-field">
-            <label className="gs-label">Business Name *</label>
-            <input className="gs-input" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" maxLength={120} />
-          </div>
-          <div className="gs-field">
             <label className="gs-label">Your Name *</label>
             <input className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
-          </div>
-        </div>
-
-        <div className="gs-field-row">
-          <div className="gs-field">
-            <label className="gs-label">Email *</label>
-            <input className="gs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
           </div>
           <div className="gs-field">
             <label className="gs-label">WhatsApp Number *</label>
@@ -116,8 +105,13 @@ function PaymentForm({ formData, setFormData }) {
         </div>
 
         <div className="gs-field">
+          <label className="gs-label">Email *</label>
+          <input className="gs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
+        </div>
+
+        <div className="gs-field">
           <label className="gs-label">State *</label>
-          <select className="gs-input" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}>
+          <select className="gs-input" value={formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })}>
             <option value="">Select your state</option>
             {STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
           </select>
@@ -146,7 +140,7 @@ function PaymentForm({ formData, setFormData }) {
 }
 
 export default function GetStarted() {
-  const [formData, setFormData] = useState({ businessName: '', contactName: '', email: '', whatsappNumber: '', city: '' });
+  const [formData, setFormData] = useState({ contactName: '', email: '', whatsappNumber: '', state: '' });
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#f2faf5', minHeight: '100vh' }}>
       <Elements stripe={stripePromise} options={{ locale: 'en' }}>

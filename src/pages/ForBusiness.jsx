@@ -50,12 +50,12 @@ const INCLUSIONS = [
 ];
 
 const COMPARISON = [
-  { label: 'Verified WHV holders only', them1: 'No verification', them2: 'Anyone applies', us: 'Every member verified' },
-  { label: 'Time to first response', them1: 'Days or never', them2: '3-7 days', us: 'Under 1 hour' },
-  { label: 'Cost per week', them1: 'Free (worthless)', them2: '$200-$500/post', us: '$9 - unlimited posts' },
-  { label: 'Direct candidate contact', them1: 'Chaotic / spam', them2: 'Via platform only', us: 'Straight to WhatsApp' },
-  { label: 'Active members in Australia', them1: 'Mostly inactive', them2: 'Mixed', us: '4,800+ active now' },
-  { label: 'Cancel anytime', them1: 'N/A', them2: 'Contracts', us: 'One email to cancel' },
+  { label: 'Verified WHV holders only', us: '✓', them1: '✗', them2: '✗' },
+  { label: 'Response under 1 hour', us: '✓', them1: '✗', them2: '✗' },
+  { label: 'Fixed low weekly cost', us: '✓', them1: '✗', them2: '✗' },
+  { label: 'Direct WhatsApp contact', us: '✓', them1: '✗', them2: '✗' },
+  { label: '4,800+ active members', us: '✓', them1: '✗', them2: '✗' },
+  { label: 'Cancel anytime', us: '✓', them1: '✗', them2: '✗' },
 ];
 
 export default function ForBusiness() {
@@ -134,15 +134,15 @@ export default function ForBusiness() {
         .fb-comp-wrap { background: #eaf6ee; padding: 56px 80px; }
         .fb-comp-inner { max-width: 1000px; margin: 0 auto; }
         .fb-comp-top { text-align: center; margin-bottom: 40px; }
-        .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); }
+        .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); direction: ltr; }
         .fb-comp-table th { padding: 14px 24px; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #f2faf5; }
         .fb-comp-table th:first-child { color: rgba(30,18,8,0.35); width: 38%; }
-        .fb-comp-table th.col-them { color: rgba(30,18,8,0.35); }
-        .fb-comp-table th.col-us { color: #1a9e52; background: rgba(37,211,102,0.08); }
+        .fb-comp-table th.col-them { color: rgba(30,18,8,0.35); text-align: center; }
+        .fb-comp-table th.col-us { color: #1a9e52; background: rgba(37,211,102,0.08); text-align: center; }
         .fb-comp-table td { padding: 16px 24px; font-size: 0.86rem; font-weight: 300; border-top: 1px solid rgba(30,18,8,0.05); }
         .fb-comp-table td:first-child { color: rgba(30,18,8,0.55); }
-        .fb-comp-table td.col-them { color: rgba(30,18,8,0.3); }
-        .fb-comp-table td.col-us { color: #1a1208; background: rgba(37,211,102,0.04); font-weight: 500; }
+        .fb-comp-table td.col-them { color: rgba(30,18,8,0.25); text-align: center; font-size: 1rem; }
+        .fb-comp-table td.col-us { color: #1a9e52; background: rgba(37,211,102,0.04); font-weight: 400; text-align: center; font-size: 1rem; }
 
         /* COVERAGE */
         .fb-coverage { padding: 56px 80px; max-width: 1200px; margin: 0 auto; }
@@ -352,18 +352,18 @@ export default function ForBusiness() {
               <thead>
                 <tr>
                   <th scope="col" />
+                  <th scope="col" className="col-us">WHV Guides</th>
                   <th scope="col" className="col-them">Facebook Groups</th>
                   <th scope="col" className="col-them">Job Boards</th>
-                  <th scope="col" className="col-us">WHV Guides</th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON.map(row => (
                   <tr key={row.label}>
                     <td>{row.label}</td>
+                    <td className="col-us">{row.us}</td>
                     <td className="col-them">{row.them1}</td>
                     <td className="col-them">{row.them2}</td>
-                    <td className="col-us">{row.us}</td>
                   </tr>
                 ))}
               </tbody>

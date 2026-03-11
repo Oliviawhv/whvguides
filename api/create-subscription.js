@@ -35,8 +35,11 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'Forbidden' });
   }
   res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle CORS preflight
+  if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });

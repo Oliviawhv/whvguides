@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 
 const COMMUNITIES = [
-  { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
-  { id: 2, name: 'Victoria',           groups: ['Buy & Sell Cars', 'Jobs in Victoria', 'Melbourne'],                                                                                  link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
-  { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'And more...'],                                                             link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
-  { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1573935448851-09212b3a9c0c?w=800&q=75&fit=crop' },
-  { id: 5, name: 'South Australia',    groups: ['Buy & Sell Cars', 'Jobs in SA', 'Adelaide'],                                                                                         link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
-  { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
-  { id: 7, name: 'Tasmania',           groups: ['Buy & Sell Cars', 'Jobs in TAS', 'Hobart', 'Launceston'],                                                                            link: 'https://chat.whatsapp.com/CBJo6KDLCoP3tB5Ll4U0rU', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
+  { id: 1, name: 'New South Wales',    abbr: 'NSW', groups: ['Jobs in NSW', 'Sydney', 'Byron Bay'],       link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
+  { id: 2, name: 'Victoria',           abbr: 'VIC', groups: ['Jobs in Victoria', 'Melbourne', 'Geelong'],  link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
+  { id: 3, name: 'Queensland',         abbr: 'QLD', groups: ['Jobs in QLD', 'Gold Coast', 'Cairns'],        link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
+  { id: 4, name: 'Western Australia',  abbr: 'WA',  groups: ['Jobs in WA', 'Perth', 'Broome'],              link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1573935448851-09212b3a9c0c?w=800&q=75&fit=crop' },
+  { id: 5, name: 'South Australia',    abbr: 'SA',  groups: ['Jobs in SA', 'Adelaide', 'Barossa Valley'],   link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
+  { id: 6, name: 'Northern Territory', abbr: 'NT',  groups: ['Jobs in NT', 'Darwin', 'Alice Springs'],      link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
+  { id: 7, name: 'Tasmania',           abbr: 'TAS', groups: ['Jobs in TAS', 'Hobart', 'Launceston'],        link: 'https://chat.whatsapp.com/CBJo6KDLCoP3tB5Ll4U0rU', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } };
@@ -68,14 +68,14 @@ function CommunityCard({ community, index }) {
         </div>
         <div className="card-body">
           <h3 className="card-name">{community.name}</h3>
-          <ul className={`card-groups${community.groups.length > 5 ? ' wrap-groups' : ''}`} aria-label="Groups in this community">
+          <ul className="card-groups" aria-label="Groups in this community">
             {community.groups.map((g) => (
               <li key={g} className="card-group-item">{g}</li>
             ))}
           </ul>
         </div>
         <div className="card-cta" aria-hidden="true">
-          <span>Join Community</span>
+          <span>Join {community.abbr} WHV Community</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>
@@ -170,8 +170,6 @@ export default function Home() {
         .card-body { position: absolute; top: 0; left: 0; right: 0; bottom: 48px; padding: 16px 16px 10px; display: flex; flex-direction: column; z-index: 1; }
         .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: #ffffff; margin-bottom: 10px; line-height: 1.2; flex-shrink: 0; }
         .card-groups { list-style: none; flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
-        .card-groups.wrap-groups { display: block; columns: 2; column-gap: 12px; align-content: flex-start; width: fit-content; flex: 0 0 auto; }
-        .card-groups.wrap-groups .card-group-item { break-inside: avoid; white-space: nowrap; }
         .card-group-item { font-size: 0.74rem; font-weight: 400; color: rgba(255,255,255,0.65); padding-left: 12px; position: relative; text-align: left; }
         .card-group-item::before { content: "-"; position: absolute; left: 0; color: rgba(255,255,255,0.65); }
         .card-cta { position: absolute; bottom: 0; left: 0; right: 0; height: 48px; display: flex; align-items: center; padding: 0 16px; gap: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #25D366; border-top: 1px solid rgba(255,255,255,0.08); background: rgba(6,8,14,0.65); transition: gap 0.2s; z-index: 1; }

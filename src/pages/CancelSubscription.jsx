@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-async function generateCancelToken(email) {
-  const secret = import.meta.env.VITE_CANCEL_HMAC_SECRET;
-  if (!secret) return '';
-  const encoder = new TextEncoder();
-  const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', key, encoder.encode(email.toLowerCase().trim()));
-  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 export default function CancelSubscription() {
   const [formData, setFormData] = useState({ email: '', reason: '' });
   const [status, setStatus] = useState(null);
@@ -21,11 +12,10 @@ export default function CancelSubscription() {
     if (!formData.email) { setStatus('error'); setMessage('Please enter your email address.'); return; }
     setLoading(true); setStatus(null);
     try {
-      const token = await generateCancelToken(formData.email);
       const res = await fetch('/api/cancel-subscription', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: formData.email, reason: formData.reason, token }),
+        body: JSON.stringify({ email: formData.email, reason: formData.reason }),
       });
       const result = await res.json();
       if (result.success) {

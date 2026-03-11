@@ -67,12 +67,18 @@ export default async function handler(req, res) {
             </div>
           `);
         }
-        await sendEmail(ADMIN_EMAIL, `💰 Payment received - ${customer.email}`, `
-          <h2>New Payment Received</h2>
-          <p><strong>Customer:</strong> ${escHtml(customer.name) || 'N/A'} (${escHtml(customer.email)})</p>
-          <p><strong>Amount:</strong> $${(invoice.amount_paid / 100).toFixed(2)} AUD</p>
-          <p><strong>Business:</strong> ${escHtml(customer.metadata?.businessName) || 'N/A'}</p>
-          <p><strong>City:</strong> ${escHtml(customer.metadata?.city) || 'N/A'}</p>
+        await sendEmail(ADMIN_EMAIL, `💰 New subscriber - ${customer.email}`, `
+          <div style="font-family:sans-serif;max-width:600px;color:#1e293b;">
+            <h2>New Subscription 💰</h2>
+            <table style="border-collapse:collapse;width:100%;">
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Contact Name</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.name) || 'N/A'}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Email</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.email)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Business Name</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.businessName) || 'N/A'}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">WhatsApp Number</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.whatsappNumber) || 'N/A'}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">City</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.city) || 'N/A'}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Amount</td><td style="padding:8px;border:1px solid #e2e8f0;">$${(invoice.amount_paid / 100).toFixed(2)} AUD</td></tr>
+            </table>
+          </div>
         `);
         break;
       }
@@ -127,6 +133,13 @@ export default async function handler(req, res) {
             const dateStr = sub.cancel_at ? new Date(sub.cancel_at * 1000).toLocaleDateString('en-AU') : 'soon';
             await sendEmail(customer.email, 'Cancellation confirmed - WHV Australia', `
               <p>Hi ${escHtml(customer.name) || 'there'}, your subscription will be cancelled on <strong>${dateStr}</strong>.</p>
+            `);
+            await sendEmail(ADMIN_EMAIL, `❌ Subscription cancelled - ${escHtml(customer.email)}`, `
+              <h2>Subscription Cancellation</h2>
+              <p><strong>Customer:</strong> ${escHtml(customer.name) || 'N/A'} (${escHtml(customer.email)})</p>
+              <p><strong>Business:</strong> ${escHtml(customer.metadata?.businessName) || 'N/A'}</p>
+              <p><strong>City:</strong> ${escHtml(customer.metadata?.city) || 'N/A'}</p>
+              <p><strong>Access ends:</strong> ${dateStr}</p>
             `);
           }
         }

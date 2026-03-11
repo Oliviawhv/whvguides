@@ -19,21 +19,6 @@ function checkRateLimit(key) {
   return true;
 }
 
-async function verifyToken(email, token) {
-  const secret = process.env.CANCEL_HMAC_SECRET;
-  if (!secret) { console.warn('CANCEL_HMAC_SECRET not set - skipping HMAC verification'); return true; }
-  if (!token || typeof token !== 'string') return false;
-  const encoder = new TextEncoder();
-  const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', key, encoder.encode(email.toLowerCase().trim()));
-  const expected = Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('');
-  // Constant-time compare
-  if (token.length !== expected.length) return false;
-  let mismatch = 0;
-  for (let i = 0; i < token.length; i++) mismatch |= token.charCodeAt(i) ^ expected.charCodeAt(i);
-  return mismatch === 0;
-}
-
 function sanitize(str, max = 254) {
   if (typeof str !== 'string') return '';
   return str.trim().slice(0, max);
@@ -51,8 +36,11 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'Forbidden' });
   }
   res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle CORS preflight
+  if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -63,7 +51,6 @@ export default async function handler(req, res) {
 
   const email = sanitize(req.body?.email, 254).toLowerCase();
   const reason = sanitize(req.body?.reason, 500);
-  const token = sanitize(req.body?.token, 128);
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'A valid email address is required' });
@@ -71,11 +58,6 @@ export default async function handler(req, res) {
 
   if (!checkRateLimit(email)) {
     return res.status(429).json({ error: 'Too many attempts. Please try again in 15 minutes or email info@whvguides.com.au.' });
-  }
-
-  const tokenValid = await verifyToken(email, token);
-  if (!tokenValid) {
-    return res.status(403).json({ error: 'Verification failed. Please contact info@whvguides.com.au to cancel.' });
   }
 
   try {

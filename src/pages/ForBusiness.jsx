@@ -50,12 +50,12 @@ const INCLUSIONS = [
 ];
 
 const COMPARISON = [
-  { label: 'Verified WHV holders only', us: '✓', them1: '✗', them2: '✗' },
-  { label: 'Response under 1 hour', us: '✓', them1: '✗', them2: '✗' },
-  { label: 'Fixed low weekly cost', us: '✓', them1: '✗', them2: '✗' },
-  { label: 'Direct WhatsApp contact', us: '✓', them1: '✗', them2: '✗' },
-  { label: '4,800+ active members', us: '✓', them1: '✗', them2: '✗' },
-  { label: 'Cancel anytime', us: '✓', them1: '✗', them2: '✗' },
+  { label: 'Verified WHV holders only', us: '✓ Every member verified', them1: '✗ No verification', them2: '✗ Anyone applies' },
+  { label: 'Response under 1 hour', us: '✓ Under 1 hour', them1: '✗ Days or never', them2: '✗ 3–7 days' },
+  { label: 'Fixed low weekly cost', us: '✓ $9 – unlimited posts', them1: '✗ Free (worthless)', them2: '✗ $200–$500/post' },
+  { label: 'Direct WhatsApp contact', us: '✓ Straight to WhatsApp', them1: '✗ Chaotic / spam', them2: '✗ Via platform only' },
+  { label: '4,800+ active members', us: '✓ 4,800+ active now', them1: '✗ Mostly inactive', them2: '✗ Mixed' },
+  { label: 'Cancel anytime', us: '✓ One email to cancel', them1: '✗ N/A', them2: '✗ Contracts' },
 ];
 
 export default function ForBusiness() {
@@ -141,8 +141,8 @@ export default function ForBusiness() {
         .fb-comp-table th.col-us { color: #1a9e52; background: rgba(37,211,102,0.08); text-align: center; }
         .fb-comp-table td { padding: 16px 24px; font-size: 0.86rem; font-weight: 300; border-top: 1px solid rgba(30,18,8,0.05); }
         .fb-comp-table td:first-child { color: rgba(30,18,8,0.55); }
-        .fb-comp-table td.col-them { color: rgba(30,18,8,0.25); text-align: center; font-size: 1rem; }
-        .fb-comp-table td.col-us { color: #1a9e52; background: rgba(37,211,102,0.04); font-weight: 400; text-align: center; font-size: 1rem; }
+        .fb-comp-table td.col-them { color: rgba(30,18,8,0.25); font-size: 0.86rem; }
+        .fb-comp-table td.col-us { color: #1a9e52; background: rgba(37,211,102,0.04); font-weight: 400; font-size: 0.86rem; }
 
         /* COVERAGE */
         .fb-coverage { padding: 56px 80px; max-width: 1200px; margin: 0 auto; }
@@ -342,8 +342,7 @@ export default function ForBusiness() {
         <div className="fb-comp-inner">
           <Reveal>
             <div className="fb-comp-top">
-              <div className="fb-eyebrow">vs. the alternatives</div>
-              <h2 className="fb-h2" id="comp-heading">WHV Guides vs. the alternatives</h2>
+              <div className="fb-eyebrow" id="comp-heading">WHV Guides vs. the alternatives</div>
             </div>
           </Reveal>
           <Reveal delay={0.1}>

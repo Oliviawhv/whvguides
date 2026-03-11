@@ -72,7 +72,7 @@ export default function ForBusiness() {
         /* NAV */
         .fb-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 64px; background: transparent; }
         .fb-nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: #1a1208; text-decoration: none; }
-        .fb-nav-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.85); position: absolute; left: 50%; transform: translateX(-50%); pointer-events: none; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+        .fb-nav-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); position: absolute; left: 50%; transform: translateX(-50%); pointer-events: none; }
         .fb-nav-cta { background: #25D366; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
         .fb-nav-cta:hover { background: #1fb857; }
 
@@ -240,7 +240,7 @@ export default function ForBusiness() {
 
       {/* NAV */}
       <nav className="fb-nav" aria-label="Employer page header">
-        <Link to="/" className="fb-nav-brand">WHV Guides</Link>
+        
         <span className="fb-nav-label">For Australian Employers</span>
         <button onClick={() => navigate('/get-started')} className="fb-nav-cta">Start Hiring - $9/wk</button>
       </nav>
@@ -478,10 +478,6 @@ export default function ForBusiness() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                 How It Works
               </a></li>
-              <li><a href="#pricing">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14H11v-2h2v2zm0-4H11V7h2v5z"/></svg>
-                Pricing
-              </a></li>
               <li><button onClick={() => navigate('/get-started')}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 Start Hiring
@@ -491,7 +487,7 @@ export default function ForBusiness() {
           <nav aria-label="Community links">
             <div className="fb-footer-col-title">Community</div>
             <ul className="fb-footer-links">
-              <li><Link to="/#communities">
+              <li><Link to="/">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 WHV Community
               </Link></li>

@@ -2,7 +2,6 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// In-memory rate limiting (resets on cold start, but fine for low-traffic)
 const attempts = new Map();
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 15 * 60 * 1000;
@@ -19,13 +18,15 @@ function checkRateLimit(key) {
   return true;
 }
 
-
 function sanitize(str, max = 254) {
   if (typeof str !== 'string') return '';
   return str.trim().slice(0, max);
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://whvguides.com.au');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
 
@@ -75,7 +76,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: `Your subscription will be cancelled at the end of the current billing period.`,
+      message: 'Your subscription will be cancelled at the end of the current billing period.',
       count: cancelled.length,
     });
 

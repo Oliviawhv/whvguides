@@ -48,8 +48,6 @@ function PaymentForm({ formData, setFormData }) {
       if (confirmError) throw new Error(confirmError.message);
       if (paymentIntent.status === 'succeeded') {
         navigate(`/success?city=${encodeURIComponent(city)}`);
-      } else {
-        throw new Error('Payment was not completed. Please try again.');
       }
     } catch (err) {
       setError(err.message || 'Payment failed. Please try again.');
@@ -97,29 +95,29 @@ function PaymentForm({ formData, setFormData }) {
 
         <div className="gs-field-row">
           <div className="gs-field">
-            <label className="gs-label" htmlFor="gs-biz">Business Name *</label>
-            <input id="gs-biz" className="gs-input" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" maxLength={120} />
+            <label className="gs-label">Business Name *</label>
+            <input className="gs-input" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" maxLength={120} />
           </div>
           <div className="gs-field">
-            <label className="gs-label" htmlFor="gs-contact">Your Name *</label>
-            <input id="gs-contact" className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
+            <label className="gs-label">Your Name *</label>
+            <input className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
           </div>
         </div>
 
         <div className="gs-field-row">
           <div className="gs-field">
-            <label className="gs-label" htmlFor="gs-email">Email *</label>
-            <input id="gs-email" className="gs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
+            <label className="gs-label">Email *</label>
+            <input className="gs-input" type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="your@email.com" />
           </div>
           <div className="gs-field">
-            <label className="gs-label" htmlFor="gs-wa">WhatsApp Number *</label>
-            <input id="gs-wa" className="gs-input" type="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" maxLength={20} />
+            <label className="gs-label">WhatsApp Number *</label>
+            <input className="gs-input" type="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" maxLength={20} />
           </div>
         </div>
 
         <div className="gs-field">
-          <label className="gs-label" htmlFor="gs-state">State *</label>
-          <select id="gs-state" className="gs-input" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}>
+          <label className="gs-label">State *</label>
+          <select className="gs-input" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}>
             <option value="">Select your state</option>
             {STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
           </select>

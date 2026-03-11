@@ -29,12 +29,13 @@ export default async function handler(req, res) {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+
+  // Validate content-type
   const ct = req.headers['content-type'] || '';
   if (!ct.includes('application/json')) {
     return res.status(415).json({ error: 'Content-Type must be application/json' });

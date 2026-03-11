@@ -180,8 +180,7 @@ export default function Home() {
         /* RESPONSIVE */
         @media (max-width: 1024px) { .communities-grid > * { flex: 0 0 calc(50% - 6px); } }
         @media (max-width: 768px) {
-          .hero { min-height: 0; height: auto; padding-top: 0; }
-          .hero-bg { display: block; }
+          .hero { min-height: 0; height: auto; padding-top: 52vw; }
           .hero-content { padding: 32px 24px 40px; }
           .hero-proof { padding: 22px 24px; display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 24px; column-gap: 16px; white-space: normal; }
           .proof-stat { padding: 0; border-right: none !important; }

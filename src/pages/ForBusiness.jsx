@@ -15,13 +15,13 @@ function Reveal({ children, delay = 0, className = '' }) {
 }
 
 const LOCATIONS = [
-  { state: 'New South Wales', cities: 'Jobs - Sydney - Byron Bay', count: '1,200+' },
-  { state: 'Victoria', cities: 'Jobs - Melbourne - Shepparton', count: '980+' },
-  { state: 'Queensland', cities: 'Jobs - Gold Coast - Cairns', count: '1,500+' },
-  { state: 'Western Australia', cities: 'Jobs - Perth - Broome', count: '680+' },
-  { state: 'South Australia', cities: 'Jobs - Adelaide - Barossa Valley', count: '420+' },
-  { state: 'Northern Territory', cities: 'Jobs - Darwin - Alice Springs', count: '310+' },
-  { state: 'Tasmania', cities: 'Jobs - Hobart - Launceston', count: '280+' },
+  { state: 'New South Wales', cities: 'Sydney - Byron Bay - Newcastle', count: '1,200+' },
+  { state: 'Victoria', cities: 'Melbourne - Mildura - Shepparton', count: '980+' },
+  { state: 'Queensland', cities: 'Gold Coast - Cairns - Airlie Beach - Noosa', count: '1,500+' },
+  { state: 'Western Australia', cities: 'Perth - Broome - Kalgoorlie', count: '680+' },
+  { state: 'South Australia', cities: 'Adelaide - Barossa Valley', count: '420+' },
+  { state: 'Northern Territory', cities: 'Darwin - Alice Springs', count: '310+' },
+  { state: 'Tasmania', cities: 'Hobart - Launceston', count: '280+' },
 ];
 
 const FEATURES = [
@@ -72,7 +72,7 @@ export default function ForBusiness() {
         /* NAV */
         .fb-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 64px; background: transparent; }
         .fb-nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: #1a1208; text-decoration: none; }
-        .fb-nav-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); position: absolute; left: 50%; transform: translateX(-50%); pointer-events: none; }
+        .fb-nav-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.85); position: absolute; left: 50%; transform: translateX(-50%); pointer-events: none; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
         .fb-nav-cta { background: #25D366; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
         .fb-nav-cta:hover { background: #1fb857; }
 
@@ -81,7 +81,7 @@ export default function ForBusiness() {
         .fb-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1800&q=80') center 30%/cover no-repeat; animation: kenburns 20s ease-in-out infinite alternate; will-change: transform; }
         @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.06); } }
         .fb-hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,40,20,0.93) 0%, rgba(10,40,20,0.17) 50%, rgba(10,40,20,0.06) 100%); }
-        .fb-hero-content { position: relative; z-index: 2; padding: 60px 80px 40px; max-width: 760px; }
+        .fb-hero-content { position: relative; z-index: 2; padding: 80px 80px 56px; max-width: 760px; }
         .fb-hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; margin-bottom: 20px; }
         .fb-hero-h1 em { font-style: italic; color: rgba(255,255,255,0.65); }
         .fb-hero-sub { font-size: clamp(0.9rem, 1.5vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 36px; max-width: 560px; }
@@ -95,7 +95,7 @@ export default function ForBusiness() {
         .fb-proof-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 4px; }
 
         /* SHARED */
-        .fb-section { padding: 60px; max-width: 1200px; margin: 0 auto; }
+        .fb-section { padding: 80px; max-width: 1200px; margin: 0 auto; }
         .fb-eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1a9e52; margin-bottom: 14px; }
         .fb-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 20px; line-height: 1.15; }
         .fb-h2 em { font-style: italic; color: rgba(30,18,8,0.35); }
@@ -104,7 +104,7 @@ export default function ForBusiness() {
 
         /* PAIN */
         .fb-pain { background: #eaf6ee; padding: 80px; }
-        .fb-pain-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .fb-pain-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
         .fb-pain-cards { display: flex; flex-direction: column; gap: 8px; }
         .fb-pain-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; transition: border-color 0.3s, box-shadow 0.3s; border-radius: 4px; }
         .fb-pain-card:hover { border-color: rgba(37,211,102,0.3); box-shadow: 0 4px 20px rgba(37,211,102,0.08); }
@@ -113,7 +113,7 @@ export default function ForBusiness() {
         .fb-pain-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.65; }
 
         /* QUOTE */
-        .fb-quote { padding: 60px; text-align: center; background: #f2faf5; }
+        .fb-quote { padding: 80px; text-align: center; background: #f2faf5; }
         .fb-quote-inner { max-width: 700px; margin: 0 auto; }
         .fb-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 6rem; line-height: 0.5; color: rgba(37,211,102,0.2); margin-bottom: 12px; }
         .fb-quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; color: rgba(30,18,8,0.45); line-height: 1.3; margin-bottom: 16px; }
@@ -133,7 +133,7 @@ export default function ForBusiness() {
         /* COMPARISON */
         .fb-comp-wrap { background: #eaf6ee; padding: 80px; }
         .fb-comp-inner { max-width: 1000px; margin: 0 auto; }
-        .fb-comp-top { text-align: center; margin-bottom: 36px; }
+        .fb-comp-top { text-align: center; margin-bottom: 52px; }
         .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); }
         .fb-comp-table th { padding: 14px 24px; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #f2faf5; }
         .fb-comp-table th:first-child { color: rgba(30,18,8,0.35); width: 38%; }
@@ -145,9 +145,9 @@ export default function ForBusiness() {
         .fb-comp-table td.col-us { color: #1a1208; background: rgba(37,211,102,0.04); font-weight: 500; }
 
         /* COVERAGE */
-        .fb-coverage { padding: 60px; max-width: 1200px; margin: 0 auto; }
-        .fb-cov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
-        .fb-cov-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px; border-radius: 6px; transition: border-color 0.3s, box-shadow 0.3s; height: 130px; display: flex; flex-direction: column; justify-content: center; }
+        .fb-coverage { padding: 80px; max-width: 1200px; margin: 0 auto; }
+        .fb-cov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+        .fb-cov-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px; border-radius: 6px; transition: border-color 0.3s, box-shadow 0.3s; min-height: 130px; display: flex; flex-direction: column; justify-content: center; }
         .fb-cov-card:hover { border-color: rgba(37,211,102,0.3); box-shadow: 0 4px 16px rgba(37,211,102,0.08); }
         .fb-cov-n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #25D366; line-height: 1; margin-bottom: 7px; }
         .fb-cov-state { font-size: 0.87rem; font-weight: 600; color: #1a1208; margin-bottom: 5px; }
@@ -156,7 +156,7 @@ export default function ForBusiness() {
         /* HOW IT WORKS */
         .fb-steps-wrap { background: #eaf6ee; padding: 80px; }
         .fb-steps-inner { max-width: 1100px; margin: 0 auto; }
-        .fb-steps-top { text-align: center; margin-bottom: 44px; }
+        .fb-steps-top { text-align: center; margin-bottom: 64px; }
         .fb-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
         .fb-steps-grid::before { content: ''; position: absolute; top: 17px; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(to right, transparent, rgba(37,211,102,0.3) 20%, rgba(37,211,102,0.3) 80%, transparent); }
         .fb-step { padding: 0 20px; text-align: center; }
@@ -165,8 +165,8 @@ export default function ForBusiness() {
         .fb-step-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.7; }
 
         /* PRICING */
-        .fb-pricing-wrap { padding: 60px; max-width: 1000px; margin: 0 auto; }
-        .fb-pricing-top { text-align: center; margin-bottom: 36px; }
+        .fb-pricing-wrap { padding: 80px; max-width: 1000px; margin: 0 auto; }
+        .fb-pricing-top { text-align: center; margin-bottom: 52px; }
         .fb-pricing-card { display: grid; grid-template-columns: 1fr 1.5fr; border: 1px solid rgba(37,211,102,0.25); background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 32px rgba(37,211,102,0.1); position: relative; }
         .fb-pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, transparent, #25D366 30%, #25D366 70%, transparent); }
         .fb-price-left { padding: 52px 44px; border-right: 1px solid rgba(30,18,8,0.06); background: #f2faf5; }
@@ -184,7 +184,7 @@ export default function ForBusiness() {
         .fb-price-guarantee { text-align: center; margin-top: 12px; font-size: 0.73rem; color: rgba(30,18,8,0.3); }
 
         /* FINAL CTA */
-        .fb-final { padding: 80px 80px; text-align: center; background: #eaf6ee; position: relative; overflow: hidden; }
+        .fb-final { padding: 120px 80px; text-align: center; background: #eaf6ee; position: relative; overflow: hidden; }
         .fb-final-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(37,211,102,0.12) 0%, transparent 70%); pointer-events: none; }
         .fb-final-inner { position: relative; max-width: 620px; margin: 0 auto; }
         .fb-final-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; color: #1a1208; margin-bottom: 22px; }
@@ -335,7 +335,7 @@ export default function ForBusiness() {
         <div className="fb-comp-inner">
           <Reveal>
             <div className="fb-comp-top">
-              <div className="fb-eyebrow">WHV Guides vs. the alternatives</div>
+              <div className="fb-eyebrow">vs. the alternatives</div>
               <h2 className="fb-h2" id="comp-heading">Why employers switch<br />to <em>WHV Guides.</em></h2>
             </div>
           </Reveal>
@@ -344,18 +344,18 @@ export default function ForBusiness() {
               <thead>
                 <tr>
                   <th scope="col" />
-                  <th scope="col" className="col-us">WHV Guides</th>
                   <th scope="col" className="col-them">Facebook Groups</th>
                   <th scope="col" className="col-them">Job Boards</th>
+                  <th scope="col" className="col-us">WHV Guides</th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON.map(row => (
                   <tr key={row.label}>
                     <td>{row.label}</td>
-                    <td className="col-us"><span style={{marginRight:'6px',color:'#1a9e52',fontWeight:400}}>✓</span>{row.us}</td>
-                    <td className="col-them"><span style={{marginRight:'6px',color:'rgba(30,18,8,0.3)',fontWeight:400}}>✗</span>{row.them1}</td>
-                    <td className="col-them"><span style={{marginRight:'6px',color:'rgba(30,18,8,0.3)',fontWeight:400}}>✗</span>{row.them2}</td>
+                    <td className="col-them">{row.them1}</td>
+                    <td className="col-them">{row.them2}</td>
+                    <td className="col-us">{row.us}</td>
                   </tr>
                 ))}
               </tbody>
@@ -478,6 +478,10 @@ export default function ForBusiness() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                 How It Works
               </a></li>
+              <li><a href="#pricing">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14H11v-2h2v2zm0-4H11V7h2v5z"/></svg>
+                Pricing
+              </a></li>
               <li><button onClick={() => navigate('/get-started')}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 Start Hiring
@@ -487,7 +491,7 @@ export default function ForBusiness() {
           <nav aria-label="Community links">
             <div className="fb-footer-col-title">Community</div>
             <ul className="fb-footer-links">
-              <li><Link to="/">
+              <li><Link to="/#communities">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 WHV Community
               </Link></li>

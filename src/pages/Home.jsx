@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion';
 const COMMUNITIES = [
   { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
   { id: 2, name: 'Victoria',           groups: ['Buy & Sell Cars', 'Jobs in Victoria', 'Melbourne'],                                                                                  link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
-  { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'Noosa', 'Sunshine Coast', 'Airlie Beach', 'East Coast', 'Port Douglas'], link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
+  { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'And more...'],                                                             link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
   { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1573935448851-09212b3a9c0c?w=800&q=75&fit=crop' },
   { id: 5, name: 'South Australia',    groups: ['Buy & Sell Cars', 'Jobs in SA', 'Adelaide'],                                                                                         link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
   { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
@@ -63,7 +63,7 @@ function CommunityCard({ community, index }) {
         aria-label={`Join ${community.name} WhatsApp community`}
       >
         <div className="card-img-wrap">
-          <img src={community.image} alt={`${community.name} Australia`} className="card-img" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" width="400" height="533" />
+          <img src={community.image} alt={`${community.name} Australia`} className="card-img" loading={index < 4 ? 'eager' : 'lazy'} decoding="async" width="400" height="533" />
           <div className="card-overlay" />
         </div>
         <div className="card-body">
@@ -126,25 +126,25 @@ export default function Home() {
         @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.06); } }
         .hero-bg { filter: brightness(0.7); }
         .hero-scrim { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(18,68,36,0.55) 0%, rgba(26,90,50,0.35) 40%, rgba(37,211,102,0.12) 100%); }
-        .hero-content { position: relative; z-index: 2; padding: 80px 80px 56px; max-width: 760px; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+        .hero-content { position: relative; z-index: 2; padding: 64px 80px 40px; max-width: 760px; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
         .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; margin-bottom: 20px; }
         .hero-h1 em { font-style: italic; color: rgba(255,255,255,0.65); }
-        .hero-sub { font-size: clamp(0.9rem, 1.5vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 36px; max-width: 560px; }
+        .hero-sub { font-size: clamp(0.9rem, 1.5vw, 1.05rem); font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 28px; max-width: 560px; }
         .hero-sub strong { color: #ffffff; font-weight: 600; }
         .btn-join { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 15px 32px; text-decoration: none; border-radius: 8px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(37,211,102,0.25); }
         .btn-join:hover { background: #1fb857; transform: translateY(-2px); box-shadow: 0 6px 28px rgba(37,211,102,0.35); }
-        .hero-proof { position: relative; z-index: 2; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 22px 80px; white-space: nowrap; }
+        .hero-proof { position: relative; z-index: 2; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 16px 80px; white-space: nowrap; }
         .proof-stat { padding: 0 36px; border-right: 1px solid rgba(255,255,255,0.3); }
         .proof-stat:last-child { border-right: none; }
         .proof-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: #ffffff; line-height: 1; }
         .proof-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 4px; }
 
         /* HOW IT WORKS */
-        .how-section { background: #edf7f0; padding: 56px 80px; text-align: center; }
-        .how-inner { max-width: 1200px; margin: 0 auto; padding-bottom: 56px; position: relative; }
+        .how-section { background: #edf7f0; padding: 44px 80px; text-align: center; }
+        .how-inner { max-width: 1200px; margin: 0 auto; padding-bottom: 40px; position: relative; }
         .how-inner::after { content: ''; position: absolute; bottom: 0; left: 5%; right: 5%; height: 1px; background: linear-gradient(to right, transparent 0%, rgba(30,18,8,0.07) 10%, rgba(30,18,8,0.07) 90%, transparent 100%); }
         .section-eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1a9e52; margin-bottom: 10px; }
-        .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 32px; line-height: 1.15; }
+        .section-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 24px; line-height: 1.15; }
         .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
         .step { display: flex; flex-direction: column; align-items: center; }
         .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 400; color: rgba(30,18,8,0.08); line-height: 1; margin-bottom: 12px; }
@@ -152,7 +152,7 @@ export default function Home() {
         .step-body { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.8; text-align: center; max-width: 260px; margin: 0 auto; }
 
         /* COMMUNITIES */
-        .communities-section { padding: 40px 80px 64px; }
+        .communities-section { padding: 28px 80px 48px; }
         .communities-header { max-width: 1400px; margin: 0 auto 24px; text-align: center; }
         .communities-subtitle { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.75; max-width: 560px; margin: 12px auto 0; }
         .communities-subtitle strong { color: #25D366; font-weight: 600; }
@@ -178,29 +178,32 @@ export default function Home() {
         .community-card:hover .card-cta { gap: 10px; }
 
         /* FOOTER */
-        .home-footer { background: #e8f5ee; border-top: 1px solid rgba(30,18,8,0.1); padding: 40px 80px 32px; }
-        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+        .home-footer { background: #e8f5ee; border-top: 1px solid rgba(30,18,8,0.1); padding: 32px 80px 24px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 28px; }
         .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: #1a1208; margin-bottom: 10px; }
         .footer-tagline { font-size: 0.83rem; font-weight: 300; color: rgba(30,18,8,0.45); line-height: 1.7; max-width: 260px; }
         .footer-col-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(30,18,8,0.35); margin-bottom: 16px; }
         .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
         .footer-links a { font-size: 0.83rem; color: rgba(30,18,8,0.5); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 7px; }
         .footer-links a:hover { color: #1a1208; }
-        .footer-bottom { display: flex; align-items: center; justify-content: center; padding-top: 28px; border-top: 1px solid rgba(30,18,8,0.07); }
+        .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(30,18,8,0.07); }
         .footer-copy { font-size: 0.72rem; color: rgba(30,18,8,0.25); }
+        .footer-hire-btn { background: #22c55e; color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; padding: 10px 20px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+        .footer-hire-btn:hover { background: #16a34a; }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) { .communities-grid > * { flex: 0 0 calc(50% - 6px); } }
         @media (max-width: 768px) {
-          .hero-content { padding: 80px 24px 40px; }
+          .hero { min-height: 0; height: auto; padding-top: 52vw; }
+          .hero-content { padding: 32px 24px 40px; }
           .hero-proof { padding: 22px 24px; display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 24px; column-gap: 16px; white-space: normal; }
           .proof-stat { padding: 0; border-right: none !important; }
-          .how-section { padding: 48px 24px; }
+          .how-section { padding: 36px 24px; }
           .steps-grid { grid-template-columns: 1fr; gap: 32px; }
-          .communities-section { padding: 32px 16px 48px; }
+          .communities-section { padding: 24px 16px 36px; }
           .communities-grid { gap: 10px; }
           .communities-grid > * { flex: 0 0 100%; }
-          .home-footer { padding: 40px 24px 28px; }
+          .home-footer { padding: 32px 24px 20px; }
           .footer-top { grid-template-columns: 1fr; gap: 28px; }
         }
       `}</style>
@@ -319,6 +322,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <span className="footer-copy">© {new Date().getFullYear()} WHV Guides Australia. All rights reserved.</span>
+          <Link to="/get-started" className="footer-hire-btn">START HIRING – $9/WK</Link>
         </div>
       </footer>
 

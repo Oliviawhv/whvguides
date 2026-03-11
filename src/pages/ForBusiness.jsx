@@ -73,7 +73,7 @@ export default function ForBusiness() {
         .fb-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 64px; background: transparent; }
         .fb-nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: #ffffff; text-decoration: none; }
         .fb-nav-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); position: absolute; left: 50%; transform: translateX(-50%); pointer-events: none; }
-        .fb-nav-cta { background: #25D366; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
+        .fb-nav-cta { background: #25D366; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; font-family: 'DM Sans', sans-serif; margin-left: auto; }
         .fb-nav-cta:hover { background: #1fb857; }
 
         /* HERO */
@@ -95,7 +95,7 @@ export default function ForBusiness() {
         .fb-proof-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 4px; }
 
         /* SHARED */
-        .fb-section { padding: 80px; max-width: 1200px; margin: 0 auto; }
+        .fb-section { padding: 56px 80px; max-width: 1200px; margin: 0 auto; }
         .fb-eyebrow { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1a9e52; margin-bottom: 14px; }
         .fb-h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: #1a1208; margin-bottom: 20px; line-height: 1.15; }
         .fb-h2 em { font-style: italic; color: rgba(30,18,8,0.35); }
@@ -103,8 +103,8 @@ export default function ForBusiness() {
         .fb-lead strong { color: #1a1208; font-weight: 600; }
 
         /* PAIN */
-        .fb-pain { background: #eaf6ee; padding: 80px; }
-        .fb-pain-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        .fb-pain { background: #eaf6ee; padding: 56px 80px; }
+        .fb-pain-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
         .fb-pain-cards { display: flex; flex-direction: column; gap: 8px; }
         .fb-pain-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px 28px; display: flex; align-items: flex-start; gap: 18px; transition: border-color 0.3s, box-shadow 0.3s; border-radius: 4px; }
         .fb-pain-card:hover { border-color: rgba(37,211,102,0.3); box-shadow: 0 4px 20px rgba(37,211,102,0.08); }
@@ -113,7 +113,7 @@ export default function ForBusiness() {
         .fb-pain-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.65; }
 
         /* QUOTE */
-        .fb-quote { padding: 80px; text-align: center; background: #f2faf5; }
+        .fb-quote { padding: 56px 80px; text-align: center; background: #f2faf5; }
         .fb-quote-inner { max-width: 700px; margin: 0 auto; }
         .fb-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 6rem; line-height: 0.5; color: rgba(37,211,102,0.2); margin-bottom: 12px; }
         .fb-quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; color: rgba(30,18,8,0.45); line-height: 1.3; margin-bottom: 16px; }
@@ -131,9 +131,9 @@ export default function ForBusiness() {
         .fb-feat-body { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.8; }
 
         /* COMPARISON */
-        .fb-comp-wrap { background: #eaf6ee; padding: 80px; }
+        .fb-comp-wrap { background: #eaf6ee; padding: 56px 80px; }
         .fb-comp-inner { max-width: 1000px; margin: 0 auto; }
-        .fb-comp-top { text-align: center; margin-bottom: 52px; }
+        .fb-comp-top { text-align: center; margin-bottom: 40px; }
         .fb-comp-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 20px rgba(30,18,8,0.06); }
         .fb-comp-table th { padding: 14px 24px; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; background: #f2faf5; }
         .fb-comp-table th:first-child { color: rgba(30,18,8,0.35); width: 38%; }
@@ -145,8 +145,8 @@ export default function ForBusiness() {
         .fb-comp-table td.col-us { color: #1a1208; background: rgba(37,211,102,0.04); font-weight: 500; }
 
         /* COVERAGE */
-        .fb-coverage { padding: 80px; max-width: 1200px; margin: 0 auto; }
-        .fb-cov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+        .fb-coverage { padding: 56px 80px; max-width: 1200px; margin: 0 auto; }
+        .fb-cov-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 36px; }
         .fb-cov-card { background: #fff; border: 1px solid rgba(30,18,8,0.07); padding: 24px; border-radius: 6px; transition: border-color 0.3s, box-shadow 0.3s; min-height: 130px; display: flex; flex-direction: column; justify-content: center; }
         .fb-cov-card:hover { border-color: rgba(37,211,102,0.3); box-shadow: 0 4px 16px rgba(37,211,102,0.08); }
         .fb-cov-n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #25D366; line-height: 1; margin-bottom: 7px; }
@@ -154,9 +154,9 @@ export default function ForBusiness() {
         .fb-cov-cities { font-size: 0.75rem; font-weight: 300; color: rgba(30,18,8,0.4); line-height: 1.6; }
 
         /* HOW IT WORKS */
-        .fb-steps-wrap { background: #eaf6ee; padding: 80px; }
+        .fb-steps-wrap { background: #eaf6ee; padding: 56px 80px; }
         .fb-steps-inner { max-width: 1100px; margin: 0 auto; }
-        .fb-steps-top { text-align: center; margin-bottom: 64px; }
+        .fb-steps-top { text-align: center; margin-bottom: 48px; }
         .fb-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
         .fb-steps-grid::before { content: ''; position: absolute; top: 17px; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(to right, transparent, rgba(37,211,102,0.3) 20%, rgba(37,211,102,0.3) 80%, transparent); }
         .fb-step { padding: 0 20px; text-align: center; }
@@ -165,8 +165,8 @@ export default function ForBusiness() {
         .fb-step-body { font-size: 0.82rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.7; }
 
         /* PRICING */
-        .fb-pricing-wrap { padding: 80px; max-width: 1000px; margin: 0 auto; }
-        .fb-pricing-top { text-align: center; margin-bottom: 52px; }
+        .fb-pricing-wrap { padding: 56px 80px; max-width: 1000px; margin: 0 auto; }
+        .fb-pricing-top { text-align: center; margin-bottom: 40px; }
         .fb-pricing-card { display: grid; grid-template-columns: 1fr 1.5fr; border: 1px solid rgba(37,211,102,0.25); background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 32px rgba(37,211,102,0.1); position: relative; }
         .fb-pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, transparent, #25D366 30%, #25D366 70%, transparent); }
         .fb-price-left { padding: 52px 44px; border-right: 1px solid rgba(30,18,8,0.06); background: #f2faf5; }
@@ -184,7 +184,7 @@ export default function ForBusiness() {
         .fb-price-guarantee { text-align: center; margin-top: 12px; font-size: 0.73rem; color: rgba(30,18,8,0.3); }
 
         /* FINAL CTA */
-        .fb-final { padding: 120px 80px; text-align: center; background: #eaf6ee; position: relative; overflow: hidden; }
+        .fb-final { padding: 80px 80px; text-align: center; background: #eaf6ee; position: relative; overflow: hidden; }
         .fb-final-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(37,211,102,0.12) 0%, transparent 70%); pointer-events: none; }
         .fb-final-inner { position: relative; max-width: 620px; margin: 0 auto; }
         .fb-final-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.05; color: #1a1208; margin-bottom: 22px; }
@@ -216,20 +216,20 @@ export default function ForBusiness() {
           .fb-hero-content { padding: 80px 24px 40px; }
           .fb-hero-proof { padding: 22px 24px; display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 24px; column-gap: 16px; white-space: normal; }
           .fb-proof-stat { padding: 0; border-right: none !important; }
-          .fb-pain { padding: 60px 24px; }
-          .fb-quote { padding: 60px 24px; }
-          .fb-section { padding: 60px 24px; }
+          .fb-pain { padding: 48px 24px; }
+          .fb-quote { padding: 48px 24px; }
+          .fb-section { padding: 48px 24px; }
           .fb-features { grid-template-columns: 1fr; }
-          .fb-comp-wrap { padding: 60px 24px; }
+          .fb-comp-wrap { padding: 48px 24px; }
           .fb-comp-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
           .fb-comp-table { font-size: 0.78rem; min-width: 480px; }
           .fb-comp-table th, .fb-comp-table td { padding: 12px 14px; }
-          .fb-coverage { padding: 60px 24px; }
+          .fb-coverage { padding: 48px 24px; }
           .fb-cov-grid { grid-template-columns: 1fr 1fr; }
-          .fb-steps-wrap { padding: 60px 24px; }
+          .fb-steps-wrap { padding: 48px 24px; }
           .fb-steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
           .fb-steps-grid::before { display: none; }
-          .fb-pricing-wrap { padding: 60px 24px; }
+          .fb-pricing-wrap { padding: 48px 24px; }
           .fb-pricing-card { grid-template-columns: 1fr; }
           .fb-price-left { border-right: none; border-bottom: 1px solid rgba(30,18,8,0.06); padding: 40px 32px; }
           .fb-price-right { padding: 40px 32px; }
@@ -343,7 +343,7 @@ export default function ForBusiness() {
           <Reveal>
             <div className="fb-comp-top">
               <div className="fb-eyebrow">vs. the alternatives</div>
-              <h2 className="fb-h2" id="comp-heading">Why employers switch<br />to <em>WHV Guides.</em></h2>
+              <h2 className="fb-h2" id="comp-heading">WHV Guides vs. the alternatives</h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>

@@ -21,7 +21,7 @@ function checkRateLimit(key) {
 
 async function verifyToken(email, token) {
   const secret = process.env.CANCEL_HMAC_SECRET;
-  if (!secret) { console.warn('CANCEL_HMAC_SECRET not set — skipping HMAC verification'); return true; }
+  if (!secret) { console.warn('CANCEL_HMAC_SECRET not set - skipping HMAC verification'); return true; }
   if (!token || typeof token !== 'string') return false;
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);

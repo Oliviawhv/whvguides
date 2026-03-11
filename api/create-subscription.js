@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
 
-  // CORS — only allow requests from the production origin
+  // CORS - only allow requests from the production origin
   const origin = req.headers['origin'] || '';
   if (origin && origin !== ALLOWED_ORIGIN) {
     return res.status(403).json({ error: 'Forbidden' });

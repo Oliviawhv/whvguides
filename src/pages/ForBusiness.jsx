@@ -381,7 +381,7 @@ export default function ForBusiness() {
         <div className="fb-cov-grid">
           {LOCATIONS.map((l, i) => (
             <Reveal key={l.state} delay={i * 0.06}>
-              <div className="fb-cov-card">
+              <div className="fb-cov-card" onClick={() => navigate('/get-started')} style={{ cursor: 'pointer' }}>
                 <div className="fb-cov-n">{l.count}</div>
                 <div className="fb-cov-state">{l.state}</div>
                 <div className="fb-cov-cities">{l.cities}</div>
@@ -389,7 +389,7 @@ export default function ForBusiness() {
             </Reveal>
           ))}
           <Reveal delay={0.42}>
-            <div className="fb-cov-card" style={{ background: 'rgba(37,211,102,0.06)', border: '1px dashed rgba(37,211,102,0.3)' }}>
+            <div className="fb-cov-card" onClick={() => navigate('/get-started')} style={{ background: 'rgba(37,211,102,0.06)', border: '1px dashed rgba(37,211,102,0.3)', cursor: 'pointer' }}>
               <div style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#1a9e52', marginBottom: 8 }}>National</div>
               <div style={{ fontSize: '0.88rem', color: '#1a1208', fontWeight: 500 }}>Jobs group included</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(30,18,8,0.35)', marginTop: 4 }}>All states - All industries</div>

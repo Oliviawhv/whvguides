@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const ALLOWED_ORIGIN = 'https://whvguides.com.au';
-const PRICE_ID = 'price_1T1nxG0m2a7toiMMLQ26yXNC';
+const PRICE_ID = process.env.STRIPE_PRICE_ID;
 
 function isValidEmail(email) {
   return typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
@@ -26,6 +26,11 @@ function idempotencyKey(email) {
 }
 
 export default async function handler(req, res) {
+  if (!PRICE_ID) {
+    console.error('STRIPE_PRICE_ID env variable is not set');
+    return res.status(500).json({ error: 'Server configuration error. Please contact info@whvguides.com.au.' });
+  }
+
   // Security headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');

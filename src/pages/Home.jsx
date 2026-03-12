@@ -157,7 +157,7 @@ export default function Home() {
         .community-card:focus-visible { outline: 3px solid #25D366; outline-offset: 2px; }
         .card-img-wrap { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,8,14,0.25) 0%, rgba(6,8,14,0.6) 50%, rgba(6,8,14,0.92) 100%); }
+        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,8,14,0.25) 0%, rgba(6,8,14,0.6) 50%, rgba(6,8,14,0.92) 100%); pointer-events: none; }
         .card-body { position: absolute; top: 0; left: 0; right: 0; bottom: 48px; padding: 16px 16px 10px; display: flex; flex-direction: column; z-index: 1; }
         .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: #ffffff; margin-bottom: 10px; line-height: 1.2; flex-shrink: 0; }
         .card-groups { list-style: none; flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }

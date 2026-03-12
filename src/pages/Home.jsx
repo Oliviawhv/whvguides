@@ -3,12 +3,12 @@ import { motion, useInView } from 'framer-motion';
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const COMMUNITIES = [
-  { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            members: '1,200+', link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75', tag: 'Most Active' },
+  { id: 1, name: 'New South Wales',    groups: ['Buy & Sell Cars', 'Jobs in NSW', 'Sydney', 'Byron Bay'],                                                                            members: '1,200+', link: 'https://chat.whatsapp.com/Hw7DbXFsVhl3cFRzFEbyii', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=75', tag: 'Most Active' },
   { id: 2, name: 'Victoria',           groups: ['Buy & Sell Cars', 'Jobs in Victoria', 'Melbourne'],                                                                                  members: '980+',   link: 'https://chat.whatsapp.com/LoaUaSm0usW3SI4gOIPmsw', image: 'https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&q=75', tag: 'Top Culture Scene' },
   { id: 3, name: 'Queensland',         groups: ['Buy & Sell Cars', 'Jobs in QLD', 'Gold Coast', 'Cairns', 'Noosa', 'Sunshine Coast', 'Airlie Beach', 'East Coast', 'Port Douglas'], members: '1,500+', link: 'https://chat.whatsapp.com/K1DynFTkcaZHxM2E7sIqU0', image: 'https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=800&q=75', tag: 'Top for Farm Work' },
   { id: 4, name: 'Western Australia',  groups: ['Buy & Sell Cars', 'Jobs in WA', 'Perth', 'Broome'],                                                                                 members: '680+',   link: 'https://chat.whatsapp.com/F7QNf3jOomoEE3aHicU5FB', image: 'https://images.unsplash.com/photo-1527359443443-84a48aec73d2?w=800&q=75', tag: 'Fast Growing' },
   { id: 5, name: 'South Australia',    groups: ['Buy & Sell Cars', 'Jobs in SA', 'Adelaide'],                                                                                         members: '420+',   link: 'https://chat.whatsapp.com/LwYrcbb2Aj7GRjZYq1GlYE', image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=75', tag: 'Hidden Gem' },
-  { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          members: '310+',   link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75', tag: 'Remote Adventure' },
+  { id: 6, name: 'Northern Territory', groups: ['Buy & Sell Cars', 'Jobs in NT', 'Darwin', 'Alice Springs'],                                                                          members: '310+',   link: 'https://chat.whatsapp.com/F0KaowZ2xci8CibSHMjJTP', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=75', tag: 'Remote Adventure' },
   { id: 7, name: 'Tasmania',           groups: ['Buy & Sell Cars', 'Jobs in TAS', 'Hobart', 'Launceston'],                                                                            members: '280+',   link: 'https://chat.whatsapp.com/CBJo6KDLCoP3tB5Ll4U0rU', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=75', tag: 'Nature Paradise' },
 ];
 
@@ -125,9 +125,9 @@ export default function Home() {
 
         /* HERO */
         .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: #3db56a; }
-        .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1800&q=80') center/cover no-repeat; animation: kenburns 20s ease-in-out infinite alternate; will-change: transform; }
+        .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1800&q=80') center/cover no-repeat; animation: kenburns 20s ease-in-out infinite alternate; will-change: transform; }
         @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.06); } }
-        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,17,23,0.88) 0%, rgba(13,17,23,0.25) 45%, rgba(13,17,23,0.0) 100%); }
+        .hero-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,40,20,0.93) 0%, rgba(10,40,20,0.65) 50%, rgba(10,40,20,0.35) 100%); }
         .hero-content { position: relative; z-index: 2; padding: 80px 80px 56px; max-width: 760px; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
         .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.03em; color: #ffffff; margin-bottom: 20px; }
         .hero-h1 em { font-style: italic; color: rgba(255,255,255,0.65); }
@@ -152,14 +152,14 @@ export default function Home() {
         .step { display: flex; flex-direction: column; align-items: center; }
         .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 400; color: rgba(30,18,8,0.08); line-height: 1; margin-bottom: 16px; }
         .step-title { font-size: 1rem; font-weight: 600; color: #1a1208; margin-bottom: 10px; }
-        .step-body { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.8; text-align: center; }
+        .step-body { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.55); line-height: 1.8; text-align: center; max-width: 260px; margin: 0 auto; }
 
         /* COMMUNITIES */
         .communities-section { padding: 0 80px 80px; }
         .communities-header { max-width: 1400px; margin: 0 auto 32px; text-align: center; }
         .communities-subtitle { font-size: 0.87rem; font-weight: 300; color: rgba(30,18,8,0.5); line-height: 1.75; max-width: 560px; margin: 12px auto 0; }
         .communities-subtitle strong { color: #1a1208; font-weight: 600; }
-        .communities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1400px; margin: 0 auto; }
+        .communities-grid { display: flex; flex-wrap: wrap; gap: 12px; max-width: 1400px; margin: 0 auto; justify-content: center; } .communities-grid > * { flex: 0 0 calc(25% - 9px); }
 
         .community-card { display: block; text-decoration: none; color: inherit; position: relative; overflow: hidden; aspect-ratio: 3/4; background: #0f1520; border-radius: 6px; transition: transform 0.2s; }
         .community-card:hover { transform: translateY(-4px); }
@@ -167,18 +167,18 @@ export default function Home() {
         .community-card:focus-visible { outline: 3px solid #25D366; outline-offset: 2px; }
         .card-img-wrap { position: absolute; inset: 0; overflow: hidden; border-radius: 6px; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,8,14,0.97) 0%, rgba(6,8,14,0.4) 55%, transparent 100%); }
+        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,8,14,0.0) 40%, rgba(6,8,14,0.85) 100%); }
         .card-tag { position: absolute; top: 14px; left: 14px; background: rgba(8,9,13,0.75); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,227,216,0.7); padding: 4px 9px; border-radius: 3px; }
-        .card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; }
+        .card-body { position: absolute; top: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to bottom, rgba(6,8,14,0.92) 0%, rgba(6,8,14,0.5) 70%, transparent 100%); }
         .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; color: #ffffff; margin-bottom: 10px; line-height: 1.2; }
         .card-groups { list-style: none; margin-bottom: 14px; display: flex; flex-direction: column; gap: 5px; }
         .card-group-item { font-size: 0.75rem; font-weight: 400; color: rgba(255,255,255,0.65); padding-left: 14px; position: relative; text-align: left; }
         .card-group-item::before { content: "—"; position: absolute; left: 0; color: #25D366; font-size: 0.65rem; }
-        .card-cta { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #25D366; transition: gap 0.2s; }
+        .card-cta { position: absolute; bottom: 20px; left: 20px; display: flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #25D366; transition: gap 0.2s; }
         .community-card:hover .card-cta { gap: 10px; }
 
         /* FOOTER */
-        .home-footer { background: #f0f9f4; border-top: 1px solid rgba(30,18,8,0.08); padding: 48px 80px 36px; }
+        .home-footer { background: #f0f9f4; padding: 48px 80px 36px; }
         .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
         .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: #1a1208; margin-bottom: 10px; }
         .footer-tagline { font-size: 0.83rem; font-weight: 300; color: rgba(30,18,8,0.45); line-height: 1.7; max-width: 260px; }
@@ -187,12 +187,12 @@ export default function Home() {
         .footer-links a { font-size: 0.83rem; color: rgba(30,18,8,0.5); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: #1a1208; }
         .footer-links a:focus-visible { outline: 2px solid #1a9e52; outline-offset: 2px; border-radius: 2px; }
-        .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; border-top: 1px solid rgba(30,18,8,0.08); }
+        .footer-bottom { display: flex; align-items: center; justify-content: center; padding-top: 28px; }
         .footer-copy { font-size: 0.72rem; color: rgba(30,18,8,0.25); }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-          .communities-grid { grid-template-columns: repeat(2, 1fr); }
+          .communities-grid > * { flex: 0 0 calc(50% - 6px); }
         }
         @media (max-width: 768px) {
           .hero-content { padding: 80px 24px 40px; }
@@ -201,7 +201,7 @@ export default function Home() {
           .how-section { padding: 60px 24px; }
           .steps-grid { grid-template-columns: 1fr; gap: 32px; }
           .communities-section { padding: 0 24px 60px; }
-          .communities-grid { grid-template-columns: 1fr; }
+          .communities-grid > * { flex: 0 0 100%; }
           .home-footer { padding: 48px 24px 32px; }
           .footer-top { grid-template-columns: 1fr; gap: 32px; }
           .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -237,7 +237,7 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section className="how-section" id="how-it-works" aria-labelledby="how-heading">
         <div className="section-eyebrow">How it works</div>
-        <h2 className="section-h2" id="how-heading">Three steps to your<br />Australian network</h2>
+        <h2 className="section-h2" id="how-heading">Three steps to your<br />WHV network</h2>
         <div className="steps-grid">
           <div className="step">
             <div className="step-num">01</div>
@@ -263,7 +263,7 @@ export default function Home() {
           <div className="section-eyebrow">Communities</div>
           <h2 className="section-h2" id="communities-heading" style={{ marginBottom: 8 }}>Choose your state</h2>
           <p className="communities-subtitle">
-            Each community connects you to all the WhatsApp groups in that state, including jobs, buying and selling cars, and groups for different cities. <strong>Join one community and get access to everything you need.</strong>
+            Each community connects you to all the WhatsApp groups in that state, including jobs, buying and selling cars, and groups for different cities. <strong style={{color: "#25D366"}}>Join one community and get access to everything you need.</strong>
           </p>
         </div>
         <div className="communities-grid">

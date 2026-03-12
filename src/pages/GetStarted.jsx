@@ -106,7 +106,7 @@ function PaymentForm({ formData, setFormData }) {
 
       <div className="gs-layout">
         <div className="gs-left">
-          <Link to="/for-business" className="gs-back">← Back to For Employers</Link>
+          <Link to="/hire" className="gs-back">← Back to For Employers</Link>
           <div className="gs-eyebrow">Get Started</div>
           <h1 className="gs-h1">Complete your<br />subscription</h1>
           <p className="gs-sub">You'll be added to WhatsApp groups within a few hours of payment.</p>
@@ -117,11 +117,11 @@ function PaymentForm({ formData, setFormData }) {
             <div className="gs-field-row">
               <div className="gs-field">
                 <label className="gs-label">Business Name *</label>
-                <input className="gs-input" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" />
+                <input className="gs-input" value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your business name" maxLength={120} />
               </div>
               <div className="gs-field">
                 <label className="gs-label">Your Name *</label>
-                <input className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" />
+                <input className="gs-input" value={formData.contactName} onChange={e => setFormData({ ...formData, contactName: e.target.value })} placeholder="Contact name" maxLength={80} />
               </div>
             </div>
             <div className="gs-field-row">
@@ -131,7 +131,7 @@ function PaymentForm({ formData, setFormData }) {
               </div>
               <div className="gs-field">
                 <label className="gs-label">WhatsApp Number *</label>
-                <input className="gs-input" type="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" />
+                <input className="gs-input" type="tel" value={formData.whatsappNumber} onChange={e => setFormData({ ...formData, whatsappNumber: e.target.value })} placeholder="+61 4XX XXX XXX" maxLength={20} />
               </div>
             </div>
             <div className="gs-field">

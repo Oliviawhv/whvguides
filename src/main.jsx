@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route element={<Layout />}>
             <Route path="/"             element={<Home />} />
             <Route path="/hire"         element={<ForBusiness />} />
+            <Route path="/for-business"  element={<Navigate to="/hire" replace />} />
             <Route path="/get-started"  element={<GetStarted />} />
             <Route path="/success"      element={<SubscriptionSuccess />} />
             <Route path="/cancel"       element={<CancelSubscription />} />

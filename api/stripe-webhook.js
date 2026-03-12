@@ -4,6 +4,13 @@ import { buffer } from 'micro';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const ADMIN_EMAIL = 'info@whvguides.com.au';
 
+function escHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+
+
 // Disable body parsing — Stripe needs the raw body to verify signature
 export const config = { api: { bodyParser: false } };
 
@@ -22,6 +29,7 @@ async function sendEmail(to, subject, html) {
 }
 
 export default async function handler(req, res) {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
   if (req.method !== 'POST') return res.status(405).send('Method not allowed');
 
   const sig = req.headers['stripe-signature'];
@@ -61,10 +69,10 @@ export default async function handler(req, res) {
         }
         await sendEmail(ADMIN_EMAIL, `💰 Payment received — ${customer.email}`, `
           <h2>New Payment Received</h2>
-          <p><strong>Customer:</strong> ${customer.name || 'N/A'} (${customer.email})</p>
+          <p><strong>Customer:</strong> ${escHtml(customer.name) || 'N/A'} (${escHtml(customer.email)})</p>
           <p><strong>Amount:</strong> $${(invoice.amount_paid / 100).toFixed(2)} AUD</p>
-          <p><strong>Business:</strong> ${customer.metadata?.businessName || 'N/A'}</p>
-          <p><strong>City:</strong> ${customer.metadata?.city || 'N/A'}</p>
+          <p><strong>Business:</strong> ${escHtml(customer.metadata?.businessName) || 'N/A'}</p>
+          <p><strong>City:</strong> ${escHtml(customer.metadata?.city) || 'N/A'}</p>
         `);
         break;
       }

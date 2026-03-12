@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 
 const COMMUNITIES = [
-  { id: 1, name: 'New South Wales',    abbr: 'NSW', groups: ['Jobs in NSW', 'Sydney', 'Byron Bay'],       link: 'https://chat.whatsapp.com/DbA1AmQKliV1BHy6sod4tX', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
+  { id: 1, name: 'New South Wales',    abbr: 'NSW', groups: ['Jobs in NSW', 'Sydney', 'Byron Bay'],       link: 'https://chat.whatsapp.com/FrtpWb43mUA2NLs0xODyWR', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
   { id: 2, name: 'Victoria',           abbr: 'VIC', groups: ['Jobs in Victoria', 'Melbourne', 'Geelong'],  link: 'https://chat.whatsapp.com/LPICeQBUAWx0l2OdVp3SbN', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
-  { id: 3, name: 'Queensland',         abbr: 'QLD', groups: ['Jobs in QLD', 'Gold Coast', 'Cairns'],        link: 'https://chat.whatsapp.com/K3xtZMbAqdkFsvb0pfHgpZ', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
-  { id: 4, name: 'Western Australia',  abbr: 'WA',  groups: ['Jobs in WA', 'Perth', 'Broome'],              link: 'https://chat.whatsapp.com/GbwhwRb3veiKFGRsNwRf2t', image: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=800&q=75&fit=crop' },
-  { id: 5, name: 'South Australia',    abbr: 'SA',  groups: ['Jobs in SA', 'Adelaide', 'Barossa Valley'],   link: 'https://chat.whatsapp.com/GGrE8fA8QeXDudawmeOIwx', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
-  { id: 6, name: 'Northern Territory', abbr: 'NT',  groups: ['Jobs in NT', 'Darwin', 'Alice Springs'],      link: 'https://chat.whatsapp.com/Fk1trD1NEAe0Sk01TqQVnl', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
-  { id: 7, name: 'Tasmania',           abbr: 'TAS', groups: ['Jobs in TAS', 'Hobart', 'Launceston'],        link: 'https://chat.whatsapp.com/FZA05O7WzWKCWL7vYgTiSt', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
+  { id: 3, name: 'Queensland',         abbr: 'QLD', groups: ['Jobs in QLD', 'Gold Coast', 'Cairns'],        link: 'https://chat.whatsapp.com/Kaa8qGD3y0tG13wOUKT57j', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
+  { id: 4, name: 'Western Australia',  abbr: 'WA',  groups: ['Jobs in WA', 'Perth', 'Broome'],              link: 'https://chat.whatsapp.com/Ha4r4OBWAo6AMTIQpaVx5U', image: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=800&q=75&fit=crop' },
+  { id: 5, name: 'South Australia',    abbr: 'SA',  groups: ['Jobs in SA', 'Adelaide', 'Barossa Valley'],   link: 'https://chat.whatsapp.com/FJsgHm33xM4GgH9wDv8yQw', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
+  { id: 6, name: 'Northern Territory', abbr: 'NT',  groups: ['Jobs in NT', 'Darwin', 'Alice Springs'],      link: 'https://chat.whatsapp.com/LgCnKmbUsk3Iyz6HXRTbmP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
+  { id: 7, name: 'Tasmania',           abbr: 'TAS', groups: ['Jobs in TAS', 'Hobart', 'Launceston'],        link: 'https://chat.whatsapp.com/K3Mf3VsuUAsJm8bcNdMOEz', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } };
@@ -38,21 +38,18 @@ function CommunityCard({ community, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   return (
-    <motion.div
+    <motion.a
       ref={ref}
+      href={community.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="community-card"
+      aria-label={`Join ${community.name} WhatsApp community`}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={fadeUp}
       transition={{ duration: 0.5, delay: index === 0 ? 0 : index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
-      style={{ height: '252px', display: 'block' }}
     >
-      <a
-        href={community.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="community-card"
-        aria-label={`Join ${community.name} WhatsApp community`}
-      >
         <div className="card-img-wrap">
           <img src={community.image} alt={`${community.name} Australia`} className="card-img" loading={index < 4 ? 'eager' : 'lazy'} decoding="async" width="400" height="533" />
           <div className="card-overlay" />
@@ -69,8 +66,7 @@ function CommunityCard({ community, index }) {
           <span>Join {community.abbr} WHV Community</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-      </a>
-    </motion.div>
+    </motion.a>
   );
 }
 

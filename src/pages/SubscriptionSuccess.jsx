@@ -3,13 +3,13 @@ import { useSearchParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
 const COMMUNITY_LINKS = {
-  nsw: { name: 'NSW WHV Community', link: 'https://chat.whatsapp.com/DbA1AmQKliV1BHy6sod4tX' },
+  nsw: { name: 'NSW WHV Community', link: 'https://chat.whatsapp.com/FrtpWb43mUA2NLs0xODyWR' },
   vic: { name: 'VIC WHV Community', link: 'https://chat.whatsapp.com/LPICeQBUAWx0l2OdVp3SbN' },
-  qld: { name: 'QLD WHV Community', link: 'https://chat.whatsapp.com/K3xtZMbAqdkFsvb0pfHgpZ' },
-  wa:  { name: 'WA WHV Community',  link: 'https://chat.whatsapp.com/GbwhwRb3veiKFGRsNwRf2t' },
-  sa:  { name: 'SA WHV Community',  link: 'https://chat.whatsapp.com/GGrE8fA8QeXDudawmeOIwx' },
-  nt:  { name: 'NT WHV Community',  link: 'https://chat.whatsapp.com/Fk1trD1NEAe0Sk01TqQVnl' },
-  tas: { name: 'TAS WHV Community', link: 'https://chat.whatsapp.com/FZA05O7WzWKCWL7vYgTiSt' },
+  qld: { name: 'QLD WHV Community', link: 'https://chat.whatsapp.com/Kaa8qGD3y0tG13wOUKT57j' },
+  wa:  { name: 'WA WHV Community',  link: 'https://chat.whatsapp.com/Ha4r4OBWAo6AMTIQpaVx5U' },
+  sa:  { name: 'SA WHV Community',  link: 'https://chat.whatsapp.com/FJsgHm33xM4GgH9wDv8yQw' },
+  nt:  { name: 'NT WHV Community',  link: 'https://chat.whatsapp.com/LgCnKmbUsk3Iyz6HXRTbmP' },
+  tas: { name: 'TAS WHV Community', link: 'https://chat.whatsapp.com/K3Mf3VsuUAsJm8bcNdMOEz' },
 };
 
 export default function SubscriptionSuccess() {

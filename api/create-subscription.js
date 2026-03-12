@@ -2,77 +2,23 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const ALLOWED_ORIGIN = 'https://whvguides.com.au';
-const PRICE_ID = process.env.STRIPE_PRICE_ID;
-
 function isValidEmail(email) {
-  return typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function sanitize(str, maxLen = 120) {
-  if (typeof str !== 'string') return '';
-  return str.trim().slice(0, maxLen);
-}
-
-function isValidPhone(phone) {
-  if (!phone) return true; // optional
-  return typeof phone === 'string' && /^[\d\s\+\-\(\)]{6,20}$/.test(phone.trim());
-}
-
-function idempotencyKey(email) {
-  // Include hour so retries within same hour are idempotent but stale attempts from prior days aren't
-  const hour = new Date().toISOString().slice(0, 13);
-  return `sub_create_${email}_${PRICE_ID}_${hour}`;
+function idempotencyKey(email, priceId) {
+  const day = new Date().toISOString().slice(0, 10);
+  return `sub_create_${email}_${priceId}_${day}`;
 }
 
 export default async function handler(req, res) {
-  if (!PRICE_ID) {
-    console.error('STRIPE_PRICE_ID env variable is not set');
-    return res.status(500).json({ error: 'Server configuration error. Please contact info@whvguides.com.au.' });
-  }
-
-  // Security headers
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-
-  // CORS - only allow requests from the production origin
-  const origin = req.headers['origin'] || '';
-  if (origin && origin !== ALLOWED_ORIGIN) {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
-  res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  // Handle CORS preflight
-  if (req.method === 'OPTIONS') return res.status(204).end();
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Validate content-type
-  const ct = req.headers['content-type'] || '';
-  if (!ct.includes('application/json')) {
-    return res.status(415).json({ error: 'Content-Type must be application/json' });
-  }
+  const { email, businessName, contactName, whatsappNumber, city } = req.body;
 
-  const {
-    email: rawEmail,
-    businessName: rawBiz,
-    contactName: rawContact,
-    whatsappNumber: rawPhone,
-    city: rawCity,
-  } = req.body ?? {};
-
-  // Sanitize
-  const email = sanitize(rawEmail, 254).toLowerCase();
-  const businessName = sanitize(rawBiz, 120);
-  const contactName = sanitize(rawContact, 80);
-  const whatsappNumber = sanitize(rawPhone, 20);
-  const city = sanitize(rawCity, 60).toLowerCase();
-
-  // Validate
+  // Validate inputs
   const missing = [];
   if (!email) missing.push('email');
   if (!businessName) missing.push('businessName');
@@ -80,31 +26,26 @@ export default async function handler(req, res) {
   if (!city) missing.push('city');
   if (missing.length > 0) return res.status(400).json({ error: `Missing required fields: ${missing.join(', ')}` });
   if (!isValidEmail(email)) return res.status(400).json({ error: 'Invalid email address' });
-  if (!isValidPhone(whatsappNumber)) return res.status(400).json({ error: 'Invalid WhatsApp number format' });
 
   try {
-    // Check for existing customer and active subscription
-    const existingCustomers = await stripe.customers.list({ email, limit: 10 });
-    let existingCustomer = null;
+    // Check for existing active subscription
+    const existingCustomers = await stripe.customers.list({ email, limit: 100 });
     for (const customer of existingCustomers.data) {
       const activeSubs = await stripe.subscriptions.list({ customer: customer.id, status: 'active', limit: 1 });
       if (activeSubs.data.length > 0) {
         return res.status(409).json({ error: 'An active subscription already exists for this email address.' });
       }
-      if (!existingCustomer) existingCustomer = customer;
     }
 
-    // Reuse existing customer or create new one
-    const customer = existingCustomer
-      ? await stripe.customers.update(existingCustomer.id, {
-          name: contactName,
-          metadata: { businessName, whatsappNumber, city, source: 'WHV Australia' },
-        })
-      : await stripe.customers.create(
-          { email, name: contactName, metadata: { businessName, whatsappNumber, city, source: 'WHV Australia' } },
-          { idempotencyKey: `customer_create_${email}` }
-        );
+    const PRICE_ID = 'price_1T1nxG0m2a7toiMMLQ26yXNC';
 
+    // Create customer
+    const customer = await stripe.customers.create(
+      { email, name: contactName, metadata: { businessName, whatsappNumber: whatsappNumber || '', city, source: 'WHV Australia' } },
+      { idempotencyKey: `customer_create_${email}` }
+    );
+
+    // Create subscription
     const subscription = await stripe.subscriptions.create(
       {
         customer: customer.id,
@@ -112,24 +53,25 @@ export default async function handler(req, res) {
         payment_behavior: 'default_incomplete',
         payment_settings: { payment_method_types: ['card'], save_default_payment_method: 'on_subscription' },
         expand: ['latest_invoice.payment_intent'],
-        metadata: { businessName, whatsappNumber, city, createdAt: new Date().toISOString() },
+        metadata: { businessName, whatsappNumber: whatsappNumber || '', city, createdAt: new Date().toISOString() },
       },
-      { idempotencyKey: idempotencyKey(email) }
+      { idempotencyKey: idempotencyKey(email, PRICE_ID) }
     );
 
-    const paymentIntent = subscription.latest_invoice?.payment_intent;
+    const paymentIntent = subscription.latest_invoice.payment_intent;
     if (!paymentIntent?.client_secret) throw new Error('No client_secret returned from Stripe');
 
     return res.status(200).json({
       success: true,
+      customerId: customer.id,
+      subscriptionId: subscription.id,
       clientSecret: paymentIntent.client_secret,
+      amount: 900,
     });
 
   } catch (error) {
-    console.error('createSubscription error:', error.message);
-    const safeMessage = error.type?.startsWith('Stripe')
-      ? error.message
-      : 'An unexpected error occurred. Please try again.';
+    console.error('createSubscription error:', error);
+    const safeMessage = error.type?.startsWith('Stripe') ? error.message : 'An unexpected error occurred. Please try again.';
     return res.status(500).json({ success: false, error: safeMessage });
   }
 }

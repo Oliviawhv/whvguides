@@ -4,21 +4,14 @@ import { buffer } from 'micro';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const ADMIN_EMAIL = 'info@whvguides.com.au';
 
-function escHtml(str) {
-  if (typeof str !== 'string') return '';
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-}
-
-
-
-// Disable body parsing - Stripe needs the raw body to verify signature
+// Disable body parsing — Stripe needs the raw body to verify signature
 export const config = { api: { bodyParser: false } };
 
 async function sendEmail(to, subject, html) {
   // Using Resend (free tier: 3,000 emails/month)
   // Sign up at resend.com and set RESEND_API_KEY in Vercel env vars
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) { console.warn('RESEND_API_KEY not set - skipping email'); return; }
+  if (!apiKey) { console.warn('RESEND_API_KEY not set — skipping email'); return; }
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -29,7 +22,6 @@ async function sendEmail(to, subject, html) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
   if (req.method !== 'POST') return res.status(405).send('Method not allowed');
 
   const sig = req.headers['stripe-signature'];
@@ -55,30 +47,24 @@ export default async function handler(req, res) {
         if (customer.deleted) break;
 
         if (invoice.billing_reason === 'subscription_create') {
-          await sendEmail(customer.email, '🎉 Welcome to WHV Australia - Subscription Confirmed', `
+          await sendEmail(customer.email, '🎉 Welcome to WHV Australia — Subscription Confirmed', `
             <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1e293b;">
               <h2>Welcome to WHV Australia 🎉</h2>
-              <p>Hi ${escHtml(customer.name) || 'there'},</p>
+              <p>Hi ${customer.name || 'there'},</p>
               <p>Your subscription is now active. You'll be manually added to your WhatsApp groups within a few hours.</p>
               <h3>Subscription details</h3>
               <ul><li><strong>Amount:</strong> $9 AUD per week</li><li><strong>Status:</strong> Active</li></ul>
               <p>Cancel anytime at <a href="https://whvguides.com.au/cancel">whvguides.com.au/cancel</a></p>
-              <p>- The WHV Australia Team</p>
+              <p>— The WHV Australia Team</p>
             </div>
           `);
         }
-        await sendEmail(ADMIN_EMAIL, `💰 New subscriber - ${customer.email}`, `
-          <div style="font-family:sans-serif;max-width:600px;color:#1e293b;">
-            <h2>New Subscription 💰</h2>
-            <table style="border-collapse:collapse;width:100%;">
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Contact Name</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.name) || 'N/A'}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Email</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.email)}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Business Name</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.businessName) || 'N/A'}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">WhatsApp Number</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.whatsappNumber) || 'N/A'}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">City</td><td style="padding:8px;border:1px solid #e2e8f0;">${escHtml(customer.metadata?.city) || 'N/A'}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #e2e8f0;font-weight:600;">Amount</td><td style="padding:8px;border:1px solid #e2e8f0;">$${(invoice.amount_paid / 100).toFixed(2)} AUD</td></tr>
-            </table>
-          </div>
+        await sendEmail(ADMIN_EMAIL, `💰 Payment received — ${customer.email}`, `
+          <h2>New Payment Received</h2>
+          <p><strong>Customer:</strong> ${customer.name || 'N/A'} (${customer.email})</p>
+          <p><strong>Amount:</strong> $${(invoice.amount_paid / 100).toFixed(2)} AUD</p>
+          <p><strong>Business:</strong> ${customer.metadata?.businessName || 'N/A'}</p>
+          <p><strong>City:</strong> ${customer.metadata?.city || 'N/A'}</p>
         `);
         break;
       }
@@ -88,18 +74,18 @@ export default async function handler(req, res) {
         const customer = await stripe.customers.retrieve(invoice.customer);
         if (customer.deleted) break;
 
-        await sendEmail(customer.email, '⚠️ Payment failed - please update your payment method', `
+        await sendEmail(customer.email, '⚠️ Payment failed — please update your payment method', `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1e293b;">
             <h2>Payment Failed</h2>
-            <p>Hi ${escHtml(customer.name) || 'there'},</p>
+            <p>Hi ${customer.name || 'there'},</p>
             <p>We were unable to process your weekly payment. Please update your payment method to avoid losing access.</p>
             ${invoice.hosted_invoice_url ? `<p><a href="${invoice.hosted_invoice_url}" style="background:#c9a24a;color:#fff;padding:12px 24px;text-decoration:none;border-radius:4px;">Update Payment Method</a></p>` : ''}
-            <p>- The WHV Australia Team</p>
+            <p>— The WHV Australia Team</p>
           </div>
         `);
-        await sendEmail(ADMIN_EMAIL, `⚠️ Payment failed - ${escHtml(customer.email)} (attempt ${invoice.attempt_count})`, `
+        await sendEmail(ADMIN_EMAIL, `⚠️ Payment failed — ${customer.email} (attempt ${invoice.attempt_count})`, `
           <h2>Payment Failed</h2>
-          <p><strong>Customer:</strong> ${escHtml(customer.email)}</p>
+          <p><strong>Customer:</strong> ${customer.email}</p>
           <p><strong>Amount:</strong> $${(invoice.amount_due / 100).toFixed(2)} AUD</p>
           <p><strong>Attempt:</strong> ${invoice.attempt_count}</p>
         `);
@@ -116,9 +102,10 @@ export default async function handler(req, res) {
         await sendEmail(customer.email, 'Your WHV Australia subscription has ended', `
           <div style="font-family:sans-serif;max-width:600px;color:#1e293b;">
             <h2>Subscription Cancelled</h2>
-            <p>Hi ${escHtml(customer.name) || 'there'}, your access continued until <strong>${dateStr}</strong>.</p>
+            <p>Hi ${customer.name || 'there'},</p>
+            <p>Your subscription has ended. Your access continued until <strong>${dateStr}</strong>.</p>
             <p>Resubscribe anytime at <a href="https://whvguides.com.au/get-started">whvguides.com.au/get-started</a></p>
-            <p>- The WHV Australia Team</p>
+            <p>— The WHV Australia Team</p>
           </div>
         `);
         break;
@@ -131,15 +118,8 @@ export default async function handler(req, res) {
           const customer = await stripe.customers.retrieve(sub.customer);
           if (!customer.deleted) {
             const dateStr = sub.cancel_at ? new Date(sub.cancel_at * 1000).toLocaleDateString('en-AU') : 'soon';
-            await sendEmail(customer.email, 'Cancellation confirmed - WHV Australia', `
-              <p>Hi ${escHtml(customer.name) || 'there'}, your subscription will be cancelled on <strong>${dateStr}</strong>.</p>
-            `);
-            await sendEmail(ADMIN_EMAIL, `❌ Subscription cancelled - ${escHtml(customer.email)}`, `
-              <h2>Subscription Cancellation</h2>
-              <p><strong>Customer:</strong> ${escHtml(customer.name) || 'N/A'} (${escHtml(customer.email)})</p>
-              <p><strong>Business:</strong> ${escHtml(customer.metadata?.businessName) || 'N/A'}</p>
-              <p><strong>City:</strong> ${escHtml(customer.metadata?.city) || 'N/A'}</p>
-              <p><strong>Access ends:</strong> ${dateStr}</p>
+            await sendEmail(customer.email, 'Cancellation confirmed — WHV Australia', `
+              <p>Hi ${customer.name || 'there'}, your subscription will be cancelled on <strong>${dateStr}</strong>.</p>
             `);
           }
         }

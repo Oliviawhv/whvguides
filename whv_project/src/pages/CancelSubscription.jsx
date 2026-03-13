@@ -41,8 +41,8 @@ export default function CancelSubscription() {
         .cs-wrap { max-width: 480px; width: 100%; }
         .cs-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; color: rgba(26,18,8,0.45); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
         .cs-back:hover { color: #1a1208; }
-        .cs-h1 { font-family: 'DM Sans', sans-serif; font-size: 2rem; font-weight: 600; color: #1a1208; margin-bottom: 8px; line-height: 1.2; text-align: center; }
-        .cs-sub { font-size: 0.88rem; font-weight: 400; color: rgba(26,18,8,0.55); line-height: 1.7; margin-bottom: 32px; text-align: center; }
+        .cs-h1 { font-family: 'DM Sans', sans-serif; font-size: 2rem; font-weight: 600; color: #1a1208; margin-bottom: 8px; line-height: 1.2; }
+        .cs-sub { font-size: 0.88rem; font-weight: 400; color: rgba(26,18,8,0.55); line-height: 1.7; margin-bottom: 32px; }
         .cs-card { background: #ffffff; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); padding: 36px; }
         .cs-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(26,18,8,0.5); margin-bottom: 6px; }
         .cs-input { width: 100%; background: #f8faf9; border: 1px solid rgba(26,18,8,0.14); color: #1a1208; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; padding: 11px 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; margin-bottom: 16px; }

@@ -17,7 +17,7 @@ function Reveal({ children, delay = 0, className = '' }) {
 const LOCATIONS = [
   { state: 'New South Wales', cities: 'Sydney - Byron Bay - Newcastle', count: '1,200+' },
   { state: 'Victoria', cities: 'Melbourne - Mildura - Shepparton', count: '980+' },
-  { state: 'Queensland', cities: 'Gold Coast - Cairns - Airlie Beach', count: '1,500+' },
+  { state: 'Queensland', cities: 'Gold Coast - Cairns - Airlie Beach - Noosa', count: '1,500+' },
   { state: 'Western Australia', cities: 'Perth - Broome - Kalgoorlie', count: '680+' },
   { state: 'South Australia', cities: 'Adelaide - Barossa Valley', count: '420+' },
   { state: 'Northern Territory', cities: 'Darwin - Alice Springs', count: '310+' },
@@ -381,7 +381,7 @@ export default function ForBusiness() {
         <div className="fb-cov-grid">
           {LOCATIONS.map((l, i) => (
             <Reveal key={l.state} delay={i * 0.06}>
-              <div className="fb-cov-card" onClick={() => navigate('/get-started')} style={{ cursor: 'pointer' }}>
+              <div className="fb-cov-card">
                 <div className="fb-cov-n">{l.count}</div>
                 <div className="fb-cov-state">{l.state}</div>
                 <div className="fb-cov-cities">{l.cities}</div>
@@ -389,7 +389,7 @@ export default function ForBusiness() {
             </Reveal>
           ))}
           <Reveal delay={0.42}>
-            <div className="fb-cov-card" onClick={() => navigate('/get-started')} style={{ background: 'rgba(37,211,102,0.06)', border: '1px dashed rgba(37,211,102,0.3)', cursor: 'pointer' }}>
+            <div className="fb-cov-card" style={{ background: 'rgba(37,211,102,0.06)', border: '1px dashed rgba(37,211,102,0.3)' }}>
               <div style={{ fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#1a9e52', marginBottom: 8 }}>National</div>
               <div style={{ fontSize: '0.88rem', color: '#1a1208', fontWeight: 500 }}>Jobs group included</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(30,18,8,0.35)', marginTop: 4 }}>All states - All industries</div>
@@ -495,10 +495,10 @@ export default function ForBusiness() {
           <nav aria-label="Community links">
             <div className="fb-footer-col-title">Community</div>
             <ul className="fb-footer-links">
-              <li><a href="#coverage-heading">
+              <li><Link to="/">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 WHV Community
-              </a></li>
+              </Link></li>
               <li><a href="https://www.tiktok.com/@whvguides?_r=1&_t=ZS-94YaXMHoswT" target="_blank" rel="noopener noreferrer">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
                 TikTok

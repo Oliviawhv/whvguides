@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 
 const COMMUNITIES = [
-  { id: 1, name: 'New South Wales',    abbr: 'NSW', groups: ['Jobs in NSW', 'Sydney', 'Byron Bay'],       link: 'https://chat.whatsapp.com/FrtpWb43mUA2NLs0xODyWR', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
+  { id: 1, name: 'New South Wales',    abbr: 'NSW', groups: ['Jobs in NSW', 'Sydney', 'Byron Bay'],       link: 'https://chat.whatsapp.com/LYOGV00qZa1AHYA0wVIHg5', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=75&fit=crop' },
   { id: 2, name: 'Victoria',           abbr: 'VIC', groups: ['Jobs in Victoria', 'Melbourne', 'Geelong'],  link: 'https://chat.whatsapp.com/KwHO6gb1G0E7jjy3AkI9OZ', image: 'https://images.unsplash.com/photo-1545044846-351ba102b6d5?w=800&q=75&fit=crop' },
-  { id: 3, name: 'Queensland',         abbr: 'QLD', groups: ['Jobs in QLD', 'Gold Coast', 'Cairns'],        link: 'https://chat.whatsapp.com/Kaa8qGD3y0tG13wOUKT57j', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
-  { id: 4, name: 'Western Australia',  abbr: 'WA',  groups: ['Jobs in WA', 'Perth', 'Broome'],              link: 'https://chat.whatsapp.com/Ha4r4OBWAo6AMTIQpaVx5U', image: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=800&q=75&fit=crop' },
-  { id: 5, name: 'South Australia',    abbr: 'SA',  groups: ['Jobs in SA', 'Adelaide', 'Barossa Valley'],   link: 'https://chat.whatsapp.com/FJsgHm33xM4GgH9wDv8yQw', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
-  { id: 6, name: 'Northern Territory', abbr: 'NT',  groups: ['Jobs in NT', 'Darwin', 'Alice Springs'],      link: 'https://chat.whatsapp.com/LgCnKmbUsk3Iyz6HXRTbmP', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
-  { id: 7, name: 'Tasmania',           abbr: 'TAS', groups: ['Jobs in TAS', 'Hobart', 'Launceston'],        link: 'https://chat.whatsapp.com/K3Mf3VsuUAsJm8bcNdMOEz', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
+  { id: 3, name: 'Queensland',         abbr: 'QLD', groups: ['Jobs in QLD', 'Gold Coast', 'Cairns'],        link: 'https://chat.whatsapp.com/KRupsPthaHo6Cc1xXCobX5', image: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=75&fit=crop' },
+  { id: 4, name: 'Western Australia',  abbr: 'WA',  groups: ['Jobs in WA', 'Perth', 'Broome'],              link: 'https://chat.whatsapp.com/GXVyVl2IVZNAo9mo6HolmG', image: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=800&q=75&fit=crop' },
+  { id: 5, name: 'South Australia',    abbr: 'SA',  groups: ['Jobs in SA', 'Adelaide', 'Barossa Valley'],   link: 'https://chat.whatsapp.com/GAE5UAn3XzN65eiWXo2nPx', image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=75&fit=crop' },
+  { id: 6, name: 'Northern Territory', abbr: 'NT',  groups: ['Jobs in NT', 'Darwin', 'Alice Springs'],      link: 'https://chat.whatsapp.com/EpItlvFx1579WfYZpiGtWv', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=800&q=75&fit=crop' },
+  { id: 7, name: 'Tasmania',           abbr: 'TAS', groups: ['Jobs in TAS', 'Hobart', 'Launceston'],        link: 'https://chat.whatsapp.com/KTPJxjZoAz40sUoINi5J7A', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop' },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } };

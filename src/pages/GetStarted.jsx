@@ -79,7 +79,7 @@ function PaymentForm({ formData, setFormData }) {
 
       <div className="gs-card">
         <h1 className="gs-h1">Get full access to the WHV Community</h1>
-        <p className="gs-sub">Subscribe for $9/week and get instant access to our entire community — 30+ WhatsApp groups covering jobs, cities, and more across Australia.</p>
+        <p className="gs-sub">Subscribe for $9/week and get instant access to our entire community 30+ WhatsApp groups covering jobs, cities, and more across Australia.</p>
 
         {error && <div className="gs-error" role="alert" aria-live="polite">{error}</div>}
 

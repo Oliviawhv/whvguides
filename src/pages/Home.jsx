@@ -159,6 +159,8 @@ export default function Home() {
 
         .groups-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 36px 28px; }
 
+        .hiw-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+        @media (max-width: 640px) { .hiw-grid { grid-template-columns: 1fr !important; gap: 24px; } }
         .group-circle { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; width: 96px; }
         .group-circle-img { width: 88px; height: 88px; border-radius: 50%; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.12); transition: transform 0.2s, box-shadow 0.2s; }
         .group-circle:hover .group-circle-img { transform: scale(1.09); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
@@ -200,7 +202,7 @@ export default function Home() {
         <div className="hero-content">
           <h1 className="hero-h1">Your community<br /><em>starts here.</em></h1>
           <p className="hero-sub">
-            Join thousands of WHV travelers already connected across Australia. Find jobs, buy and sell cars, discover new cities, and connect with other backpackers — all through <strong>30+ active WhatsApp groups</strong>.
+            Join thousands of WHV travelers already connected across Australia. Find jobs, buy and sell cars, discover new cities, and connect with other backpackers all through <strong>30+ active WhatsApp groups</strong>.
           </p>
           <a href="#community" className="btn-join">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -225,10 +227,10 @@ export default function Home() {
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#1a1208', marginBottom: 36, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
             Three steps to your network
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+          <div className="hiw-grid">
             {[
               { num: '01', title: 'Join the community', body: 'Tap the community circle below. One tap connects you to our main WhatsApp community.' },
-              { num: '02', title: 'Explore all groups', body: 'Inside the community you will find 30+ groups — jobs, buy & sell cars, cities, and more. Join the ones you want.' },
+              { num: '02', title: 'Explore all groups', body: 'Inside the community you will find 30+ groups jobs, buy & sell cars, cities, and more. Join the ones you want.' },
               { num: '03', title: 'Connect and explore', body: 'Post your availability, find a job, grab a car deal, or meet fellow backpackers across Australia.' },
             ].map(s => (
               <div key={s.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

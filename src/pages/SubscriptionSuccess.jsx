@@ -39,7 +39,7 @@ export default function SubscriptionSuccess() {
         </div>
         <h1 className="ss-h1" role="status">Welcome to the WHV Community 🎉</h1>
         <p className="ss-sub">
-          Your subscription is active. You now have <strong>full access to our entire community</strong> — join the main group and choose whichever of the 30+ groups you like.
+          Your subscription is active. You now have <strong>full access to our entire community</strong> join the main group and choose whichever of the 30+ groups you like.
         </p>
         <div className="ss-divider" />
         <div className="ss-label">Join your community now</div>

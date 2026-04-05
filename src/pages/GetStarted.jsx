@@ -5,16 +5,6 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-const STATES = [
-  { value: 'nsw', label: 'New South Wales' },
-  { value: 'vic', label: 'Victoria' },
-  { value: 'qld', label: 'Queensland' },
-  { value: 'wa',  label: 'Western Australia' },
-  { value: 'sa',  label: 'South Australia' },
-  { value: 'nt',  label: 'Northern Territory' },
-  { value: 'tas', label: 'Tasmania' },
-];
-
 function PaymentForm({ formData, setFormData }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -25,8 +15,8 @@ function PaymentForm({ formData, setFormData }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const { businessName, contactName, email, whatsappNumber, city } = formData;
-    if (!businessName || !contactName || !email || !whatsappNumber || !city) {
+    const { businessName, contactName, email, whatsappNumber } = formData;
+    if (!businessName || !contactName || !email || !whatsappNumber) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -36,7 +26,7 @@ function PaymentForm({ formData, setFormData }) {
       const res = await fetch('/api/create-subscription', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, businessName, contactName, whatsappNumber, city }),
+        body: JSON.stringify({ email, businessName, contactName, whatsappNumber, city: 'all' }),
       });
       const result = await res.json();
       if (!result.success) throw new Error(result.error || 'Failed to create subscription');
@@ -47,7 +37,7 @@ function PaymentForm({ formData, setFormData }) {
       );
       if (confirmError) throw new Error(confirmError.message);
       if (paymentIntent.status === 'succeeded') {
-        navigate(`/success?city=${encodeURIComponent(city)}`);
+        navigate('/');
       }
     } catch (err) {
       setError(err.message || 'Payment failed. Please try again.');
@@ -68,7 +58,6 @@ function PaymentForm({ formData, setFormData }) {
         .gs-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .gs-input { width: 100%; background: #f8faf9; border: 1px solid rgba(26,18,8,0.14); color: #1a1208; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; padding: 11px 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
         .gs-input:focus { border-color: #25D366; background: #fff; }
-        .gs-input option { background: #fff; }
         .gs-card-wrap { background: #f8faf9; border: 1px solid rgba(26,18,8,0.14); padding: 13px 14px; border-radius: 8px; transition: border-color 0.2s; margin-bottom: 24px; }
         .gs-card-wrap:focus-within { border-color: #25D366; }
         .gs-section-divider { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(26,18,8,0.35); margin: 24px 0 16px; display: flex; align-items: center; gap: 10px; }
@@ -116,14 +105,6 @@ function PaymentForm({ formData, setFormData }) {
           </div>
         </div>
 
-        <div className="gs-field">
-          <label className="gs-label" htmlFor="gs-state">State *</label>
-          <select id="gs-state" className="gs-input" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}>
-            <option value="">Select your state</option>
-            {STATES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
-          </select>
-        </div>
-
         <div className="gs-section-divider">Payment Details</div>
 
         <div className="gs-card-wrap">
@@ -147,7 +128,7 @@ function PaymentForm({ formData, setFormData }) {
 }
 
 export default function GetStarted() {
-  const [formData, setFormData] = useState({ businessName: '', contactName: '', email: '', whatsappNumber: '', city: '' });
+  const [formData, setFormData] = useState({ businessName: '', contactName: '', email: '', whatsappNumber: '' });
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#f2faf5', minHeight: '100vh' }}>
       <Elements stripe={stripePromise} options={{ locale: 'en' }}>

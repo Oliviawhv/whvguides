@@ -179,6 +179,7 @@ export default function Home() {
         .footer-copy { font-size: 0.72rem; color: rgba(30,18,8,0.25); }
 
         @media (max-width: 768px) {
+          .hero { min-height: unset; }
           .hero-content { padding: 32px 24px 40px; }
           .hero-proof { padding: 22px 24px; display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 24px; }
           .proof-stat { padding: 0; border-right: none !important; }

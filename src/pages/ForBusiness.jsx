@@ -33,15 +33,15 @@ const FEATURES = [
 
 const STEPS = [
   { label: 'Subscribe', body: 'Sign up for $9/week. No lock-in contracts, cancel anytime.' },
-  { label: 'Get added', body: 'We manually add your WhatsApp number to the Jobs group and your chosen city group.' },
-  { label: 'Post your job', body: 'Write a brief message describing the role, pay, and start date. Post it yourself, anytime.' },
+  { label: 'Get full access', body: 'We add your WhatsApp number to our community. You instantly get access to all 30+ groups - jobs, cities, and more.' },
+  { label: 'Post your job', body: 'Write a brief message describing the role, pay, and start date. Post it in any group, anytime.' },
   { label: 'Hire', body: 'Receive direct messages from candidates. Interview and hire - all on WhatsApp.' },
 ];
 
 const INCLUSIONS = [
-  'National Jobs WhatsApp group - post anytime',
-  '1 state or city community of your choice',
-  'Unlimited job posts - as often as you need',
+  'Full access to our WHV Community with 30+ groups',
+  'National Jobs group + all state & city groups included',
+  'Unlimited job posts - in any group, anytime',
   'Candidates message you directly on WhatsApp',
   'Job post writing tips from our team',
   'Responses typically within 60 minutes',
@@ -259,7 +259,7 @@ export default function ForBusiness() {
         <div className="fb-hero-content">
           <h1 className="fb-hero-h1">Find WHV workers<br /><em>within the hour.</em></h1>
           <p className="fb-hero-sub">
-            4,800+ verified Working Holiday Visa holders across every Australian state. <strong>All active. All legally authorised. All looking for work right now.</strong>
+            4,800+ verified Working Holiday Visa holders across every Australian state. Post jobs in <strong>30+ active WhatsApp groups</strong> and get direct replies within the hour.
           </p>
           <button onClick={() => navigate('/get-started')} className="fb-btn-green">
             Start Hiring - $9 / week

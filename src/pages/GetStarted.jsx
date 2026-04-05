@@ -37,7 +37,7 @@ function PaymentForm({ formData, setFormData }) {
       );
       if (confirmError) throw new Error(confirmError.message);
       if (paymentIntent.status === 'succeeded') {
-        navigate('/');
+        navigate('/success');
       }
     } catch (err) {
       setError(err.message || 'Payment failed. Please try again.');
@@ -78,8 +78,8 @@ function PaymentForm({ formData, setFormData }) {
       `}</style>
 
       <div className="gs-card">
-        <h1 className="gs-h1">Complete your subscription</h1>
-        <p className="gs-sub">You'll be added to WhatsApp groups within a few hours of payment.</p>
+        <h1 className="gs-h1">Get full access to the WHV Community</h1>
+        <p className="gs-sub">Subscribe for $9/week and get instant access to our entire community — 30+ WhatsApp groups covering jobs, cities, and more across Australia.</p>
 
         {error && <div className="gs-error" role="alert" aria-live="polite">{error}</div>}
 
@@ -120,7 +120,7 @@ function PaymentForm({ formData, setFormData }) {
         <div className="gs-trust">
           <div className="gs-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secured by Stripe</div>
           <div className="gs-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20,6 9,17 4,12"/></svg>Cancel anytime</div>
-          <div className="gs-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>Added within hours</div>
+          <div className="gs-trust-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>30+ groups included</div>
         </div>
       </div>
     </form>

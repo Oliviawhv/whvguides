@@ -55,15 +55,22 @@ export default async function handler(req, res) {
         if (customer.deleted) break;
 
         if (invoice.billing_reason === 'subscription_create') {
-          await sendEmail(customer.email, '🎉 Welcome to WHV Australia - Subscription Confirmed', `
+          await sendEmail(customer.email, '🎉 Welcome to the WHV Community - You're in!', `
             <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1e293b;">
-              <h2>Welcome to WHV Australia 🎉</h2>
+              <h2 style="color:#1a1208;">Welcome to the WHV Community 🎉</h2>
               <p>Hi ${escHtml(customer.name) || 'there'},</p>
-              <p>Your subscription is now active. You'll be manually added to your WhatsApp groups within a few hours.</p>
-              <h3>Subscription details</h3>
-              <ul><li><strong>Amount:</strong> $9 AUD per week</li><li><strong>Status:</strong> Active</li></ul>
-              <p>Cancel anytime at <a href="https://whvguides.com.au/cancel">whvguides.com.au/cancel</a></p>
-              <p>- The WHV Australia Team</p>
+              <p>Your subscription is active. You now have <strong>full access to our entire WHV Community</strong> — 30+ WhatsApp groups covering jobs, cities, buy & sell cars, and more across Australia.</p>
+              <p style="margin:28px 0;">
+                <a href="https://chat.whatsapp.com/ElCt7BWby5dLVyBR88QSMt"
+                   style="background:#25D366;color:#ffffff;padding:14px 28px;text-decoration:none;border-radius:8px;font-weight:600;font-size:15px;display:inline-block;">
+                  👉 Join the WHV Community
+                </a>
+              </p>
+              <p style="font-size:13px;color:#64748b;">Once inside, you will find all 30+ groups. Join whichever ones are relevant to you — jobs, your city, buy & sell cars, and more.</p>
+              <hr style="border:none;border-top:1px solid #e2e8f0;margin:24px 0;" />
+              <p style="font-size:13px;color:#64748b;"><strong>Subscription:</strong> $9 AUD / week &nbsp;|&nbsp; Cancel anytime at <a href="https://whvguides.com.au/cancel" style="color:#25D366;">whvguides.com.au/cancel</a></p>
+              <p style="font-size:13px;color:#64748b;">Questions? Email us at <a href="mailto:info@whvguides.com.au" style="color:#25D366;">info@whvguides.com.au</a></p>
+              <p>- The WHV Guides Team</p>
             </div>
           `);
         }

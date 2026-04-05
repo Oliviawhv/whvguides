@@ -217,6 +217,30 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* HOW IT WORKS */}
+      <section style={{ background: '#edf7f0', padding: '44px 40px 48px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1a9e52', marginBottom: 10 }}>How it works</div>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#1a1208', marginBottom: 36, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
+            Three steps to your network
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+            {[
+              { num: '01', title: 'Join the community', body: 'Tap the community circle below. One tap connects you to our main WhatsApp community.' },
+              { num: '02', title: 'Explore all groups', body: 'Inside the community you will find 30+ groups — jobs, buy & sell cars, cities, and more. Join the ones you want.' },
+              { num: '03', title: 'Connect and explore', body: 'Post your availability, find a job, grab a car deal, or meet fellow backpackers across Australia.' },
+            ].map(s => (
+              <div key={s.num} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '3rem', color: 'rgba(30,18,8,0.08)', lineHeight: 1, marginBottom: 12 }}>{s.num}</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1a1208', marginBottom: 8 }}>{s.title}</div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 300, color: 'rgba(30,18,8,0.5)', lineHeight: 1.75, maxWidth: 220 }}>{s.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* COMMUNITY + GROUPS */}
       <section className="community-section" id="community" aria-labelledby="community-heading">
         <div className="community-section-inner">

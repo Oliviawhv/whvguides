@@ -69,9 +69,9 @@ export default function CarTransfer() {
       <div style={{ fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', color: '#0F172A', margin:0, padding:0 }}>
 
       {/* NAV */}
-      <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100, margin:0 }}>
+      <nav style={{ display:'grid', gridTemplateColumns:'1fr auto 1fr', alignItems:'center', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100, margin:0 }}>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-          <Logo size={52}/>
+          <Logo size={46}/>
           <div>
             <div style={{ fontSize:15, fontWeight:800, color:'#fff', letterSpacing:'-.2px' }}>WHV Guides</div>
             <div style={{ fontSize:10, color:'rgba(255,255,255,.4)', marginTop:2 }}>Car Transfer</div>
@@ -79,9 +79,11 @@ export default function CarTransfer() {
         </div>
         <div style={{ display:'flex', alignItems:'center', gap:0 }}>
           {['How it works','Why us','Pricing','Contact'].map(l => (
-            <a key={l} href={`#${l.toLowerCase().replace(/ /g,'-')}`} style={{ fontSize:13, color:'rgba(255,255,255,.65)', padding:'6px 18px', textDecoration:'none', whiteSpace:'nowrap' }}>{l}</a>
+            <a key={l} href={`#${l.toLowerCase().replace(/ /g,'-')}`} style={{ fontSize:13, color:'rgba(255,255,255,.65)', padding:'6px 16px', textDecoration:'none', whiteSpace:'nowrap' }}>{l}</a>
           ))}
-          <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none', marginLeft:8, whiteSpace:'nowrap' }}>Request Transfer</a>
+        </div>
+        <div style={{ display:'flex', justifyContent:'flex-end' }}>
+          <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none', whiteSpace:'nowrap' }}>Request Transfer</a>
         </div>
       </nav>
 

@@ -1,7 +1,9 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!.*\\.).*)","destination": "/index.html" }
+    { "source": "/car", "destination": "/index.html" },
+    { "source": "/car/legal", "destination": "/index.html" },
+    { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

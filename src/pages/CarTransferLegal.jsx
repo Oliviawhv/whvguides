@@ -29,6 +29,20 @@ const Section = ({ title, children }) => (
 )
 
 export default function CarTransferLegal() {
+  React.useEffect(() => {
+    document.title = 'Legal - WHV Guides Car Transfer'
+    const setMeta = (name, content) => {
+      let el = document.querySelector(`meta[name="${name}"]`)
+      if (!el) { el = document.createElement('meta'); el.setAttribute('name', name); document.head.appendChild(el) }
+      el.setAttribute('content', content)
+    }
+    setMeta('description', 'Client Agreement and Privacy Policy for WHV Guides Car Transfer - Australia-wide vehicle relocation service.')
+    setMeta('robots', 'noindex, follow')
+    let canonical = document.querySelector('link[rel="canonical"]')
+    if (!canonical) { canonical = document.createElement('link'); canonical.setAttribute('rel', 'canonical'); document.head.appendChild(canonical) }
+    canonical.setAttribute('href', 'https://www.whvguides.com.au/car/legal')
+    return () => { document.title = 'WHV Guides Australia - Working Holiday Visa Communities' }
+  }, [])
   return (
     <div style={{ fontFamily:'-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', background:'#F8FAFC', minHeight:'100vh' }}>
 

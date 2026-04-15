@@ -66,6 +66,29 @@ export default function CarTransfer() {
         html, body { margin: 0 !important; padding: 0 !important; }
         * { box-sizing: border-box; }
         #root { margin: 0; padding: 0; }
+
+        @media (max-width: 768px) {
+          .nav-links { display: none !important; }
+          .nav-cta { display: none !important; }
+          .hero-h1 { font-size: 32px !important; line-height: 1.12 !important; }
+          .hero-p { font-size: 14px !important; }
+          .hero-btns { flex-direction: column !important; align-items: stretch !important; }
+          .hero-btns a { text-align: center !important; }
+          .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+          .stats-grid > div:nth-child(2) { border-right: none !important; }
+          .stats-grid > div:nth-child(3) { border-top: 1px solid #E2E8F0 !important; }
+          .stats-grid > div:nth-child(4) { border-top: 1px solid #E2E8F0 !important; }
+          .why-cards { grid-template-columns: 1fr !important; }
+          .why-wide-inner { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+          .how-grid { grid-template-columns: 1fr !important; }
+          .contact-grid { grid-template-columns: 1fr !important; }
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; }
+          .footer-brand { grid-column: 1 / -1 !important; }
+          .section-pad { padding: 2rem 1.25rem !important; }
+          .hero-pad { padding: 1.5rem 1.25rem 2rem !important; }
+          .h2-mobile { font-size: 24px !important; }
+          .testimonial-role { font-size: 11px !important; }
+        }
       `}</style>
       <div style={{ fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', color: '#0F172A', margin:0, padding:0 }}>
 
@@ -78,34 +101,31 @@ export default function CarTransfer() {
             <div style={{ fontSize:10, color:'rgba(255,255,255,.4)', marginTop:2 }}>Car Transfer</div>
           </div>
         </div>
-        <div style={{ position:'absolute', left:'50%', transform:'translateX(-50%)', display:'flex', alignItems:'center', gap:0 }}>
+        <div className="nav-links" style={{ position:'absolute', left:'50%', transform:'translateX(-50%)', display:'flex', alignItems:'center', gap:0 }}>
           {['How it works','Why us','Pricing','Contact'].map(l => (
             <a key={l} href={`#${l.toLowerCase().replace(/ /g,'-')}`} style={{ fontSize:13, color:'rgba(255,255,255,.65)', padding:'6px 16px', textDecoration:'none', whiteSpace:'nowrap' }}>{l}</a>
           ))}
         </div>
-        <div style={{ display:'flex', justifyContent:'flex-end', marginLeft:'auto' }}>
+        <div className="nav-cta" style={{ display:'flex', justifyContent:'flex-end', marginLeft:'auto' }}>
           <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none', whiteSpace:'nowrap' }}>Request Transfer</a>
         </div>
       </nav>
 
       {/* HERO */}
-      <div style={{ background:'#fff', padding:'1.5rem 2rem 2.5rem', textAlign:'center', borderBottom:`1px solid ${BORDER}` }}>
-        <div style={{ display:'inline-flex', alignItems:'center', gap:7, background:GREEN_LIGHT, border:`1px solid #BBF7D0`, borderRadius:30, padding:'5px 16px', fontSize:12, color:GREEN_DARK, fontWeight:600, marginBottom:'1.25rem' }}>
-          <span style={{ width:6, height:6, borderRadius:'50%', background:GREEN, display:'inline-block' }}/>
-          Australia-wide · 1,600+ drivers · 7 days a week
-        </div>
-        <h1 style={{ fontSize:46, fontWeight:800, color:NAVY, lineHeight:1.08, marginBottom:'.75rem' }}>
+      <div className="hero-pad" style={{ background:'#fff', padding:'1.5rem 2rem 2.5rem', textAlign:'center', borderBottom:`1px solid ${BORDER}` }}>
+
+        <h1 className="hero-h1" style={{ fontSize:46, fontWeight:800, color:NAVY, lineHeight:1.08, marginBottom:'.75rem' }}>
           Your fleet moved.<br/><span style={{ color:GREEN }}>No hassle. No stress.</span>
         </h1>
-        <p style={{ fontSize:16, color:GRAY, lineHeight:1.65, maxWidth:520, margin:'0 auto 1.5rem' }}>
+        <p className="hero-p" style={{ fontSize:16, color:GRAY, lineHeight:1.65, maxWidth:520, margin:'0 auto 1.5rem' }}>
           One email is all it takes. We find the driver, handle all communication, and confirm within 30-60 minutes - even in emergencies. You focus on your business, we handle everything else.
         </p>
-        <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap', marginBottom:'2rem' }}>
+        <div className="hero-btns" style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap', marginBottom:'2rem' }}>
           <a href="mailto:info@whvguides.com.au" style={{ background:NAVY, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Request a transfer</a>
           <a href="https://wa.me/61403873376" style={{ background:NAVY, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Chat on WhatsApp</a>
         </div>
         {/* STATS */}
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', maxWidth:700, margin:'0 auto', border:`2px solid ${BORDER}`, borderRadius:16, overflow:'hidden', background:OFFWHITE }}>
+        <div className="stats-grid" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', maxWidth:700, margin:'0 auto', border:`2px solid ${BORDER}`, borderRadius:16, overflow:'hidden', background:OFFWHITE }}>
           {[
             { v: <><span style={{color:'#0F172A'}}>1,600</span><span style={{color:GREEN}}>+</span></>, l:'Active drivers' },
             { v: <><div style={{display:'flex',alignItems:'baseline',justifyContent:'center'}}><span style={{color:'#0F172A',fontSize:24,fontWeight:800}}>30</span><span style={{color:'#0F172A',fontWeight:800}}>-</span><span style={{color:'#0F172A',fontSize:24,fontWeight:800}}>60</span></div><div style={{fontSize:11,fontWeight:700,color:GREEN,marginTop:1}}>min</div></>, l:'To confirm' },
@@ -121,13 +141,13 @@ export default function CarTransfer() {
       </div>
 
       {/* WHY */}
-      <div id="why-us" style={{ padding:'3rem 2rem', background:LIGHT }}>
+      <div id="why-us" className="section-pad" style={{ padding:'3rem 2rem', background:LIGHT }}>
         <div style={{ textAlign:'center', marginBottom:'1.75rem' }}>
           <div style={{ display:'inline-block', background:GREEN_LIGHT, color:GREEN_DARK, fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', padding:'4px 14px', borderRadius:30, marginBottom:'.8rem' }}>Why choose us</div>
-          <h2 style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>We remove every pain point.</h2>
+          <h2 className="h2-mobile" style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>We remove every pain point.</h2>
           <p style={{ fontSize:15, color:GRAY, maxWidth:520, margin:'0 auto', lineHeight:1.65 }}>From finding the driver to confirming delivery - we own the entire process.</p>
         </div>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20, maxWidth:820, margin:'0 auto' }}>
+        <div className="why-cards" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20, maxWidth:820, margin:'0 auto' }}>
           {[
             { icon: <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>, title:'Zero driver headaches', desc:"We source, vet, and brief every driver. You never deal with drivers directly - no calls, no chasing, no stress." },
             { icon: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>, title:'30-60 min, guaranteed', desc:"Emergency relocation? Last-minute need? We confirm a driver within 30-60 minutes, 24 hours a day, 7 days a week." },
@@ -145,7 +165,7 @@ export default function CarTransfer() {
         </div>
         {/* WIDE CARD */}
         <div style={{ background:NAVY, borderRadius:16, padding:'1.5rem', maxWidth:820, margin:'14px auto 0' }}>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2.5rem', alignItems:'center' }}>
+          <div className="why-wide-inner" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2.5rem', alignItems:'center' }}>
             <div>
               <h3 style={{ fontSize:20, fontWeight:800, color:'#fff', marginBottom:10 }}>From emergencies to everyday moves - we're always ready.</h3>
               <p style={{ fontSize:14, color:'rgba(255,255,255,.55)', lineHeight:1.7 }}>Whether it's a breakdown recovery, urgent interstate transfer, or routine fleet repositioning, our network of 1,600+ working holiday drivers means we always have someone ready - 24 hours a day, 7 days a week.</p>
@@ -163,13 +183,13 @@ export default function CarTransfer() {
       </div>
 
       {/* HOW IT WORKS */}
-      <div id="how-it-works" style={{ padding:'3rem 2rem', background:'#fff' }}>
+      <div id="how-it-works" className="section-pad" style={{ padding:'3rem 2rem', background:'#fff' }}>
         <div style={{ textAlign:'center', marginBottom:'1.75rem' }}>
           <div style={{ display:'inline-block', background:'#DBEAFE', color:'#1E40AF', fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', padding:'4px 14px', borderRadius:30, marginBottom:'.8rem' }}>How it works</div>
-          <h2 style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Four steps. One email.</h2>
+          <h2 className="h2-mobile" style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Four steps. One email.</h2>
           <p style={{ fontSize:15, color:GRAY, maxWidth:520, margin:'0 auto', lineHeight:1.65 }}>We've made it as simple as possible so you can get back to running your business.</p>
         </div>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:16, maxWidth:740, margin:'0 auto' }}>
+        <div className="how-grid" style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:16, maxWidth:740, margin:'0 auto' }}>
           {[
             { n:1, title:'Send your request', desc:'Email us the pickup location, drop-off address, vehicle details, and required date/time.' },
             { n:2, title:'Confirmed in 30-60 min', desc:'We match the job to a vetted driver from our WhatsApp network and send confirmed details.' },
@@ -186,10 +206,8 @@ export default function CarTransfer() {
       </div>
 
       {/* TESTIMONIALS */}
-      <div style={{ padding:'3rem 2rem', background:LIGHT }}>
-        <div style={{ textAlign:'center', marginBottom:'1.75rem' }}>
-          <div style={{ display:'inline-block', background:GREEN_LIGHT, color:GREEN_DARK, fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', padding:'4px 14px', borderRadius:30, marginBottom:'.8rem' }}>Client reviews</div>
-          <h2 style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>What our clients say</h2>
+      <div className="section-pad" style={{ padding:'3rem 2rem', background:LIGHT }}>
+          <h2 className="h2-mobile" style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>What our clients say</h2>
           <p style={{ fontSize:15, color:GRAY, maxWidth:520, margin:'0 auto', lineHeight:1.65 }}>Rental companies across Australia trust us with their fleet every day.</p>
         </div>
         <div style={{ display:'flex', flexDirection:'column', gap:16, maxWidth:780, margin:'0 auto' }}>
@@ -206,7 +224,7 @@ export default function CarTransfer() {
                     <div style={{ width:46, height:46, minWidth:46, borderRadius:'50%', background:NAVY, color:'#fff', fontSize:13, fontWeight:800, display:'flex', alignItems:'center', justifyContent:'center' }}>{t.init}</div>
                     <div>
                       <div style={{ fontSize:14, fontWeight:800, color:'#0F172A' }}>{t.name}</div>
-                      <div style={{ fontSize:12, color:GRAY, marginTop:2 }}>{t.role}</div>
+                      <div className="testimonial-role" style={{ fontSize:12, color:GRAY, marginTop:2 }}>{t.role}</div>
                     </div>
                   </div>
                   <div style={{ fontSize:13, color:GREEN, letterSpacing:2, whiteSpace:'nowrap' }}>★★★★★</div>
@@ -219,10 +237,10 @@ export default function CarTransfer() {
       </div>
 
       {/* PRICING */}
-      <div id="pricing" style={{ padding:'3rem 2rem', background:'#fff' }}>
+      <div id="pricing" className="section-pad" style={{ padding:'3rem 2rem', background:'#fff' }}>
         <div style={{ textAlign:'center', marginBottom:'1.75rem' }}>
           <div style={{ display:'inline-block', background:'#DBEAFE', color:'#1E40AF', fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', padding:'4px 14px', borderRadius:30, marginBottom:'.8rem' }}>Pricing</div>
-          <h2 style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Simple, transparent pricing</h2>
+          <h2 className="h2-mobile" style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Simple, transparent pricing</h2>
           <p style={{ fontSize:15, color:GRAY, maxWidth:520, margin:'0 auto', lineHeight:1.65 }}>No hidden fees. A written quote confirmed before every single transfer.</p>
         </div>
         <div style={{ maxWidth:600, margin:'0 auto', border:`1.5px solid ${BORDER}`, borderRadius:16, overflow:'hidden', background:'#fff' }}>
@@ -262,13 +280,13 @@ export default function CarTransfer() {
       </div>
 
       {/* CONTACT */}
-      <div id="contact" style={{ padding:'3rem 2rem', background:LIGHT }}>
+      <div id="contact" className="section-pad" style={{ padding:'3rem 2rem', background:LIGHT }}>
         <div style={{ textAlign:'center', marginBottom:'1.75rem' }}>
           <div style={{ display:'inline-block', background:'#DBEAFE', color:'#1E40AF', fontSize:11, fontWeight:700, letterSpacing:'.08em', textTransform:'uppercase', padding:'4px 14px', borderRadius:30, marginBottom:'.8rem' }}>Contact</div>
-          <h2 style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Get in touch</h2>
+          <h2 className="h2-mobile" style={{ fontSize:30, fontWeight:800, color:NAVY, marginBottom:'.4rem' }}>Get in touch</h2>
           <p style={{ fontSize:15, color:GRAY, maxWidth:520, margin:'0 auto', lineHeight:1.65 }}>Available 24 hours a day, 7 days a week - including emergencies.</p>
         </div>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:16, maxWidth:620, margin:'0 auto' }}>
+        <div className="contact-grid" style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:16, maxWidth:620, margin:'0 auto' }}>
           <div style={{ background:'#fff', border:`1.5px solid ${BORDER}`, borderRadius:14, padding:'1.5rem', display:'flex', gap:14 }}>
             <div style={{ width:46, height:46, minWidth:46, background:NAVY, borderRadius:11, display:'flex', alignItems:'center', justifyContent:'center' }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="#86EFAC"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -294,8 +312,8 @@ export default function CarTransfer() {
 
       {/* FOOTER */}
       <div style={{ background:NAVY, padding:'1rem 2rem 0.75rem' }}>
-        <div style={{ display:'grid', gridTemplateColumns:'1.5fr 1fr 1fr 1fr', gap:'1rem', marginBottom:'0.75rem', paddingBottom:'0.75rem', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
-          <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
+        <div className="footer-grid" style={{ display:'grid', gridTemplateColumns:'1.5fr 1fr 1fr 1fr', gap:'1rem', marginBottom:'0.75rem', paddingBottom:'0.75rem', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
+          <div className="footer-brand" style={{ display:'flex', flexDirection:'column', gap:12 }}>
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <Logo size={46}/>
               <div>
@@ -308,7 +326,6 @@ export default function CarTransfer() {
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.5)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:14 }}>Legal</div>
             <a href="/car/legal" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Client Agreement</a>
-            <a href="/car/legal#privacy" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Privacy Policy</a>
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.5)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:14 }}>Contact</div>

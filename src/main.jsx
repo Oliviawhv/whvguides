@@ -27,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <ScrollToTop />
         <Routes>
           {/* Car Transfer pages - standalone, no Layout wrapper */}
-          <Route path="/whvguides/car"        element={<CarTransfer />} />
-          <Route path="/whvguides/car/legal"  element={<CarTransferLegal />} />
+          <Route path="/car"        element={<CarTransfer />} />
+          <Route path="/car/legal"  element={<CarTransferLegal />} />
 
           <Route element={<Layout />}>
             <Route path="/"             element={<Home />} />

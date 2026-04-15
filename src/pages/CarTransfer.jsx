@@ -32,10 +32,10 @@ const CheckIcon = () => (
 
 export default function CarTransfer() {
   return (
-    <div style={{ fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', color: '#0F172A' }}>
+    <div style={{ fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', color: '#0F172A', margin:0, padding:0 }}>
 
       {/* NAV */}
-      <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100 }}>
+      <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100, margin:0 }}>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
           <Logo size={52}/>
           <div>
@@ -43,11 +43,11 @@ export default function CarTransfer() {
             <div style={{ fontSize:10, color:'rgba(255,255,255,.4)', marginTop:2 }}>Car Transfer</div>
           </div>
         </div>
-        <div style={{ display:'flex', alignItems:'center', gap:2 }}>
+        <div style={{ display:'flex', alignItems:'center', gap:0 }}>
           {['How it works','Why us','Pricing','Contact'].map(l => (
-            <a key={l} href={`#${l.toLowerCase().replace(/ /g,'-')}`} style={{ fontSize:13, color:'rgba(255,255,255,.65)', padding:'6px 12px', borderRadius:6, textDecoration:'none', whiteSpace:'nowrap' }}>{l}</a>
+            <a key={l} href={`#${l.toLowerCase().replace(/ /g,'-')}`} style={{ fontSize:13, color:'rgba(255,255,255,.65)', padding:'6px 18px', textDecoration:'none', whiteSpace:'nowrap' }}>{l}</a>
           ))}
-          <a href="mailto:info@srtgsdfg.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none', marginLeft:8, whiteSpace:'nowrap' }}>Request Transfer</a>
+          <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none', marginLeft:8, whiteSpace:'nowrap' }}>Request Transfer</a>
         </div>
       </nav>
 
@@ -64,8 +64,8 @@ export default function CarTransfer() {
           One email is all it takes. We find the driver, handle all communication, and confirm within 30-60 minutes - even in emergencies. You focus on your business, we handle everything else.
         </p>
         <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap', marginBottom:'3.5rem' }}>
-          <a href="mailto:info@srtgsdfg.com.au" style={{ background:NAVY, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Request a transfer</a>
-          <a href="https://wa.me/61444444444" style={{ background:'transparent', color:NAVY, border:`2px solid ${NAVY}`, padding:'13px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Chat on WhatsApp</a>
+          <a href="mailto:info@whvguides.com.au" style={{ background:NAVY, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Request a transfer</a>
+          <a href="https://wa.me/61403873376" style={{ background:'transparent', color:NAVY, border:`2px solid ${NAVY}`, padding:'13px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Chat on WhatsApp</a>
         </div>
         {/* STATS */}
         <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', maxWidth:700, margin:'0 auto', border:`2px solid ${BORDER}`, borderRadius:16, overflow:'hidden', background:OFFWHITE }}>
@@ -218,8 +218,8 @@ export default function CarTransfer() {
           <h2 style={{ fontSize:30, fontWeight:800, color:'#fff', marginBottom:'.75rem' }}>Need a driver?<br/><span style={{ color:'#86EFAC' }}>We'll have one ready.</span></h2>
           <p style={{ fontSize:15, color:'rgba(255,255,255,.5)', marginBottom:'2rem', lineHeight:1.65 }}>Send us the details and we'll confirm a vetted driver in 30-60 minutes - any city, any distance, any time of day or night.</p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href="mailto:info@srtgsdfg.com.au" style={{ background:GREEN, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Request a transfer</a>
-            <a href="https://wa.me/61444444444" style={{ background:'transparent', color:'#fff', border:'1.5px solid rgba(255,255,255,.25)', padding:'13px 30px', borderRadius:10, fontSize:15, fontWeight:600, textDecoration:'none', display:'inline-block' }}>Chat on WhatsApp</a>
+            <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', border:'none', padding:'14px 30px', borderRadius:10, fontSize:15, fontWeight:700, textDecoration:'none', display:'inline-block' }}>Request a transfer</a>
+            <a href="https://wa.me/61403873376" style={{ background:'transparent', color:'#fff', border:'1.5px solid rgba(255,255,255,.25)', padding:'13px 30px', borderRadius:10, fontSize:15, fontWeight:600, textDecoration:'none', display:'inline-block' }}>Chat on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@ export default function CarTransfer() {
             </div>
             <div>
               <div style={{ fontSize:10, color:'#94A3B8', fontWeight:700, textTransform:'uppercase', letterSpacing:'.07em', marginBottom:4 }}>Email</div>
-              <a href="mailto:info@srtgsdfg.com.au" style={{ fontSize:14, fontWeight:700, color:'#0F172A', textDecoration:'none', display:'block' }}>info@srtgsdfg.com.au</a>
+              <a href="mailto:info@whvguides.com.au" style={{ fontSize:14, fontWeight:700, color:'#0F172A', textDecoration:'none', display:'block' }}>info@whvguides.com.au</a>
               <div style={{ fontSize:11, color:'#94A3B8', marginTop:3 }}>We reply within 30 minutes, around the clock</div>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function CarTransfer() {
             </div>
             <div>
               <div style={{ fontSize:10, color:'#94A3B8', fontWeight:700, textTransform:'uppercase', letterSpacing:'.07em', marginBottom:4 }}>WhatsApp</div>
-              <a href="https://wa.me/61444444444" style={{ fontSize:14, fontWeight:700, color:'#0F172A', textDecoration:'none', display:'block' }}>+61 444 444 444</a>
+              <a href="https://wa.me/61403873376" style={{ fontSize:14, fontWeight:700, color:'#0F172A', textDecoration:'none', display:'block' }}>+61 403 873 376</a>
               <div style={{ fontSize:11, color:'#94A3B8', marginTop:3 }}>Available 24/7 including public holidays</div>
             </div>
           </div>
@@ -270,29 +270,22 @@ export default function CarTransfer() {
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.5)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:14 }}>Legal</div>
-            <a href="/whvguides/car/legal" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Client Agreement</a>
-            <a href="/whvguides/car/legal#privacy" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Privacy Policy</a>
+            <a href="/car/legal" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Client Agreement</a>
+            <a href="/car/legal#privacy" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Privacy Policy</a>
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.5)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:14 }}>Contact</div>
-            <a href="mailto:info@srtgsdfg.com.au" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>info@srtgsdfg.com.au</a>
-            <a href="https://wa.me/61444444444" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>WhatsApp</a>
-            <a href="tel:+61444444444" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>+61 444 444 444</a>
+            <a href="mailto:info@whvguides.com.au" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>info@whvguides.com.au</a>
+                        <a href="tel:+61403873376" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>+61 403 873 376</a>
           </div>
           <div>
             <div style={{ fontSize:12, fontWeight:700, color:'rgba(255,255,255,.5)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:14 }}>Quick links</div>
-            <a href="#how-it-works" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>How it works</a>
-            <a href="#why-us" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Why choose us</a>
             <a href="#pricing" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Pricing</a>
-            <a href="mailto:info@srtgsdfg.com.au" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Request a transfer</a>
+            <a href="mailto:info@whvguides.com.au" style={{ display:'block', fontSize:13, color:'rgba(255,255,255,.6)', textDecoration:'none', marginBottom:8 }}>Request a transfer</a>
           </div>
         </div>
-        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:8 }}>
-          <div style={{ fontSize:12, color:'rgba(255,255,255,.25)' }}>&copy; 2026 WHV Guides Car Transfer - ABN [your ABN here] - All rights reserved</div>
-          <div style={{ display:'flex', gap:16 }}>
-            <a href="/whvguides/car/legal#privacy" style={{ fontSize:12, color:'rgba(255,255,255,.3)', textDecoration:'none' }}>Privacy Policy</a>
-            <a href="/whvguides/car/legal" style={{ fontSize:12, color:'rgba(255,255,255,.3)', textDecoration:'none' }}>Client Agreement</a>
-          </div>
+        <div style={{ textAlign:'center' }}>
+          <div style={{ fontSize:12, color:'rgba(255,255,255,.35)' }}>&copy; 2026 WHV Guides Car Transfer. All rights reserved</div>
         </div>
       </div>
 

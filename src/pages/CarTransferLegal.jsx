@@ -33,18 +33,18 @@ export default function CarTransferLegal() {
     <div style={{ fontFamily:'-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', background:'#F8FAFC', minHeight:'100vh' }}>
 
       <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100 }}>
-        <a href="/whvguides/car" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none' }}>
+        <a href="/car" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none' }}>
           <Logo/>
           <div>
             <div style={{ fontSize:15, fontWeight:800, color:'#fff' }}>WHV Guides</div>
             <div style={{ fontSize:10, color:'rgba(255,255,255,.4)', marginTop:2 }}>Car Transfer</div>
           </div>
         </a>
-        <a href="mailto:info@srtgsdfg.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none' }}>Request Transfer</a>
+        <a href="mailto:info@whvguides.com.au" style={{ background:GREEN, color:'#fff', fontSize:13, fontWeight:700, padding:'9px 20px', borderRadius:8, textDecoration:'none' }}>Request Transfer</a>
       </nav>
 
       <div style={{ maxWidth:760, margin:'0 auto', padding:'3rem 2rem 5rem' }}>
-        <a href="/whvguides/car" style={{ display:'inline-flex', alignItems:'center', gap:6, color:GREEN_DARK, fontSize:14, fontWeight:600, textDecoration:'none', marginBottom:'2rem' }}>← Back to main site</a>
+        <a href="/car" style={{ display:'inline-flex', alignItems:'center', gap:6, color:GREEN_DARK, fontSize:14, fontWeight:600, textDecoration:'none', marginBottom:'2rem' }}>← Back to main site</a>
 
         {/* CLIENT AGREEMENT */}
         <div style={{ marginBottom:'2.5rem' }}>
@@ -135,11 +135,11 @@ export default function CarTransferLegal() {
           </Section>
 
           <Section title="5. Your rights">
-            <p style={{ fontSize:14, color:GRAY, lineHeight:1.8 }}>Under the Australian Privacy Act 1988, you have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at <a href="mailto:info@srtgsdfg.com.au" style={{ color:GREEN }}>info@srtgsdfg.com.au</a>.</p>
+            <p style={{ fontSize:14, color:GRAY, lineHeight:1.8 }}>Under the Australian Privacy Act 1988, you have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at <a href="mailto:info@whvguides.com.au" style={{ color:GREEN }}>info@whvguides.com.au</a>.</p>
           </Section>
 
           <Section title="6. Contact">
-            <p style={{ fontSize:14, color:GRAY, lineHeight:1.8 }}>For any privacy-related queries, please contact WHV Guides at <a href="mailto:info@srtgsdfg.com.au" style={{ color:GREEN }}>info@srtgsdfg.com.au</a>.</p>
+            <p style={{ fontSize:14, color:GRAY, lineHeight:1.8 }}>For any privacy-related queries, please contact WHV Guides at <a href="mailto:info@whvguides.com.au" style={{ color:GREEN }}>info@whvguides.com.au</a>.</p>
           </Section>
         </div>
       </div>

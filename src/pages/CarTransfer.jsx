@@ -342,8 +342,6 @@ export default function CarTransfer() {
           <div style={{ fontSize:12, color:'rgba(255,255,255,.35)' }}>&copy; 2026 WHV Guides Car Transfer. All rights reserved</div>
         </div>
       </div>
-
-    </div>
     </>
   )
 }

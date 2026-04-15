@@ -89,7 +89,7 @@ export default function CarTransfer() {
       </nav>
 
       {/* HERO */}
-      <div style={{ background:'#fff', padding:'3rem 2rem 2.5rem', textAlign:'center', borderBottom:`1px solid ${BORDER}` }}>
+      <div style={{ background:'#fff', padding:'1.5rem 2rem 2.5rem', textAlign:'center', borderBottom:`1px solid ${BORDER}` }}>
         <div style={{ display:'inline-flex', alignItems:'center', gap:7, background:GREEN_LIGHT, border:`1px solid #BBF7D0`, borderRadius:30, padding:'5px 16px', fontSize:12, color:GREEN_DARK, fontWeight:600, marginBottom:'1.25rem' }}>
           <span style={{ width:6, height:6, borderRadius:'50%', background:GREEN, display:'inline-block' }}/>
           Australia-wide · 1,600+ drivers · 7 days a week

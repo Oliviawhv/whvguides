@@ -70,7 +70,7 @@ export default function CarTransfer() {
       <div style={{ fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif', color: '#0F172A', margin:0, padding:0 }}>
 
       {/* NAV */}
-      <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100, margin:0, position:'relative' }}>
+      <nav style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 2rem', height:58, background:NAVY, position:'sticky', top:0, zIndex:100, margin:0 }}>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
           <Logo size={46}/>
           <div>
@@ -152,8 +152,8 @@ export default function CarTransfer() {
             </div>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
               {['Emergency same-day transfers confirmed in under an hour','Interstate and intra-city coverage Australia-wide','Zero direct driver management - we handle it all','Available 24/7 including weekends'].map((t,i) => (
-                <div key={i} style={{ display:'flex', alignItems:'flex-start', gap:10 }}>
-                  <div style={{ width:20, height:20, minWidth:20, borderRadius:'50%', background:GREEN, display:'flex', alignItems:'center', justifyContent:'center', marginTop:1 }}><CheckIcon/></div>
+                <div key={i} style={{ display:'flex', alignItems:'center', gap:10 }}>
+                  <div style={{ width:20, height:20, minWidth:20, borderRadius:'50%', background:GREEN, display:'flex', alignItems:'center', justifyContent:'center' }}><CheckIcon/></div>
                   <p style={{ fontSize:13, color:'rgba(255,255,255,.7)', lineHeight:1.5 }}>{t}</p>
                 </div>
               ))}
@@ -293,8 +293,8 @@ export default function CarTransfer() {
       </div>
 
       {/* FOOTER */}
-      <div style={{ background:NAVY, padding:'1.5rem 2rem 1rem' }}>
-        <div style={{ display:'grid', gridTemplateColumns:'1.5fr 1fr 1fr 1fr', gap:'1.5rem', marginBottom:'1rem', paddingBottom:'1rem', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
+      <div style={{ background:NAVY, padding:'1rem 2rem 0.75rem' }}>
+        <div style={{ display:'grid', gridTemplateColumns:'1.5fr 1fr 1fr 1fr', gap:'1rem', marginBottom:'0.75rem', paddingBottom:'0.75rem', borderBottom:'1px solid rgba(255,255,255,.08)' }}>
           <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <Logo size={46}/>

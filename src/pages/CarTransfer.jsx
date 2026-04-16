@@ -66,14 +66,7 @@ export default function CarTransfer() {
     { q: 'Who is responsible if there\'s damage to the vehicle?', a: 'We operate as a coordination platform, and liability for any damage during transit sits between the driver and your insurance coverage. We recommend ensuring your vehicle is insured for third-party drivers prior to each transfer. For added protection, we also advise taking photos at both pickup and delivery.' },
     { q: 'How does payment work?', a: 'Every job starts with a written quote for full transparency. Once the transfer is complete, payment is due within 7 days via bank transfer or card. We manage all driver payments internally - giving you one simple point of contact.' },
     { q: 'Do you cover regional and remote areas?', a: 'Yes - we provide nationwide coverage across Australia, including regional and remote areas. Our extensive driver network ensures we can reach even less accessible locations, with slightly longer confirmation times where required.' },
-    { q: 'How quickly can you organise a driver?', a: 'We usually confirm a driver within 30–60 minutes, 24/7. For remote areas, it may take slightly longer depending on availability.' },
     { q: 'What types of vehicles can you move?', a: 'We handle a wide range of vehicles including standard cars, rental fleets, dealership vehicles, and light commercial vehicles.' },
-    { q: 'Do I need to deal with the driver directly?', a: 'No - all communication, coordination, and payment are handled by us. You only deal with our team.' },
-    { q: 'Is the service available after hours and on weekends?', a: 'Yes - we operate 24/7, including weekends and public holidays.' },
-    { q: 'How do I book a transfer?', a: 'Simply email us the pickup location, destination, vehicle details, and timing. We take care of the rest.' },
-    { q: 'Can you handle urgent or last-minute transfers?', a: 'Yes - urgent and emergency relocations are one of our core services.' },
-    { q: 'How do you select drivers?', a: 'We match each job with available drivers from our network and prioritise reliability, availability, and suitability for the route.' },
-    { q: 'Do you provide updates during the transfer?', a: 'Yes - we monitor each job and keep you updated throughout the process until handover is confirmed.' },
   ]
 
 
@@ -197,7 +190,7 @@ export default function CarTransfer() {
             {[
               { icon: <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>, title: 'No driver chasing. Ever.', desc: 'We source, vet, and manage every driver - so you never deal with coordination, calls, or follow-ups.' },
               { icon: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>, title: 'Ready in 30–60 minutes.', desc: 'Urgent or last-minute? A driver is secured and confirmed fast - available 24/7 across Australia.' },
-              { icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>, title: 'Fully managed end-to-end.', desc: 'From dispatch and communication to tracking, payment, and handover confirmation - everything is handled for you.' },
+              { icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>, title: 'Fully managed end-to-end service', desc: 'From dispatch and communication to tracking, payment, and handover confirmation - everything is handled for you.' },
             ].map((c, i) => (
               <div key={i} style={{ background: OFFWHITE, border: `1.5px solid ${BORDER}`, borderRadius: 16, padding: '1.25rem', textAlign: 'center' }}>
                 <div style={{ width: 52, height: 52, borderRadius: 14, background: GREEN_LIGHT, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px' }}>
@@ -229,7 +222,7 @@ export default function CarTransfer() {
         {/* TESTIMONIALS */}
         <div className="section-pad" style={{ padding: '2rem 2rem', background: LIGHT }}>
           <div style={{ textAlign: 'center', marginBottom: '1.25rem', maxWidth: 780, margin: '0 auto 1.75rem' }}>
-            <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '.8rem' }}>Client stories</div>
+            <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '.8rem' }}>What our clients say</div>
             <h2 className="h2-mobile" style={{ fontSize: 30, fontWeight: 800, color: NAVY, marginBottom: '.4rem' }}>What our clients say</h2>
             <p style={{ fontSize: 15, color: GRAY, lineHeight: 1.65 }}>Trusted by rental companies and fleet operators across Australia for fast, reliable vehicle transfers.</p>
           </div>
@@ -273,10 +266,10 @@ export default function CarTransfer() {
               ['Base rate', '$0.60 / km'],
               ['Fuel costs (where required)', 'Added to final quote'],
               ['Return trip', 'Added to final quote'],
-              ['Overnight stay required', 'Fully managed by us'],
+              ['Overnight stay required', '\$100+ per night - fully managed by us'],
               ['Response time', '30–60 minutes guaranteed'],
-              ['Driver admin and payment', 'Managed by us - free'],
-              ['Payment terms', '7 days from completion'],
+              ['Driver admin and payment', 'Managed by us'],
+              ['Payment due', 'Within 7 days after job completion'],
             ].map(([l, v], i, arr) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '11px 1.25rem', borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none', fontSize: 13, gap: 12 }}>
                 <span style={{ color: GRAY }}>{l}</span>
@@ -342,9 +335,9 @@ export default function CarTransfer() {
         </div>
 
         {/* FOOTER */}
-        <div style={{ background: NAVY, padding: '1rem 2rem 0.75rem' }}>
-          <div className="footer-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'flex-start', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
-            <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', gap: 12, flex: '1 1 180px', minWidth: 160 }}>
+        <div style={{ background: NAVY, padding: '2rem 2rem 1rem' }}>
+          <div style={{ maxWidth: 900, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 200 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Logo size={46}/>
                 <div>
@@ -352,25 +345,25 @@ export default function CarTransfer() {
                   <div style={{ fontSize: 10, color: 'rgba(255,255,255,.4)', marginTop: 1 }}>Car Transfer</div>
                 </div>
               </div>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,.4)', lineHeight: 1.5, maxWidth: 200, margin: 0 }}>Australia-wide vehicle relocation. Confirmed in 30-60 minutes, 24 hours a day, 7 days a week.</p>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,.4)', lineHeight: 1.5, margin: 0 }}>Australia-wide vehicle relocation. Confirmed in 30-60 minutes, 24 hours a day, 7 days a week.</p>
             </div>
-            <div style={{ flex: '0 0 auto' }}>
+            <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Legal</div>
               <a href="/car/legal" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Client Agreement</a>
             </div>
-            <div style={{ flex: '0 0 auto' }}>
+            <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Contact</div>
               <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>info@whvguides.com.au</a>
               <a href="tel:+61403873376" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>+61 403 873 376</a>
             </div>
-            <div style={{ flex: '0 0 auto' }}>
+            <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Quick links</div>
               <a href="#how-it-works" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>How it works</a>
               <a href="#pricing" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Pricing</a>
               <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Request a transfer</a>
             </div>
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto' }}>
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,.35)' }}>&copy; 2026 WHV Guides Car Transfer. All rights reserved.</div>
           </div>
         </div>

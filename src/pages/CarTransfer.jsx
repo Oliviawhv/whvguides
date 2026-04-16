@@ -127,7 +127,7 @@ export default function CarTransfer() {
               For car rental companies, dealerships &amp; fleet operators
             </div>
             <h1 className="hero-h1" style={{ fontSize: 42, fontWeight: 800, color: NAVY, lineHeight: 1.1, marginBottom: '.5rem', marginTop: 0 }}>
-              The easiest way to move a rental car.<span style={{ color: GREEN }}> Without touching a driver.</span>
+              The easiest way to move a rental car.<br/><span style={{ color: GREEN }}>Without touching a driver.</span>
             </h1>
             <p className="hero-p" style={{ fontSize: 15, color: GRAY, lineHeight: 1.7, maxWidth: 520, margin: '0 auto 1rem' }}>
               Send us the pickup location, destination, and date. We find the driver, handle all communication, and confirm within 30-60 minutes - day or night.
@@ -138,14 +138,14 @@ export default function CarTransfer() {
             </div>
             <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', border: `2px solid ${BORDER}`, borderRadius: 14, overflow: 'hidden', background: OFFWHITE, marginBottom: '2rem' }}>
               {[
-                { v: '1,600+', c: GREEN, l: 'Active drivers' },
+                { v: '1,600+', l: 'Active drivers' },
                 { v: '30-60', sub: 'min', l: 'To confirm' },
                 { v: '$0.60', l: 'Per km' },
                 { v: '24/7', l: 'Available' },
               ].map((s, i) => (
                 <div key={i} style={{ padding: '.9rem .5rem', textAlign: 'center', borderRight: i < 3 ? `1px solid ${BORDER}` : 'none' }}>
-                  <div style={{ fontSize: 20, fontWeight: 800, color: s.c || '#0F172A' }}>{s.v}{s.sub && <span style={{ fontSize: 11, color: GREEN, marginLeft: 2 }}>{s.sub}</span>}</div>
-                  <div style={{ fontSize: 11, color: GRAY, marginTop: 3, fontWeight: 500 }}>{s.l}</div>
+                  <div style={{ fontSize: 20, fontWeight: 800, color: '#0F172A' }}>{s.v}{s.sub && <span style={{ fontSize: 11, color: '#0F172A', marginLeft: 1, fontWeight: 800 }}>{s.sub}</span>}</div>
+                  <div style={{ fontSize: 11, color: GREEN, marginTop: 3, fontWeight: 600 }}>{s.l}</div>
                 </div>
               ))}
             </div>
@@ -204,7 +204,7 @@ export default function CarTransfer() {
                 <p style={{ fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.7, margin: 0 }}>Whether it's a breakdown recovery, urgent interstate transfer, or routine fleet repositioning, there's always a driver ready.</p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {['Emergency same-day transfers confirmed in under an hour', 'Interstate and intra-city coverage Australia-wide', 'Zero direct driver management - we handle it all', 'Available 24/7 including weekends and public holidays'].map((t, i) => (
+                {['Emergency transfers confirmed in under an hour', 'Interstate and intra-city coverage Australia-wide', 'Zero direct driver management - we handle it all', 'Available 24/7 including weekends and public holidays'].map((t, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <div style={{ width: 20, height: 20, minWidth: 20, borderRadius: '50%', background: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CheckIcon/></div>
                     <p style={{ fontSize: 13, color: 'rgba(255,255,255,.7)', lineHeight: 1.5, margin: 0 }}>{t}</p>

@@ -80,9 +80,9 @@ export default function CarTransferLegal() {
           <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '1rem' }}>Legal Document</div>
           <h1 style={{ fontSize: 36, fontWeight: 800, color: NAVY, marginBottom: '.75rem', marginTop: 0 }}>Client Agreement</h1>
           <p style={{ fontSize: 14, color: GRAY, lineHeight: 1.8, marginBottom: '1.25rem', marginTop: 0 }}>
-            <strong>Effective date:</strong> April 2026. This agreement covers all vehicle relocation requests made through WHV Guides Car Transfer. By submitting a request - by email, WhatsApp, phone, or any other channel - you agree to these terms.
+            <strong>Effective date:</strong> April 2026. This agreement covers all vehicle relocation requests made through WHV Guides Car Transfer. By submitting a request - by email, WhatsApp, phone, or any other channel - you agree to these agreement.
           </p>
-          <P>Think of us like Uber, but for vehicle relocations. We connect clients who need a car moved with available drivers from our community network. We handle the coordination and payment - we don't drive, own, or control any vehicle ourselves. All driving is done by independent drivers who are not employed by or affiliated with WHV Guides.</P>
+          <P>We connect clients who need a car moved with available drivers from our community network. We handle the coordination and payment - we don't drive, own, or control any vehicle ourselves. All driving is done by independent drivers who are not employed by or affiliated with WHV Guides.</P>
         </div>
 
         <Section num="1" title="Parties">
@@ -120,7 +120,7 @@ export default function CarTransferLegal() {
 
         <Section num="5" title="About Our Drivers">
           <P>Drivers in our network are independent individuals - they're not employees, contractors, or representatives of WHV Guides. We match them to transfers based on availability and route.</P>
-          <P>We don't carry out formal background checks or licence verifications. You're engaging the driver as an independent person, and we'd recommend documenting the vehicle's condition at pickup as a precaution.</P>
+          <P>We recommend documenting the vehicle's condition at pickup and delivery as a precaution. This protects both parties and ensures a smooth handover process.</P>
         </Section>
 
         <Section num="6" title="Our Liability">
@@ -136,7 +136,7 @@ export default function CarTransferLegal() {
             'A written quote is provided before every transfer - nothing proceeds without your confirmation;',
             'Payment is due within 7 days of the invoice date;',
             'We manage payment to the driver on your behalf - please don\'t pay the driver directly unless we\'ve agreed otherwise;',
-            'All amounts are in AUD and include GST where applicable.',
+            'All amounts are in AUD and not include GST.',
           ]} />
         </Section>
 

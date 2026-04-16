@@ -62,7 +62,7 @@ export default function CarTransfer() {
   }, [])
 
   const faqs = [
-    { q: 'Where do your drivers come from?', a: 'We tap into a community of over 1,600 working holiday visa travellers across Australia, organised into 30+ groups covering every region of the country. Every driver is part of our vetted network - so we can source reliable, available drivers fast, wherever you need them.' },
+    { q: 'Where do your drivers come from?', a: 'We run a community of over 1,600 Working Holiday Visa backpackers, organized into 30+ groups covering every region of the country. Every driver is part of our verified network, allowing us to quickly connect you with reliable, available drivers wherever you need them.' },
     { q: 'Who is responsible if there\'s damage to the vehicle?', a: 'We operate as a coordination platform, and liability for any damage during transit sits between the driver and your insurance coverage. We recommend ensuring your vehicle is insured for third-party drivers prior to each transfer. For added protection, we also advise taking photos at both pickup and delivery.' },
     { q: 'How does payment work?', a: 'Every job starts with a written quote for full transparency. Once the transfer is complete, payment is due within 7 days via bank transfer or card. We manage all driver payments internally - giving you one simple point of contact.' },
     { q: 'Do you cover regional and remote areas?', a: 'Yes - we provide nationwide coverage across Australia, including regional and remote areas. Our extensive driver network ensures we can reach even less accessible locations, with slightly longer confirmation times where required.' },
@@ -166,7 +166,7 @@ export default function CarTransfer() {
           <div className="how-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 12, maxWidth: 740, margin: '0 auto', width: '100%' }}>
             {[
               { n: 1, title: 'Send your request', desc: 'Email us the pickup location, drop-off address, vehicle details, and timing.' },
-              { n: 2, title: 'Driver secured in 30 - 60 minutes', desc: 'We match your request with a trusted driver and confirm all details - quickly and seamlessly.' },
+              { n: 2, title: 'Driver secured in 30-60 minutes', desc: 'We match your request with a trusted driver and confirm all details - quickly and seamlessly.' },
               { n: 3, title: 'Fully managed service', desc: 'All communication, logistics, and payments are handled seamlessly by our team - so you don\'t have to worry about a thing.' },
               { n: 4, title: 'Vehicle delivered', desc: 'The driver completes the transfer, and we confirm successful handover at the destination - no follow-ups required.' },
             ].map(s => (
@@ -268,7 +268,7 @@ export default function CarTransfer() {
               ['Return trip', 'Added to final quote'],
               ['Overnight stay required', '\$100+ per night'],
               ['Response time', '30–60 minutes guaranteed'],
-              ['Driver admin', '\$0'],
+              ['Management fee', '\$0'],
               ['Payment due', 'Within 7 days after job completion'],
             ].map(([l, v], i, arr) => (
               <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '11px 1.25rem', borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none', fontSize: 13, gap: 12 }}>
@@ -345,7 +345,7 @@ export default function CarTransfer() {
                   <div style={{ fontSize: 10, color: 'rgba(255,255,255,.4)', marginTop: 1 }}>Car Transfer</div>
                 </div>
               </div>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,.4)', lineHeight: 1.5, margin: 0 }}>Australia-wide vehicle relocation. Confirmed in 30-60 minutes, 24 hours a day, 7 days a week.</p>
+              <p style={{ fontSize: 12, color: 'rgba(255,255,255,.4)', lineHeight: 1.5, margin: 0 }}>Australia-wide vehicle relocation. 24 hours a day, 7 days a week.</p>
             </div>
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Legal</div>
@@ -354,7 +354,7 @@ export default function CarTransfer() {
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Contact</div>
               <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>info@whvguides.com.au</a>
-              <a href="tel:+61403873376" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>+61 403 873 376</a>
+              <a href="tel:+61403873376" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>0403 873 376</a>
             </div>
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>Quick links</div>

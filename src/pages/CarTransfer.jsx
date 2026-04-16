@@ -122,17 +122,17 @@ export default function CarTransfer() {
 
         {/* HERO */}
         <div className="hero-pad" style={{ background: '#fff', padding: '2rem 2rem 1.5rem', borderBottom: `1px solid ${BORDER}` }}>
-          <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'left' }}>
+          <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
             <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '.6rem' }}>
               For car rental companies, dealerships &amp; fleet operators
             </div>
-            <h1 className="hero-h1" style={{ fontSize: 22, fontWeight: 800, color: NAVY, lineHeight: 1.2, marginBottom: '.5rem', marginTop: 0 }}>
+            <h1 className="hero-h1" style={{ fontSize: 42, fontWeight: 800, color: NAVY, lineHeight: 1.1, marginBottom: '.5rem', marginTop: 0 }}>
               The easiest way to move a rental car.<span style={{ color: GREEN }}> Without touching a driver.</span>
             </h1>
-            <p className="hero-p" style={{ fontSize: 15, color: GRAY, lineHeight: 1.7, maxWidth: 520, margin: '0 0 1rem' }}>
+            <p className="hero-p" style={{ fontSize: 15, color: GRAY, lineHeight: 1.7, maxWidth: 520, margin: '0 auto 1rem' }}>
               Send us the pickup location, destination, and date. We find the driver, handle all communication, and confirm within 30-60 minutes - day or night.
             </p>
-            <div className="hero-btns" style={{ display: 'flex', gap: 12, justifyContent: 'flex-start', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+            <div className="hero-btns" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
               <a href="mailto:info@whvguides.com.au" style={{ background: GREEN, color: '#fff', border: 'none', padding: '14px 28px', borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: 'none', display: 'inline-block' }}>Request a transfer</a>
               <a href="https://wa.me/61403873376" style={{ background: 'transparent', color: NAVY, border: `2px solid ${BORDER}`, padding: '13px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>Chat on WhatsApp</a>
             </div>

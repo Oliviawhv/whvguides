@@ -313,7 +313,7 @@ export default function CarTransfer() {
             <h2 className="h2-mobile" style={{ fontSize: 22, fontWeight: 800, color: NAVY, marginBottom: '.3rem' }}>Get in touch</h2>
             <p style={{ fontSize: 14, color: GRAY, margin: 0 }}>Available 24/7 for bookings and urgent vehicle transfers.</p>
           </div>
-          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16, maxWidth: 520, margin: '0 auto' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, maxWidth: 780, margin: '0 auto' }}>
             <div style={{ background: '#fff', border: `1.5px solid ${BORDER}`, borderRadius: 14, padding: '1.25rem', display: 'flex', gap: 12 }}>
               <div style={{ width: 42, height: 42, minWidth: 42, background: NAVY, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#86EFAC"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -332,6 +332,16 @@ export default function CarTransfer() {
                 <div style={{ fontSize: 10, color: '#94A3B8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 3 }}>WhatsApp</div>
                 <a href="https://wa.me/61403873376" style={{ fontSize: 13, fontWeight: 700, color: '#0F172A', textDecoration: 'none' }}>+61 403 873 376</a>
                 <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 2 }}>Available 24/7</div>
+              </div>
+            </div>
+            <div style={{ background: '#fff', border: `1.5px solid ${BORDER}`, borderRadius: 14, padding: '1.25rem', display: 'flex', gap: 12 }}>
+              <div style={{ width: 42, height: 42, minWidth: 42, background: NAVY, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#86EFAC"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+              </div>
+              <div>
+                <div style={{ fontSize: 10, color: '#94A3B8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 3 }}>TikTok</div>
+                <a href="https://www.tiktok.com/@whvguides" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, fontWeight: 700, color: '#0F172A', textDecoration: 'none' }}>@whvguides</a>
+                <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 2 }}>13K+ WHV followers</div>
               </div>
             </div>
           </div>

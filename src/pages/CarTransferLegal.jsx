@@ -43,12 +43,6 @@ const UL = ({ items }) => (
   </ul>
 )
 
-const Highlight = ({ children }) => (
-  <div style={{ background: '#FEF9C3', border: '1px solid #FDE047', borderRadius: 10, padding: '1rem 1.25rem', marginBottom: '1rem' }}>
-    <p style={{ fontSize: 13.5, color: '#713F12', lineHeight: 1.8, margin: 0, fontWeight: 500 }}>{children}</p>
-  </div>
-)
-
 export default function CarTransferLegal() {
   React.useEffect(() => {
     document.title = 'Client Agreement - WHV Guides Car Transfer'
@@ -86,199 +80,114 @@ export default function CarTransferLegal() {
           <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '1rem' }}>Legal Document</div>
           <h1 style={{ fontSize: 36, fontWeight: 800, color: NAVY, marginBottom: '.75rem', marginTop: 0 }}>Client Agreement</h1>
           <p style={{ fontSize: 14, color: GRAY, lineHeight: 1.8, marginBottom: '1.25rem', marginTop: 0 }}>
-            <strong>Effective date:</strong> April 2026. This agreement governs all vehicle relocation requests submitted to WHV Guides Car Transfer. By submitting a transfer request — whether by email, WhatsApp, phone, or any other means — the Client accepts these terms in full, without reservation.
+            <strong>Effective date:</strong> April 2026. This agreement covers all vehicle relocation requests made through WHV Guides Car Transfer. By submitting a request - by email, WhatsApp, phone, or any other channel - you agree to these terms.
           </p>
-          <Highlight>
-            IMPORTANT: WHV Guides acts exclusively as an independent intermediary. We are not a transport company, not a carrier, and not a logistics operator. We do not drive, possess, operate, or control any vehicle at any time. All driving is performed entirely by independent third-party drivers who are not employees, contractors, or agents of WHV Guides. The Client acknowledges and accepts this distinction before placing any request.
-          </Highlight>
+          <P>Think of us like Uber, but for vehicle relocations. We connect clients who need a car moved with available drivers from our community network. We handle the coordination and payment - we don't drive, own, or control any vehicle ourselves. All driving is done by independent drivers who are not employed by or affiliated with WHV Guides.</P>
         </div>
 
-        <Section num="1" title="Parties to This Agreement">
-          <P>This Agreement is entered into between:</P>
-          <UL items={[
-            'WHV Guides Car Transfer ("WHV Guides", "we", "us", "our") — the intermediary coordination service, operated in Australia; and',
-            'The rental company, fleet operator, car dealership, individual, or any other person or entity submitting a vehicle relocation request ("Client", "you", "your").',
-          ]} />
-          <P>This Agreement applies to every transfer request submitted, regardless of whether a formal written quote has been accepted. Submission of a request constitutes acceptance of these terms.</P>
+        <Section num="1" title="Parties">
+          <P>This agreement is between WHV Guides Car Transfer ("WHV Guides", "we") and the person or business requesting a vehicle relocation ("Client", "you").</P>
+          <P>It applies from the moment a request is submitted, whether or not a formal quote has been confirmed.</P>
         </Section>
 
-        <Section num="2" title="Nature of Service — Intermediary Role Only">
-          <P>WHV Guides provides a coordination and intermediary service only. Our role is limited to:</P>
+        <Section num="2" title="What We Do">
+          <P>Our role is to coordinate the transfer on your behalf. That means:</P>
           <UL items={[
-            'Receiving relocation requests from the Client;',
-            'Identifying and contacting an available independent driver from our community network;',
-            'Communicating transfer details (pickup location, destination, vehicle description, timing) to the driver;',
-            'Confirming the booking to the Client once a driver has accepted;',
-            'Managing payment from the Client and remitting the driver\'s fee; and',
-            'Following up with the driver and Client to confirm completion.',
+            'Receiving your relocation request and gathering the relevant details;',
+            'Finding an available driver from our community network;',
+            'Sharing the transfer details with the driver and confirming the booking;',
+            'Collecting payment from you and passing the driver\'s fee on to them.',
           ]} />
-          <P>WHV Guides does not:</P>
-          <UL items={[
-            'Employ, engage, or subcontract any driver — all drivers are independent individuals operating on their own account;',
-            'Take physical possession, custody, or control of any vehicle at any point;',
-            'Drive or operate any vehicle;',
-            'Provide, arrange, or underwrite any insurance of any kind;',
-            'Guarantee the conduct, skill, licensing status, or sobriety of any driver;',
-            'Carry or accept any goods, property, or passengers on behalf of the Client.',
-          ]} />
-          <Highlight>
-            The relationship between WHV Guides and any driver is that of an independent referral only. No employment, agency, partnership, or joint venture exists between WHV Guides and any driver at any time. The Client acknowledges that the driver is an entirely independent third party and that WHV Guides has no capacity to direct, instruct, or supervise the driver once a booking has been confirmed.
-          </Highlight>
+          <P>We don't employ drivers, handle the vehicle, or provide insurance. Drivers are independent individuals who accept bookings through our platform - similar to how ride-share or delivery platforms operate.</P>
         </Section>
 
-        <Section num="3" title="Client Responsibilities">
-          <P>The Client agrees and warrants that, prior to any transfer commencing:</P>
+        <Section num="3" title="Your Responsibilities">
+          <P>Before a transfer takes place, please make sure:</P>
           <UL items={[
-            'The vehicle is registered and roadworthy under the applicable laws of the relevant Australian state or territory;',
-            'The vehicle is covered by a valid comprehensive or third-party insurance policy that extends coverage to drivers who are not the registered owner or a named driver — if the existing policy does not extend to third-party drivers, the Client must obtain appropriate coverage before the transfer commences;',
-            'The Client has notified their insurer that an independent driver will be operating the vehicle and has received confirmation that such use is covered;',
-            'The vehicle has sufficient fuel for the journey or has communicated fuel arrangements to WHV Guides in advance;',
-            'All personal belongings and valuables have been removed from the vehicle prior to handover to the driver;',
-            'The vehicle is in a safe and driveable condition, with no mechanical defects that could endanger the driver or other road users;',
-            'The Client will provide accurate and complete information regarding pickup location, destination, vehicle details, and any access requirements;',
-            'The Client will be contactable (or nominate a contactable representative) during the transfer period.',
+            'The vehicle is registered, roadworthy, and legal to drive in the relevant state or territory;',
+            'Your insurance policy covers the vehicle when driven by a third party - if it doesn\'t, please arrange cover before the transfer;',
+            'The vehicle has enough fuel, or you\'ve let us know how to handle fuel along the way;',
+            'Personal belongings and valuables have been removed;',
+            'You\'ve given us accurate pickup and drop-off details, and you\'re reachable during the transfer.',
           ]} />
-          <P>The Client indemnifies and holds harmless WHV Guides from any loss, claim, fine, or liability arising from a failure to meet any of the above obligations.</P>
         </Section>
 
-        <Section num="4" title="Insurance — Critical Disclaimer">
-          <Highlight>
-            WHV Guides does not provide, arrange, procure, or guarantee any insurance policy of any kind in connection with any vehicle transfer. This is an absolute and unconditional exclusion.
-          </Highlight>
-          <P>It is the Client's sole and non-delegable responsibility to:</P>
-          <UL items={[
-            'Ensure that a valid and appropriate insurance policy is in force before any transfer commences;',
-            'Confirm with their insurer in writing that the policy covers the vehicle when operated by a third-party driver who is not a named driver;',
-            'Confirm that Working Holiday Visa holders and foreign nationals with valid Australian driving licences or international driving permits are covered under the policy;',
-            'Accept full financial liability for any vehicle damage, third-party damage, personal injury, property damage, or any other loss that occurs during a transfer if insurance is not in place or if the insurer declines a claim for any reason.',
-          ]} />
-          <P>WHV Guides accepts zero liability for any claim or loss arising from the absence, inadequacy, or refusal of any insurance policy. This limitation applies regardless of the reason for the insurance failure, including but not limited to: unlicensed driver, driver visa status, excluded driver category, or mechanical failure pre-existing at the time of handover.</P>
-          <P>The Client acknowledges that they have been expressly advised to verify insurance coverage and that proceeding with a transfer constitutes a representation that adequate coverage is in force.</P>
+        <Section num="4" title="Insurance">
+          <P>We don't provide or arrange insurance for any transfer. It's your responsibility to ensure your vehicle is covered when driven by someone outside your policy.</P>
+          <P>Most comprehensive car insurance policies can be extended to cover third-party drivers - we recommend checking with your insurer before booking. If you're unsure, a short-term insurance add-on is usually straightforward to arrange.</P>
+          <P>If a claim is declined because third-party driving wasn't covered, that falls outside what we're able to assist with.</P>
         </Section>
 
-        <Section num="5" title="Driver Independence and No Agency">
-          <P>All drivers sourced by WHV Guides are independent individuals operating entirely on their own account. The following terms apply absolutely:</P>
-          <UL items={[
-            'No driver is an employee, officer, agent, representative, or subcontractor of WHV Guides;',
-            'WHV Guides has no authority to direct the manner in which any driver operates a vehicle;',
-            'WHV Guides does not verify, guarantee, or warrant any driver\'s: current licence validity; driving history or prior traffic or criminal offences; physical or mental fitness to drive; compliance with road laws during the transfer; blood alcohol level or sobriety at the time of driving; or visa or work entitlement status;',
-            'WHV Guides does not conduct formal police checks or formal licensing verification on drivers;',
-            'The Client accepts the driver on an "as-is" basis and bears all risk associated with engaging an independent driver through our coordination service.',
-          ]} />
-          <P>To the maximum extent permitted by applicable law, WHV Guides expressly excludes all liability for any act, omission, negligence, recklessness, or unlawful conduct of any driver engaged through our network.</P>
+        <Section num="5" title="About Our Drivers">
+          <P>Drivers in our network are independent individuals - they're not employees, contractors, or representatives of WHV Guides. We match them to transfers based on availability and route.</P>
+          <P>We don't carry out formal background checks or licence verifications. You're engaging the driver as an independent person, and we'd recommend documenting the vehicle's condition at pickup as a precaution.</P>
         </Section>
 
-        <Section num="6" title="Limitation of Liability">
-          <Highlight>
-            To the fullest extent permitted by Australian law, WHV Guides' total aggregate liability to the Client for any claim arising out of or in connection with these terms or any transfer — whether in contract, tort (including negligence), statute, or otherwise — is limited to the fee paid by the Client to WHV Guides for the specific transfer giving rise to the claim.
-          </Highlight>
-          <P>Without limiting the foregoing, WHV Guides expressly excludes all liability for:</P>
-          <UL items={[
-            'Any damage to, theft of, destruction of, or loss of the vehicle during or after a transfer;',
-            'Any damage to third-party property caused by the driver;',
-            'Any personal injury to the driver, any occupant, or any third party;',
-            'Any delay in delivery or failure to deliver the vehicle on time;',
-            'Consequential, indirect, special, incidental, or punitive loss of any kind, including lost revenue, lost profits, loss of use, or business interruption;',
-            'Any claim arising from the driver\'s breach of road laws, criminal conduct, or negligence;',
-            'Any loss arising from a breakdown, mechanical failure, or accident;',
-            'Any loss arising from the Client\'s failure to maintain adequate insurance;',
-            'Any claim arising from incorrect information provided by the Client at the time of booking.',
-          ]} />
-          <P>Nothing in this Agreement excludes any guarantee, right, or remedy that cannot be excluded under the Australian Consumer Law or any other applicable legislation.</P>
+        <Section num="6" title="Our Liability">
+          <P>As a coordination platform, our liability is limited to the fee you paid for the specific transfer in question. We're not in a position to cover vehicle damage, third-party claims, delays, or losses arising from a driver's actions - these are the responsibility of the parties directly involved.</P>
+          <P>Nothing here affects any rights you may have under the Australian Consumer Law.</P>
         </Section>
 
         <Section num="7" title="Pricing and Payment">
-          <P>The following pricing structure applies to all transfers unless otherwise agreed in writing:</P>
           <UL items={[
-            'Base rate: $0.60 (AUD) per kilometre, calculated on the driving distance from pickup to destination;',
-            'Fuel costs: where the vehicle does not have sufficient fuel at the time of pickup, actual fuel costs incurred by the driver will be added to the invoice;',
-            'Overnight accommodation: where a transfer requires the driver to stay overnight, an accommodation allowance of $100 (AUD) per night will be added;',
-            'A written quote will be provided by WHV Guides before any transfer commences — no transfer will proceed without a confirmed quote;',
-            'The confirmed quote is based on information provided by the Client — if actual driving distance or circumstances differ materially, WHV Guides reserves the right to adjust the final invoice with prior notice;',
-            'Payment is due within 7 (seven) days of the invoice date unless otherwise agreed in writing;',
-            'Overdue invoices may attract a late payment fee of 10% per annum, calculated daily;',
-            'WHV Guides manages all payment to the driver on the Client\'s behalf — the Client does not pay the driver directly unless otherwise agreed in writing;',
-            'All prices are in Australian Dollars (AUD) and are inclusive of GST where applicable.',
+            'Base rate: $0.60 per kilometre (AUD), based on driving distance from pickup to destination;',
+            'Fuel: if the vehicle doesn\'t have sufficient fuel at pickup, actual fuel costs will be added;',
+            'Overnight stays: if the route requires an overnight stop, a $100/night accommodation allowance applies;',
+            'A written quote is provided before every transfer - nothing proceeds without your confirmation;',
+            'Payment is due within 7 days of the invoice date;',
+            'We manage payment to the driver on your behalf - please don\'t pay the driver directly unless we\'ve agreed otherwise;',
+            'All amounts are in AUD and include GST where applicable.',
           ]} />
         </Section>
 
-        <Section num="8" title="Cancellation and Modification">
+        <Section num="8" title="Cancellations">
           <UL items={[
-            'Cancellations notified in writing more than 4 hours before the scheduled pickup: no cancellation fee;',
-            'Cancellations less than 4 hours before scheduled pickup: a cancellation fee of up to $50 (AUD) may apply;',
-            'Cancellations after the driver has commenced travel to the pickup location: a cancellation fee of up to $100 (AUD) may apply;',
-            'No-show by the Client at the agreed pickup location without prior notice: full invoice may be issued;',
-            'Transfer date or location modifications must be requested in writing and are subject to driver availability;',
-            'If WHV Guides is unable to source a suitable driver for a confirmed booking, the Client will be notified as soon as practicable and no charge will apply.',
+            'More than 4 hours before pickup: no charge;',
+            'Less than 4 hours before pickup: up to $50 may apply;',
+            'After the driver has already left for pickup: up to $100 may apply;',
+            'No-show without notice: the full invoice may be issued;',
+            'If we can\'t find a driver for your booking: you\'ll be notified promptly and there\'s no charge.',
           ]} />
         </Section>
 
-        <Section num="9" title="Vehicle Condition and Handover">
-          <UL items={[
-            'It is the Client\'s responsibility to document the pre-transfer condition of the vehicle (including photographs) before handing the vehicle to the driver;',
-            'WHV Guides strongly recommends a condition inspection with the driver at pickup, with any pre-existing damage noted in writing;',
-            'WHV Guides does not conduct vehicle inspections and accepts no liability for any alleged damage where no pre-transfer condition documentation exists;',
-            'Upon delivery, the Client must inspect the vehicle and notify WHV Guides of any damage within 24 hours of confirmed delivery — failure to notify within this period constitutes acceptance of the vehicle in its delivered condition;',
-            'WHV Guides will confirm delivery completion with the Client once the driver reports successful handover.',
-          ]} />
+        <Section num="9" title="Vehicle Condition">
+          <P>We recommend taking photos of your vehicle before handover and noting any pre-existing damage with the driver at pickup. This protects both parties if there's any question about the vehicle's condition after delivery.</P>
+          <P>If you notice anything after delivery, please let us know within 24 hours - after that, the vehicle is considered accepted in its delivered condition.</P>
         </Section>
 
         <Section num="10" title="Indemnification">
-          <P>The Client agrees to indemnify, defend, and hold harmless WHV Guides, its owners, officers, representatives, and associates from and against any and all claims, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or relating to:</P>
+          <P>If a third-party claim arises from a transfer you requested - particularly where inaccurate information was provided or insurance wasn't in place - you agree to cover any reasonable costs that result for WHV Guides.</P>
+        </Section>
+
+        <Section num="11" title="Your Confirmation">
+          <P>By submitting a request, you confirm that:</P>
           <UL items={[
-            'The Client\'s use of WHV Guides\' coordination service;',
-            'Any transfer conducted pursuant to a request by the Client;',
-            'Any breach of this Agreement by the Client;',
-            'Any third-party claim arising from the operation of the vehicle by a driver sourced through WHV Guides;',
-            'The Client\'s failure to maintain adequate insurance coverage;',
-            'Inaccurate or incomplete information provided by the Client at the time of booking.',
+            'You have the authority to arrange the transfer of the vehicle;',
+            'The vehicle is lawfully in your possession;',
+            'The information you\'ve provided is accurate;',
+            'You\'re at least 18, or acting on behalf of a registered business.',
           ]} />
         </Section>
 
-        <Section num="11" title="Warranties and Representations">
-          <P>By submitting a transfer request, the Client warrants and represents that:</P>
+        <Section num="12" title="Unexpected Circumstances">
+          <P>If something outside our control - severe weather, road closures, government restrictions, or similar - affects a transfer, we'll let you know as soon as possible and work with you to reschedule.</P>
+        </Section>
+
+        <Section num="13" title="Disputes">
+          <P>If something goes wrong, reach out to us directly - most issues can be resolved quickly. If needed, we're happy to engage a mediator before either party considers formal proceedings. This agreement is governed by the laws of Victoria, Australia.</P>
+        </Section>
+
+        <Section num="14" title="General">
           <UL items={[
-            'They have full legal authority to authorise the transfer of the vehicle;',
-            'The vehicle is lawfully owned or in the lawful possession of the Client;',
-            'The Client has not withheld any material information that would affect WHV Guides\' willingness to accept the booking;',
-            'All information provided in connection with the transfer request is accurate, complete, and not misleading;',
-            'The Client is not in breach of any contractual obligation to a third party (including a vehicle financier or fleet lessor) by authorising the transfer;',
-            'The Client is at least 18 years of age or is acting on behalf of a legally registered business entity.',
+            'These terms represent the full agreement between us for each transfer;',
+            'If any part is found unenforceable, the rest remains in effect;',
+            'We may update these terms from time to time - the current version is always on our website;',
+            'Notices should be sent by email to the relevant contact address.',
           ]} />
         </Section>
 
-        <Section num="12" title="Force Majeure">
-          <P>WHV Guides will not be liable for any failure or delay in performing its obligations where such failure results from circumstances beyond its reasonable control, including but not limited to: natural disasters, extreme weather events, road closures, government restrictions, pandemic-related interruptions, civil unrest, or failure of third-party communication services.</P>
-          <P>In such circumstances, WHV Guides will notify the Client as soon as practicable and will use reasonable endeavours to reschedule the transfer.</P>
-        </Section>
-
-        <Section num="13" title="Dispute Resolution">
-          <UL items={[
-            'Step 1 — Direct negotiation: the Client must notify WHV Guides in writing of the dispute with reasonable detail. WHV Guides will respond within 5 business days and the parties will attempt resolution by good-faith negotiation within 14 days;',
-            'Step 2 — Mediation: if direct negotiation fails, the parties agree to engage a mutually agreed independent mediator before commencing formal legal proceedings;',
-            'Step 3 — Litigation: if mediation is unsuccessful, either party may pursue the matter through the courts of the applicable jurisdiction.',
-          ]} />
-          <P>Nothing in this clause prevents WHV Guides from seeking urgent injunctive or interlocutory relief from a court of competent jurisdiction where necessary to protect its rights.</P>
-        </Section>
-
-        <Section num="14" title="Governing Law and Jurisdiction">
-          <P>This Agreement is governed by the laws of the State of Victoria, Australia. The parties submit to the exclusive jurisdiction of the courts of Victoria for the resolution of any dispute arising under or in connection with this Agreement, except where Australian Consumer Law provides otherwise.</P>
-        </Section>
-
-        <Section num="15" title="General Provisions">
-          <UL items={[
-            'Entire agreement: this Agreement constitutes the entire agreement between the parties regarding the subject matter and supersedes all prior representations, negotiations, and communications;',
-            'Severability: if any provision is found to be invalid or unenforceable, the remaining provisions continue in full force and effect;',
-            'No waiver: a failure by WHV Guides to exercise any right under this Agreement does not constitute a waiver of that right;',
-            'Variation: WHV Guides may update these terms at any time by publishing a revised version on its website — continued use of the service after publication constitutes acceptance;',
-            'Assignment: the Client may not assign any rights or obligations without the prior written consent of WHV Guides;',
-            'Notices: all notices must be in writing and delivered by email to the contact address of each party.',
-          ]} />
-        </Section>
-
-        <Section num="16" title="Acceptance">
-          <P>By submitting a vehicle transfer request to WHV Guides — whether by email, WhatsApp, phone, or any other communication channel — the Client confirms that they have read, understood, and agree to be bound by this Client Agreement in its entirety.</P>
-          <P>No signature is required. Submission of a request constitutes full and binding acceptance of these terms.</P>
+        <Section num="15" title="Acceptance">
+          <P>Submitting a transfer request - by any channel - means you've read and agreed to these terms. No signature needed.</P>
           <div style={{ background: NAVY, borderRadius: 12, padding: '1.25rem 1.5rem', marginTop: '1.25rem' }}>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', lineHeight: 1.9, margin: 0 }}>
               <strong style={{ color: '#fff' }}>WHV Guides Car Transfer</strong><br />
@@ -292,7 +201,7 @@ export default function CarTransferLegal() {
       </div>
 
       <div style={{ background: NAVY, padding: '1.25rem 2rem', textAlign: 'center', fontSize: 12, color: 'rgba(255,255,255,.3)' }}>
-        &copy; 2026 WHV Guides Car Transfer — All rights reserved
+        &copy; 2026 WHV Guides Car Transfer - All rights reserved
       </div>
     </div>
   )

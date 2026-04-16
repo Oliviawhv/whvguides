@@ -94,6 +94,9 @@ export default function CarTransfer() {
           .contact-grid { grid-template-columns: 1fr !important; }
           .footer-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
           .footer-brand { grid-column: 1 !important; }
+          .hero-subtitle { font-size: 14px !important; }
+          .footer-desktop-only { display: none !important; }
+          .footer-mobile-only { display: block !important; }
           .section-pad { padding: 2rem 1.25rem !important; }
           .hero-pad { padding: 1.5rem 1.25rem 1.25rem !important; }
           .h2-mobile { font-size: 24px !important; }
@@ -130,7 +133,7 @@ export default function CarTransfer() {
             <h1 className="hero-h1" style={{ fontSize: 42, fontWeight: 800, color: NAVY, lineHeight: 1.1, marginBottom: '.5rem', marginTop: 0 }}>
               Need a car moved?<br/><span style={{ color: GREEN }}>Consider it done.</span>
             </h1>
-            <p style={{ fontSize: 16, fontWeight: 600, color: NAVY, lineHeight: 1.5, maxWidth: 520, margin: '0 auto .5rem' }}>
+            <p className="hero-subtitle" style={{ fontSize: 16, fontWeight: 600, color: NAVY, lineHeight: 1.5, maxWidth: 520, margin: '0 auto .5rem' }}>
               Fast, seamless vehicle transfers - handled for you.
             </p>
             <p className="hero-p" style={{ fontSize: 15, color: GRAY, lineHeight: 1.7, maxWidth: 520, margin: '0 auto 1rem' }}>
@@ -336,7 +339,9 @@ export default function CarTransfer() {
 
         {/* FOOTER */}
         <div style={{ background: NAVY, padding: '2rem 2rem 1rem' }}>
-          <div style={{ maxWidth: 900, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
+
+          {/* DESKTOP footer */}
+          <div className="footer-desktop-only" style={{ maxWidth: 900, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 200 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Logo size={46}/>
@@ -363,6 +368,37 @@ export default function CarTransfer() {
               <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Request a transfer</a>
             </div>
           </div>
+
+          {/* MOBILE footer */}
+          <div className="footer-mobile-only" style={{ display: 'none', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+              <Logo size={40}/>
+              <div>
+                <div style={{ fontSize: 15, fontWeight: 800, color: '#fff' }}>WHV Guides</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,.4)', marginTop: 1 }}>Car Transfer</div>
+              </div>
+            </div>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,.4)', lineHeight: 1.5, margin: '0 0 24px' }}>Australia-wide vehicle relocation. 24 hours a day, 7 days a week.</p>
+
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Quick links</div>
+              <a href="#how-it-works" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>How it works</a>
+              <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Request a transfer</a>
+              <a href="#pricing" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Pricing</a>
+            </div>
+
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Contact</div>
+              <a href="mailto:info@whvguides.com.au" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>info@whvguides.com.au</a>
+              <a href="tel:+61403873376" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>0403 873 376</a>
+            </div>
+
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,.5)', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Legal</div>
+              <a href="/car/legal" style={{ display: 'block', fontSize: 13, color: 'rgba(255,255,255,.6)', textDecoration: 'none', marginBottom: 8 }}>Client Agreement</a>
+            </div>
+          </div>
+
           <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto' }}>
             <div style={{ fontSize: 12, color: 'rgba(255,255,255,.35)' }}>&copy; 2026 WHV Guides Car Transfer. All rights reserved.</div>
           </div>

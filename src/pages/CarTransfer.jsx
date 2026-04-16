@@ -81,8 +81,8 @@ export default function CarTransfer() {
           .nav-cta { display: none !important; }
           .hero-h1 { font-size: 28px !important; line-height: 1.15 !important; }
           .hero-p { font-size: 14px !important; }
-          .hero-btns { flex-direction: column !important; align-items: stretch !important; }
-          .hero-btns a { text-align: center !important; }
+          .hero-btns { flex-wrap: wrap !important; }
+          .hero-btns a { flex: 1 1 auto !important; text-align: center !important; min-width: 140px !important; }
           .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
           .stats-grid > div:nth-child(2) { border-right: none !important; }
           .stats-grid > div:nth-child(3) { border-top: 1px solid #E2E8F0 !important; }
@@ -91,10 +91,10 @@ export default function CarTransfer() {
           .why-cards { grid-template-columns: 1fr !important; }
           .why-wide-inner { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
           .contact-grid { grid-template-columns: 1fr !important; }
-          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; }
-          .footer-brand { grid-column: 1 / -1 !important; }
+          .footer-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+          .footer-brand { grid-column: 1 !important; }
           .section-pad { padding: 2rem 1.25rem !important; }
-          .hero-pad { padding: 2rem 1.25rem !important; }
+          .hero-pad { padding: 1.5rem 1.25rem 1.25rem !important; }
           .h2-mobile { font-size: 24px !important; }
           .testimonial-role { font-size: 11px !important; }
         }
@@ -122,9 +122,9 @@ export default function CarTransfer() {
 
         {/* HERO */}
         <div className="hero-pad" style={{ background: '#fff', padding: '2rem 2rem 1.5rem', borderBottom: `1px solid ${BORDER}` }}>
-          <div style={{ maxWidth: 680, margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ maxWidth: 780, margin: '0 auto', textAlign: 'center' }}>
             <div style={{ display: 'inline-block', background: GREEN_LIGHT, color: GREEN_DARK, fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '4px 14px', borderRadius: 30, marginBottom: '.6rem' }}>
-              For car rental companies, dealerships &amp; fleet operators
+              For rental companies, dealerships &amp; fleet operators
             </div>
             <h1 className="hero-h1" style={{ fontSize: 42, fontWeight: 800, color: NAVY, lineHeight: 1.1, marginBottom: '.5rem', marginTop: 0 }}>
               The easiest way to move a rental car.<br/><span style={{ color: GREEN }}>Without touching a driver.</span>
@@ -259,9 +259,9 @@ export default function CarTransfer() {
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,.45)', marginTop: 4 }}>All-inclusive quote provided before every job</div>
             </div>
             {[['Base rate', '$0.60 / km'], ['Fuel costs (where required)', 'Added to final invoice'], ['Driver return trip', 'Added to final invoice'], ['Overnight stay required', '+ $100 per night'], ['Response time', '30-60 minutes guaranteed'], ['Driver admin and payment', 'Managed by us - free'], ['Payment terms', '7 days from completion']].map(([l, v], i, arr) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 2rem', borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none', fontSize: 14 }}>
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '11px 1.25rem', borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : 'none', fontSize: 13, gap: 12 }}>
                 <span style={{ color: GRAY }}>{l}</span>
-                <span style={{ fontWeight: 700, color: GREEN }}>{v}</span>
+                <span style={{ fontWeight: 700, color: GREEN, whiteSpace: 'nowrap' }}>{v}</span>
               </div>
             ))}
           </div>
@@ -324,7 +324,7 @@ export default function CarTransfer() {
 
         {/* FOOTER */}
         <div style={{ background: NAVY, padding: '1rem 2rem 0.75rem' }}>
-          <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: '1rem', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
+          <div className="footer-grid" style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
             <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <Logo size={46}/>
